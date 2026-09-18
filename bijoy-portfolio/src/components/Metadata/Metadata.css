@@ -1,0 +1,40 @@
+.site-identity,
+.page-metadata {
+  position: absolute;
+
+  top: 24px;
+
+  z-index: var(--z-ui);
+
+  font-size: 10px;
+  line-height: 1.4;
+
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.site-identity {
+  left: var(--page-padding);
+}
+
+.site-identity__name {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.site-identity__role {
+  margin-top: 3px;
+  color: var(--color-text-muted);
+}
+
+.page-metadata {
+  right: var(--page-padding);
+
+  text-align: right;
+
+  color: var(--color-text-muted);
+}
+
+.page-metadata div + div {
+  margin-top: 2px;
+}

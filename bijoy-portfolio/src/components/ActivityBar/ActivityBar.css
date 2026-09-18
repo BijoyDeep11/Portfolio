@@ -1,0 +1,99 @@
+.activity-bar {
+  position: fixed;
+
+  top: 50%;
+  right: 42px;
+
+  transform: translateY(-50%);
+
+  z-index: var(--z-ui);
+
+  width: 60px;
+
+  padding: 12px 0;
+
+  border: 1px solid var(--border-subtle);
+
+  border-radius: 999px;
+
+  background: rgba(8, 9, 11, 0.55);
+
+  backdrop-filter: blur(10px);
+}
+
+.activity-bar__item {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  height: 72px;
+
+  color: var(--color-text-muted);
+
+  font-size: 11px;
+
+  transition:
+    color var(--duration-normal) var(--ease-standard);
+}
+
+.activity-bar__number {
+  transition:
+    transform var(--duration-normal) var(--ease-standard);
+}
+
+.activity-bar__label {
+  position: absolute;
+
+  right: 100%;
+
+  margin-right: 16px;
+
+  white-space: nowrap;
+
+  opacity: 0;
+
+  transform: translateX(8px);
+
+  pointer-events: none;
+
+  color: var(--color-text-soft);
+
+  font-size: 9px;
+  letter-spacing: 0.08em;
+
+  transition:
+    opacity var(--duration-fast) ease,
+    transform var(--duration-fast) ease;
+}
+
+.activity-bar__item:hover .activity-bar__label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.activity-bar__item:hover {
+  color: var(--color-text);
+}
+
+.activity-bar__item.is-active {
+  color: var(--color-blue-bright);
+}
+
+.activity-bar__item.is-active::before {
+  content: "";
+
+  position: absolute;
+
+  left: -1px;
+
+  width: 2px;
+  height: 28px;
+
+  background: var(--color-blue-bright);
+
+  box-shadow:
+    0 0 12px rgba(18, 107, 255, 0.8);
+}

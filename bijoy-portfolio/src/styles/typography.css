@@ -1,0 +1,55 @@
+.display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(72px, 8vw, 150px);
+  line-height: 0.86;
+  letter-spacing: -0.065em;
+  font-weight: var(--weight-bold);
+}
+
+.display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(56px, 6vw, 110px);
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+  font-weight: var(--weight-bold);
+}
+
+.display-md {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 4vw, 72px);
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+  font-weight: var(--weight-semibold);
+}
+
+.body-lg {
+  font-size: 18px;
+  line-height: 1.45;
+  color: var(--color-text-soft);
+}
+
+.body-md {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-text-soft);
+}
+
+.metadata {
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.metadata-blue {
+  color: var(--color-blue-bright);
+}
+
+.label {
+  font-size: 11px;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}

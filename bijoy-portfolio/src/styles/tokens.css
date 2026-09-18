@@ -1,0 +1,103 @@
+:root {
+  /* ========================================
+     COLORS
+  ======================================== */
+
+  --color-bg: #08090b;
+  --color-bg-soft: #0c0d10;
+  --color-surface: #101114;
+
+  --color-text: #f2f2f2;
+  --color-text-soft: #c7c7c7;
+  --color-text-muted: #777777;
+  --color-text-dim: #4a4a4a;
+
+  --color-blue: #126bff;
+  --color-blue-bright: #1683ff;
+  --color-blue-deep: #063a91;
+
+  /* ========================================
+     BORDERS
+  ======================================== */
+
+  --border-subtle: rgba(255, 255, 255, 0.12);
+  --border-faint: rgba(255, 255, 255, 0.06);
+  --border-blue: rgba(18, 107, 255, 0.45);
+
+  /* ========================================
+     GRID
+  ======================================== */
+
+  --grid-color: rgba(255, 255, 255, 0.045);
+
+  /* ========================================
+     TYPOGRAPHY
+  ======================================== */
+
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* ========================================
+     FONT WEIGHTS
+  ======================================== */
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* ========================================
+     SPACING
+  ======================================== */
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* ========================================
+     LAYOUT
+  ======================================== */
+
+  --page-padding: 48px;
+  --page-padding-mobile: 20px;
+
+  --max-width: 1440px;
+
+  --grid-columns: 12;
+  --grid-gap: 24px;
+
+  /* ========================================
+     EFFECTS
+  ======================================== */
+
+  --blue-glow-strength: 0.18;
+
+  --noise-opacity: 0.035;
+
+  /* ========================================
+     MOTION
+  ======================================== */
+
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --duration-fast: 200ms;
+  --duration-normal: 400ms;
+  --duration-slow: 800ms;
+
+  /* ========================================
+     Z-INDEX
+  ======================================== */
+
+  --z-background: 0;
+  --z-content: 10;
+  --z-ui: 50;
+  --z-cursor: 100;
+}

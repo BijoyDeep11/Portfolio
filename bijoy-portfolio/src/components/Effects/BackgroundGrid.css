@@ -1,0 +1,36 @@
+.background-grid {
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: var(--z-background);
+
+  background-image:
+    linear-gradient(
+      to right,
+      var(--grid-color) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    calc(100% / var(--grid-columns))
+    100%;
+}
+
+.background-grid::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      to bottom,
+      var(--grid-color) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    100% 120px;
+}
