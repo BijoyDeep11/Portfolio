@@ -1,0 +1,486 @@
+.landing-page {
+  position: relative;
+
+  min-height: 100svh;
+
+  padding:
+    120px
+    var(--page-padding)
+    80px;
+
+  overflow: hidden;
+}
+
+
+/* ========================================
+   TOP INFORMATION
+======================================== */
+
+.landing-top-info {
+  position: absolute;
+
+  top: 64px;
+  left: 26%;
+  right: 14%;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  z-index: 5;
+}
+
+.landing-top-item {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+
+  color: var(--color-text-muted);
+
+  font-size: 10px;
+
+  line-height: 1.35;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+.landing-top-item span:last-child {
+  color: var(--color-text-soft);
+}
+
+
+/* TOP MESSAGE */
+
+.landing-top-message {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 14px;
+
+  color: var(--color-text-soft);
+
+  font-size: 10px;
+
+  line-height: 1.4;
+
+  font-style: italic;
+}
+
+.landing-top-message div {
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+/* ========================================
+   BLUE LINE
+======================================== */
+
+.landing-blue-line {
+  display: block;
+
+  width: 34px;
+  height: 2px;
+
+  flex-shrink: 0;
+
+  margin-top: 5px;
+
+  background: var(--color-blue-bright);
+
+  box-shadow:
+    0 0 12px
+    rgba(18, 107, 255, 0.35);
+}
+
+
+/* ========================================
+   HERO
+======================================== */
+
+.landing-hero {
+  position: absolute;
+
+  left: 11%;
+
+  top: 25%;
+
+  width: 550px;
+
+  z-index: 4;
+}
+
+
+/* ========================================
+   EYEBROW
+======================================== */
+
+.landing-eyebrow {
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+  margin-bottom: 28px;
+
+  color: var(--color-text-muted);
+
+  font-size: 10px;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+
+/* ========================================
+   HERO TITLE
+======================================== */
+
+.landing-title {
+  margin: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(
+    72px,
+    7vw,
+    118px
+  );
+
+  line-height: 0.84;
+
+  letter-spacing: -0.07em;
+
+  font-weight: 700;
+
+  color: var(--color-text);
+}
+
+.landing-title-blue {
+  color: var(--color-blue-bright);
+}
+
+.landing-dot {
+  color: var(--color-blue-bright);
+
+  margin-left: 5px;
+}
+
+
+/* ========================================
+   INTRO
+======================================== */
+
+.landing-intro {
+  width: 410px;
+
+  margin-top: 30px;
+
+  color: var(--color-text-soft);
+
+  font-size: 16px;
+
+  line-height: 1.45;
+}
+
+
+/* ========================================
+   CTA
+======================================== */
+
+.landing-cta {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+  margin-top: 30px;
+
+  color: var(--color-text);
+
+  font-size: 10px;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+.landing-cta-circle {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 58px;
+  height: 58px;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.65);
+
+  border-radius: 50%;
+
+  font-size: 19px;
+
+  transition:
+    background var(--duration-normal)
+      var(--ease-standard),
+    border-color var(--duration-normal)
+      var(--ease-standard),
+    transform var(--duration-normal)
+      var(--ease-standard);
+}
+
+.landing-cta:hover
+.landing-cta-circle {
+  background: var(--color-blue);
+
+  border-color: var(--color-blue);
+
+  transform: translateX(5px);
+}
+
+
+/* ========================================
+   PORTRAIT
+======================================== */
+
+.landing-portrait {
+  position: absolute;
+
+  left: 57%;
+
+  top: 29%;
+
+  z-index: 3;
+}
+
+
+/* MAIN CIRCLE */
+
+.landing-portrait-circle {
+  position: relative;
+
+  width: 390px;
+  height: 390px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid
+    rgba(18, 107, 255, 0.85);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(18, 107, 255, 0.13),
+      rgba(8, 9, 11, 0.3) 55%,
+      transparent 72%
+    );
+
+  box-shadow:
+    0 0 60px
+      rgba(18, 107, 255, 0.09);
+}
+
+
+/* INNER RING */
+
+.landing-portrait-circle::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 12px;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.06);
+
+  border-radius: 50%;
+}
+
+
+/* PHOTO PLACEHOLDER */
+
+.landing-photo-placeholder {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  color: var(--color-text-muted);
+
+  text-align: center;
+}
+
+.landing-photo-placeholder span {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.12);
+
+  color: var(--color-text);
+
+  font-size: 25px;
+
+  font-weight: 300;
+}
+
+.landing-photo-placeholder small {
+  font-size: 9px;
+
+  letter-spacing: 0.08em;
+}
+
+
+/* ========================================
+   PORTRAIT LABEL
+======================================== */
+
+.landing-portrait-label {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  margin-top: 28px;
+
+  color: var(--color-text-muted);
+
+  font-size: 9px;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+
+/* ========================================
+   LEFT META
+======================================== */
+
+.landing-left-meta {
+  position: absolute;
+
+  left: var(--page-padding);
+
+  bottom: 30px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+
+  color: var(--color-text-muted);
+
+  font-size: 9px;
+
+  line-height: 1.4;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+
+/* ========================================
+   RIGHT META
+======================================== */
+
+.landing-right-meta {
+  position: absolute;
+
+  right: 12%;
+
+  bottom: 30px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-end;
+
+  gap: 4px;
+
+  color: var(--color-text-muted);
+
+  font-size: 9px;
+
+  line-height: 1.4;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+.landing-right-meta span:first-child {
+  color: var(--color-text-soft);
+}
+
+
+/* ========================================
+   SCROLL
+======================================== */
+
+.landing-scroll {
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 28px;
+
+  transform: translateX(-50%);
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: var(--color-text-muted);
+
+  font-size: 9px;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+.landing-scroll-arrow {
+  color: var(--color-blue-bright);
+
+  font-size: 17px;
+}

@@ -3,11 +3,8 @@
 
   min-height: 100svh;
 
-  overflow: hidden;
-
   background: var(--color-bg);
 }
-
 .page-shell__content {
   position: relative;
 
