@@ -1,5 +1,13 @@
 function Process() {
-  return <section><h1>PROCESS</h1></section>;
+  return (
+    <section
+      id="process"
+      className="placeholder-page"
+    >
+      <span>04</span>
+      <h2>HOW I BUILD</h2>
+    </section>
+  );
 }
 
 export default Process;

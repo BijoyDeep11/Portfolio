@@ -1,37 +1,35 @@
-import { NavLink } from "react-router-dom";
-
 import "./ActivityBar.css";
 
 const pages = [
   {
     number: "01",
     label: "HOME",
-    path: "/",
+    target: "home",
   },
   {
     number: "02",
     label: "DASHBOARD",
-    path: "/dashboard",
+    target: "dashboard",
   },
   {
     number: "03",
     label: "PROJECTS",
-    path: "/projects",
+    target: "projects",
   },
   {
     number: "04",
     label: "PROCESS",
-    path: "/process",
+    target: "process",
   },
   {
     number: "05",
     label: "LAB",
-    path: "/lab",
+    target: "lab",
   },
   {
     number: "06",
     label: "ABOUT",
-    path: "/about",
+    target: "about",
   },
 ];
 
@@ -39,14 +37,14 @@ function ActivityBar() {
   return (
     <nav className="activity-bar">
       {pages.map((page) => (
-        <NavLink
+        <a
           key={page.number}
-          to={page.path}
-          className={({ isActive }) =>
-            `activity-bar__item ${
-              isActive ? "is-active" : ""
-            }`
-          }
+          href={`#${page.target}`}
+          className={`activity-bar__item ${
+            page.number === "01"
+              ? "is-active"
+              : ""
+          }`}
         >
           <span className="activity-bar__number">
             {page.number}
@@ -55,7 +53,7 @@ function ActivityBar() {
           <span className="activity-bar__label">
             {page.label}
           </span>
-        </NavLink>
+        </a>
       ))}
     </nav>
   );

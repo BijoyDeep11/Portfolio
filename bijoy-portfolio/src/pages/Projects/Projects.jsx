@@ -1,5 +1,13 @@
 function Projects() {
-  return <section><h1>PROJECTS</h1></section>;
+  return (
+    <section
+      id="projects"
+      className="placeholder-page"
+    >
+      <span>03</span>
+      <h2>SELECTED WORK</h2>
+    </section>
+  );
 }
 
 export default Projects;

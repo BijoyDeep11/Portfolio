@@ -1,7 +1,12 @@
+/* ========================================
+   LANDING PAGE
+======================================== */
+
 .landing-page {
   position: relative;
 
   min-height: 100svh;
+  height: 100svh;
 
   padding:
     120px
@@ -26,7 +31,6 @@
   display: flex;
 
   align-items: flex-start;
-
   justify-content: space-between;
 
   z-index: 5;
@@ -42,7 +46,6 @@
   color: var(--color-text-muted);
 
   font-size: 10px;
-
   line-height: 1.35;
 
   letter-spacing: 0.08em;
@@ -55,7 +58,9 @@
 }
 
 
-/* TOP MESSAGE */
+/* ========================================
+   TOP MESSAGE
+======================================== */
 
 .landing-top-message {
   display: flex;
@@ -67,7 +72,6 @@
   color: var(--color-text-soft);
 
   font-size: 10px;
-
   line-height: 1.4;
 
   font-style: italic;
@@ -110,10 +114,9 @@
   position: absolute;
 
   left: 11%;
+  top: 24%;
 
-  top: 25%;
-
-  width: 550px;
+  width: min(560px, 42vw);
 
   z-index: 4;
 }
@@ -130,7 +133,7 @@
 
   gap: 16px;
 
-  margin-bottom: 28px;
+  margin-bottom: 26px;
 
   color: var(--color-text-muted);
 
@@ -153,31 +156,48 @@
 
   flex-direction: column;
 
+  width: max-content;
+
   font-family: var(--font-display);
 
   font-size: clamp(
-    72px,
-    7vw,
-    118px
+    68px,
+    6.1vw,
+    104px
   );
 
-  line-height: 0.84;
+  line-height: 0.86;
 
-  letter-spacing: -0.07em;
+  letter-spacing: -0.055em;
 
-  font-weight: 700;
+  font-weight: 800;
 
   color: var(--color-text);
+}
+
+.landing-title span {
+  display: block;
 }
 
 .landing-title-blue {
   color: var(--color-blue-bright);
 }
 
-.landing-dot {
+/* .landing-dot {
   color: var(--color-blue-bright);
 
   margin-left: 5px;
+} */
+
+
+/* ========================================
+   DESCRIPTION
+======================================== */
+
+.landing-description {
+  width: 420px;
+
+  margin-top: 30px;
 }
 
 
@@ -186,15 +206,19 @@
 ======================================== */
 
 .landing-intro {
-  width: 410px;
+  width: 100%;
 
-  margin-top: 30px;
+  margin: 0;
 
   color: var(--color-text-soft);
 
-  font-size: 16px;
+  font-family: var(--font-body);
 
-  line-height: 1.45;
+  font-size: 15px;
+
+  line-height: 1.5;
+
+  letter-spacing: -0.01em;
 }
 
 
@@ -207,13 +231,15 @@
 
   align-items: center;
 
-  gap: 16px;
+  gap: 15px;
 
-  margin-top: 30px;
+  margin-top: 24px;
 
   color: var(--color-text);
 
   font-size: 10px;
+
+  font-weight: 500;
 
   letter-spacing: 0.12em;
 
@@ -226,27 +252,26 @@
   align-items: center;
   justify-content: center;
 
-  width: 58px;
-  height: 58px;
+  width: 54px;
+  height: 54px;
 
-  border: 1px solid
-    rgba(255, 255, 255, 0.65);
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.6);
 
   border-radius: 50%;
 
-  font-size: 19px;
+  color: var(--color-text);
+
+  font-size: 18px;
 
   transition:
-    background var(--duration-normal)
-      var(--ease-standard),
-    border-color var(--duration-normal)
-      var(--ease-standard),
-    transform var(--duration-normal)
-      var(--ease-standard);
+    background 400ms var(--ease-standard),
+    border-color 400ms var(--ease-standard),
+    transform 400ms var(--ease-standard);
 }
 
-.landing-cta:hover
-.landing-cta-circle {
+.landing-cta:hover .landing-cta-circle {
   background: var(--color-blue);
 
   border-color: var(--color-blue);
@@ -263,27 +288,24 @@
   position: absolute;
 
   left: 57%;
-
   top: 29%;
 
   z-index: 3;
 }
 
-
-/* MAIN CIRCLE */
-
 .landing-portrait-circle {
   position: relative;
 
-  width: 390px;
-  height: 390px;
+  width: min(390px, 27vw);
+  aspect-ratio: 1;
 
   display: flex;
 
   align-items: center;
   justify-content: center;
 
-  border: 1px solid
+  border:
+    1px solid
     rgba(18, 107, 255, 0.85);
 
   border-radius: 50%;
@@ -298,11 +320,8 @@
 
   box-shadow:
     0 0 60px
-      rgba(18, 107, 255, 0.09);
+    rgba(18, 107, 255, 0.09);
 }
-
-
-/* INNER RING */
 
 .landing-portrait-circle::before {
   content: "";
@@ -311,14 +330,17 @@
 
   inset: 12px;
 
-  border: 1px solid
+  border:
+    1px solid
     rgba(255, 255, 255, 0.06);
 
   border-radius: 50%;
 }
 
 
-/* PHOTO PLACEHOLDER */
+/* ========================================
+   PHOTO PLACEHOLDER
+======================================== */
 
 .landing-photo-placeholder {
   display: flex;
@@ -326,7 +348,6 @@
   flex-direction: column;
 
   align-items: center;
-
   justify-content: center;
 
   gap: 7px;
@@ -388,14 +409,13 @@
 
 
 /* ========================================
-   LEFT META
+   BOTTOM LEFT
 ======================================== */
 
 .landing-left-meta {
   position: absolute;
 
   left: var(--page-padding);
-
   bottom: 30px;
 
   display: flex;
@@ -417,14 +437,13 @@
 
 
 /* ========================================
-   RIGHT META
+   BOTTOM RIGHT
 ======================================== */
 
 .landing-right-meta {
   position: absolute;
 
   right: 12%;
-
   bottom: 30px;
 
   display: flex;
@@ -459,7 +478,6 @@
   position: absolute;
 
   left: 50%;
-
   bottom: 28px;
 
   transform: translateX(-50%);
@@ -477,10 +495,312 @@
   letter-spacing: 0.1em;
 
   text-transform: uppercase;
+
+  white-space: nowrap;
 }
 
 .landing-scroll-arrow {
   color: var(--color-blue-bright);
 
   font-size: 17px;
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1100px) {
+
+  .landing-page {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  .landing-hero {
+    left: 8%;
+
+    width: 52vw;
+
+    top: 23%;
+  }
+
+  .landing-title {
+    font-size: clamp(
+      64px,
+      7.2vw,
+      92px
+    );
+  }
+
+  .landing-description {
+    width: min(400px, 100%);
+  }
+
+  .landing-portrait {
+    left: 60%;
+
+    top: 31%;
+  }
+
+  .landing-portrait-circle {
+    width: 31vw;
+  }
+
+  .landing-top-info {
+    left: 30%;
+    right: 16%;
+  }
+
+  .landing-right-meta {
+    right: 10%;
+  }
+
+}
+
+
+/* ========================================
+   SMALL TABLET
+======================================== */
+
+@media (max-width: 850px) {
+
+  .landing-page {
+    height: auto;
+    min-height: 100svh;
+
+    overflow: hidden;
+
+    padding:
+      110px
+      32px
+      70px;
+  }
+
+
+  .landing-top-info {
+    top: 32px;
+
+    left: 32px;
+    right: 32px;
+  }
+
+  .landing-top-message {
+    display: none;
+  }
+
+
+  .landing-hero {
+    position: relative;
+
+    top: auto;
+    left: auto;
+
+    width: 100%;
+
+    padding-top: 30px;
+  }
+
+
+  .landing-title {
+    width: max-content;
+
+    font-size: clamp(
+      64px,
+      12vw,
+      94px
+    );
+
+    line-height: 0.87;
+  }
+
+
+  .landing-description {
+    width: min(460px, 90%);
+
+    margin-top: 26px;
+  }
+
+
+  .landing-intro {
+    font-size: 15px;
+  }
+
+
+  .landing-cta {
+    margin-top: 24px;
+  }
+
+
+  .landing-portrait {
+    position: relative;
+
+    top: auto;
+    left: auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    margin-top: 55px;
+  }
+
+
+  .landing-portrait-circle {
+    width: min(
+      300px,
+      55vw
+    );
+  }
+
+
+  .landing-left-meta {
+    display: none;
+  }
+
+
+  .landing-right-meta {
+    display: none;
+  }
+
+
+  .landing-scroll {
+    display: none;
+  }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+  .landing-page {
+    padding:
+      92px
+      22px
+      42px;
+  }
+
+
+  .landing-top-info {
+    top: 24px;
+
+    left: 22px;
+    right: 22px;
+  }
+
+
+  .landing-top-item {
+    font-size: 8px;
+  }
+
+
+  .landing-top-item:nth-child(2) {
+    display: none;
+  }
+
+
+  .landing-hero {
+    padding-top: 24px;
+  }
+
+
+  .landing-eyebrow {
+    gap: 12px;
+
+    margin-bottom: 22px;
+
+    font-size: 8px;
+  }
+
+
+  .landing-blue-line {
+    width: 28px;
+  }
+
+
+  .landing-title {
+    width: max-content;
+
+    font-size: clamp(
+      48px,
+      15.5vw,
+      72px
+    );
+
+    line-height: 0.88;
+
+    letter-spacing: -0.06em;
+  }
+
+
+  .landing-description {
+    width: 100%;
+
+    max-width: 390px;
+
+    margin-top: 24px;
+  }
+
+
+  .landing-intro {
+    font-size: 14px;
+
+    line-height: 1.5;
+  }
+
+
+  .landing-cta {
+    margin-top: 22px;
+
+    gap: 12px;
+
+    font-size: 8px;
+  }
+
+
+  .landing-cta-circle {
+    width: 48px;
+    height: 48px;
+
+    font-size: 16px;
+  }
+
+
+  .landing-portrait {
+    margin-top: 42px;
+  }
+
+
+  .landing-portrait-circle {
+    width: 230px;
+  }
+
+
+  .landing-portrait-label {
+    margin-top: 18px;
+
+    gap: 12px;
+
+    font-size: 7px;
+  }
+
+
+  .landing-photo-placeholder span {
+    width: 36px;
+    height: 36px;
+
+    font-size: 21px;
+  }
+
+
+  .landing-photo-placeholder small {
+    font-size: 7px;
+  }
+
 }

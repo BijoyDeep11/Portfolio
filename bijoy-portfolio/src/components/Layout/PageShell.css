@@ -1,14 +1,15 @@
 .page-shell {
   position: relative;
 
-  min-height: 100svh;
+  min-height: 100vh;
 
   background: var(--color-bg);
 }
+
 .page-shell__content {
   position: relative;
 
   z-index: var(--z-content);
 
-  min-height: 100svh;
+  width: 100%;
 }
