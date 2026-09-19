@@ -1,0 +1,862 @@
+/* ========================================
+   PROJECTS PAGE
+======================================== */
+
+.projects-page {
+  position: relative;
+
+  min-height: 100svh;
+
+  padding:
+    140px
+    var(--page-padding)
+    80px;
+
+  overflow: hidden;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.projects-header {
+  position: relative;
+
+  z-index: 2;
+
+  margin-bottom: 28px;
+}
+
+.projects-kicker {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 12px;
+
+  color: var(--color-text-muted);
+
+  font-size: 10px;
+
+  letter-spacing: 0.13em;
+
+  text-transform: uppercase;
+}
+
+.projects-kicker-line {
+  width: 28px;
+  height: 2px;
+
+  background:
+    var(--color-blue-bright);
+
+  box-shadow:
+    0 0 12px
+    rgba(18, 107, 255, 0.35);
+}
+
+
+/* ========================================
+   TITLE
+======================================== */
+
+.projects-title {
+  display: flex;
+
+  flex-direction: column;
+
+  margin: 0;
+
+  font-family:
+    var(--font-display);
+
+  font-size:
+    clamp(
+      62px,
+      6vw,
+      100px
+    );
+
+  line-height: 0.82;
+
+  letter-spacing: -0.06em;
+
+  font-weight: 800;
+
+  color:
+    var(--color-text);
+}
+
+
+/* ========================================
+   FEATURED PROJECT
+======================================== */
+
+.project-featured {
+  position: relative;
+
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns:
+    0.82fr
+    1.35fr;
+
+  gap: 34px;
+
+  padding:
+    20px 0
+    24px;
+
+  border-top:
+    1px solid
+    var(--border-subtle);
+
+  border-bottom:
+    1px solid
+    var(--border-subtle);
+}
+
+
+/* ========================================
+   PROJECT INFO
+======================================== */
+
+.project-featured-info {
+  display: flex;
+
+  flex-direction: column;
+
+  padding-top: 4px;
+}
+
+.project-info {
+  min-width: 0;
+}
+
+.project-number {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  color:
+    var(--color-text-soft);
+
+  font-size: 11px;
+
+  letter-spacing: 0.08em;
+}
+
+.project-number-line {
+  width: 34px;
+  height: 1px;
+
+  background:
+    var(--color-text-muted);
+}
+
+
+/* ========================================
+   PROJECT CATEGORY
+======================================== */
+
+.project-info-top {
+  margin-top: 22px;
+}
+
+.project-category,
+.project-secondary-category {
+  color:
+    var(--color-text-muted);
+
+  font-size: 9px;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+
+/* ========================================
+   PROJECT NAME
+======================================== */
+
+.project-name {
+  margin: 10px 0 0;
+
+  font-family:
+    var(--font-display);
+
+  font-size:
+    clamp(
+      38px,
+      3.8vw,
+      62px
+    );
+
+  line-height: 0.9;
+
+  letter-spacing: -0.045em;
+
+  font-weight: 750;
+
+  color:
+    var(--color-text);
+
+  word-break: break-word;
+}
+
+
+/* ========================================
+   PROJECT DESCRIPTION
+======================================== */
+
+.project-description {
+  max-width: 430px;
+
+  margin: 14px 0 0;
+
+  color:
+    var(--color-text-soft);
+
+  font-family:
+    var(--font-body);
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+
+/* ========================================
+   TECHNOLOGIES
+======================================== */
+
+.project-technologies {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 7px;
+
+  margin-top: 18px;
+}
+
+.project-tech {
+  padding:
+    7px
+    10px;
+
+  border:
+    1px solid
+    var(--border-subtle);
+
+  border-radius: 999px;
+
+  color:
+    var(--color-text-muted);
+
+  font-size: 8px;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+
+/* ========================================
+   METADATA
+======================================== */
+
+.project-metadata {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 12px;
+
+  max-width: 460px;
+
+  margin-top: 22px;
+
+  padding-top: 16px;
+
+  border-top:
+    1px solid
+    var(--border-faint);
+}
+
+.project-metadata div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.project-metadata span {
+  color:
+    var(--color-text-muted);
+
+  font-size: 7px;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+.project-metadata strong {
+  color:
+    var(--color-text-soft);
+
+  font-size: 9px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.04em;
+}
+
+
+/* ========================================
+   EXPLORE
+======================================== */
+
+.project-explore {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  width: fit-content;
+
+  margin-top: 20px;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color:
+    var(--color-text-soft);
+
+  font-family:
+    var(--font-body);
+
+  font-size: 9px;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+}
+
+.project-explore-arrow {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 28px;
+  height: 28px;
+
+  border:
+    1px solid
+    var(--border-subtle);
+
+  border-radius: 50%;
+
+  color:
+    var(--color-text);
+
+  font-size: 13px;
+
+  transition:
+    background 250ms var(--ease-standard),
+    border-color 250ms var(--ease-standard),
+    transform 250ms var(--ease-standard);
+}
+
+.project-explore:hover
+.project-explore-arrow {
+  background:
+    var(--color-blue);
+
+  border-color:
+    var(--color-blue);
+
+  transform:
+    translateX(4px);
+}
+
+
+/* ========================================
+   VISUAL PLACEHOLDER
+======================================== */
+
+.project-visual-placeholder {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100%;
+
+  border:
+    1px solid
+    rgba(18, 107, 255, 0.38);
+
+  border-radius: 14px;
+
+  background:
+    radial-gradient(
+      circle at 55% 45%,
+      rgba(18, 107, 255, 0.12),
+      transparent 48%
+    ),
+    rgba(7, 10, 15, 0.78);
+
+  overflow: hidden;
+}
+
+.project-visual-placeholder::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    48px 48px;
+
+  opacity: 0.45;
+
+  pointer-events: none;
+}
+
+.project-visual-placeholder::after {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(18, 107, 255, 0.16),
+      transparent 70%
+    );
+
+  filter: blur(20px);
+
+  pointer-events: none;
+}
+
+
+/* ========================================
+   PLACEHOLDER CONTENT
+======================================== */
+
+.project-placeholder-center {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color:
+    var(--color-text-muted);
+
+  text-align: center;
+}
+
+.project-placeholder-plus {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 52px;
+  height: 52px;
+
+  border:
+    1px solid
+    rgba(18, 107, 255, 0.5);
+
+  border-radius: 50%;
+
+  color:
+    var(--color-blue-bright);
+
+  font-size: 25px;
+
+  font-weight: 300;
+
+  background:
+    rgba(18, 107, 255, 0.05);
+}
+
+.project-placeholder-label {
+  color:
+    var(--color-text-soft);
+
+  font-size: 9px;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+}
+
+.project-placeholder-format {
+  color:
+    var(--color-text-muted);
+
+  font-size: 7px;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+.project-placeholder-index {
+  position: absolute;
+
+  top: 18px;
+  right: 20px;
+
+  z-index: 3;
+
+  color:
+    var(--color-blue-bright);
+
+  font-size: 9px;
+
+  letter-spacing: 0.08em;
+}
+
+
+/* ========================================
+   FEATURED VISUAL
+======================================== */
+
+.project-featured-visual {
+  min-height: 390px;
+
+  box-shadow:
+    0 0 45px
+    rgba(18, 107, 255, 0.06);
+}
+
+
+/* ========================================
+   SECONDARY PROJECTS
+======================================== */
+
+.projects-secondary {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  gap: 34px;
+
+  margin-top: 24px;
+}
+
+.project-secondary {
+  display: grid;
+
+  grid-template-columns:
+    0.8fr
+    1.2fr;
+
+  gap: 20px;
+
+  min-width: 0;
+}
+
+.project-secondary-header {
+  grid-column: 1 / -1;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.project-secondary-visual {
+  min-height: 230px;
+}
+
+.project-secondary .project-info {
+  padding-top: 2px;
+}
+
+.project-secondary .project-name {
+  font-size:
+    clamp(
+      28px,
+      2.5vw,
+      42px
+    );
+}
+
+.project-secondary .project-description {
+  font-size: 11px;
+
+  max-width: 280px;
+}
+
+.project-secondary .project-technologies {
+  margin-top: 14px;
+}
+
+.project-secondary .project-metadata {
+  display: none;
+}
+
+.project-secondary .project-explore {
+  margin-top: 16px;
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.projects-footer {
+  position: relative;
+
+  z-index: 3;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-top: 26px;
+
+  color:
+    var(--color-text-muted);
+
+  font-size: 9px;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+.projects-footer > span {
+  color:
+    var(--color-text-soft);
+}
+
+.projects-footer a {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-end;
+
+  gap: 4px;
+
+  color:
+    var(--color-text-soft);
+
+  transition:
+    color 250ms ease;
+}
+
+.projects-footer a:hover {
+  color:
+    var(--color-blue-bright);
+}
+
+.projects-footer a span {
+  color:
+    var(--color-text-muted);
+
+  font-size: 8px;
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1100px) {
+
+  .projects-page {
+    padding:
+      130px
+      48px
+      70px;
+  }
+
+  .project-featured {
+    grid-template-columns:
+      1fr;
+  }
+
+  .project-featured-visual {
+    min-height: 360px;
+  }
+
+  .projects-secondary {
+    grid-template-columns:
+      1fr;
+  }
+
+}
+
+
+/* ========================================
+   SMALL TABLET
+======================================== */
+
+@media (max-width: 850px) {
+
+  .projects-page {
+    min-height: auto;
+
+    padding:
+      120px
+      32px
+      70px;
+  }
+
+  .projects-title {
+    font-size:
+      clamp(
+        54px,
+        11vw,
+        86px
+      );
+  }
+
+  .project-featured {
+    gap: 22px;
+  }
+
+  .project-featured-visual {
+    min-height: 320px;
+  }
+
+  .project-secondary {
+    grid-template-columns:
+      1fr;
+  }
+
+  .project-secondary-visual {
+    min-height: 280px;
+  }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+  .projects-page {
+    padding:
+      110px
+      22px
+      50px;
+  }
+
+  .projects-kicker {
+    font-size: 8px;
+  }
+
+  .projects-title {
+    font-size:
+      clamp(
+        48px,
+        14vw,
+        72px
+      );
+  }
+
+  .project-featured {
+    padding:
+      18px 0
+      20px;
+  }
+
+  .project-name {
+    font-size: 38px;
+  }
+
+  .project-description {
+    font-size: 12px;
+  }
+
+  .project-metadata {
+    grid-template-columns:
+      1fr 1fr;
+
+    row-gap: 14px;
+  }
+
+  .project-featured-visual {
+    min-height: 240px;
+  }
+
+  .project-placeholder-plus {
+    width: 44px;
+    height: 44px;
+
+    font-size: 21px;
+  }
+
+  .project-placeholder-label {
+    font-size: 8px;
+  }
+
+  .project-secondary-visual {
+    min-height: 220px;
+  }
+
+  .projects-footer {
+    font-size: 8px;
+  }
+
+}
