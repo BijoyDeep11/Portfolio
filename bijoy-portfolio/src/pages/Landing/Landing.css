@@ -342,7 +342,7 @@
    PHOTO PLACEHOLDER
 ======================================== */
 
-.landing-photo-placeholder {
+/* .landing-photo-placeholder {
   display: flex;
 
   flex-direction: column;
@@ -382,7 +382,7 @@
   font-size: 9px;
 
   letter-spacing: 0.08em;
-}
+} */
 
 
 /* ========================================
@@ -778,9 +778,10 @@
 
 
   .landing-portrait-circle {
-    width: 230px;
-  }
-
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
 
   .landing-portrait-label {
     margin-top: 18px;
@@ -802,5 +803,12 @@
   .landing-photo-placeholder small {
     font-size: 7px;
   }
-
+.landing-portrait-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 24%;
+}
 }

@@ -1,23 +1,31 @@
 import "./Landing.css";
 
 function Landing() {
+
   return (
+
     <section
       id="home"
       className="landing-page"
     >
-      {/* TOP INFORMATION */}
 
+      {/* TOP INFORMATION */}
       <div className="landing-top-info">
 
         <div className="landing-top-item">
+
           <span>PERSONAL</span>
+
           <span>PORTFOLIO</span>
+
         </div>
 
         <div className="landing-top-item">
+
           <span>YEAR</span>
+
           <span>2026</span>
+
         </div>
 
         <div className="landing-top-message">
@@ -25,8 +33,11 @@ function Landing() {
           <span className="landing-blue-line" />
 
           <div>
+
             <span>BUILDING DIGITAL SYSTEMS</span>
+
             <span>FOR A BETTER TOMORROW</span>
+
           </div>
 
         </div>
@@ -35,19 +46,21 @@ function Landing() {
 
 
       {/* HERO */}
-
       <div className="landing-hero">
 
         <div className="landing-eyebrow">
+
           <span className="landing-blue-line" />
 
           <span>
             HELLO, I'M BIJOY
           </span>
+
         </div>
 
 
         <h1 className="landing-title">
+
           <span>I BUILD</span>
 
           <span className="landing-title-blue">
@@ -57,21 +70,27 @@ function Landing() {
           <span>
             SYSTEMS
           </span>
+
         </h1>
 
 
         <div className="landing-description">
 
           <p className="landing-intro">
+
             A software engineer focused on building useful
+
             products, interactive experiences and
+
             data-driven systems.
+
           </p>
 
           <a
             href="#projects"
             className="landing-cta"
           >
+
             <span className="landing-cta-circle">
               ↗
             </span>
@@ -79,6 +98,7 @@ function Landing() {
             <span>
               EXPLORE MY WORK
             </span>
+
           </a>
 
         </div>
@@ -87,24 +107,15 @@ function Landing() {
 
 
       {/* PORTRAIT */}
-
       <div className="landing-portrait">
 
         <div className="landing-portrait-circle">
 
-          <div className="landing-photo-placeholder">
-
-            <span>+</span>
-
-            <small>
-              ADD YOUR PHOTO
-            </small>
-
-            <small>
-              JPG / PNG / WEBP
-            </small>
-
-          </div>
+          <img
+            src="/images/bijoy-landing.png"
+            alt="Bijoy"
+            className="landing-portrait-image"
+          />
 
         </div>
 
@@ -123,7 +134,6 @@ function Landing() {
 
 
       {/* BOTTOM LEFT */}
-
       <div className="landing-left-meta">
 
         <span>
@@ -138,11 +148,11 @@ function Landing() {
 
 
       {/* SCROLL */}
-
       <a
         href="#dashboard"
         className="landing-scroll"
       >
+
         <span>
           SCROLL TO EXPLORE
         </span>
@@ -150,11 +160,11 @@ function Landing() {
         <span className="landing-scroll-arrow">
           ↓
         </span>
+
       </a>
 
 
       {/* BOTTOM RIGHT */}
-
       <div className="landing-right-meta">
 
         <span>
@@ -168,7 +178,9 @@ function Landing() {
       </div>
 
     </section>
+
   );
+
 }
 
 export default Landing;
