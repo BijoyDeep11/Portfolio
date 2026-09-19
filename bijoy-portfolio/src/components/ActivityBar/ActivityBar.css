@@ -3,6 +3,7 @@
   top: 50%;
   right: 24px;
   transform: translateY(-50%);
+
   z-index: var(--z-ui);
 
   width: 44px;
@@ -12,9 +13,9 @@
   border-radius: 999px;
 
   background: rgba(8, 9, 11, 0.72);
+
   backdrop-filter: blur(12px);
 
-  /* Prevent the bar from ever affecting page layout */
   box-sizing: border-box;
 }
 
@@ -28,6 +29,7 @@
   height: 58px;
 
   color: var(--color-text-muted);
+
   font-size: 10px;
 
   transition:
@@ -58,6 +60,11 @@
     0 0 10px rgba(18, 107, 255, 0.8);
 }
 
+.activity-bar__number {
+  font-size: 9px;
+  letter-spacing: 0.05em;
+}
+
 .activity-bar__label {
   position: absolute;
   right: calc(100% + 12px);
@@ -82,4 +89,23 @@
 .activity-bar__item:hover .activity-bar__label {
   opacity: 1;
   transform: translateX(0);
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+  .activity-bar {
+    right: 12px;
+    width: 38px;
+  }
+
+  .activity-bar__item {
+    height: 48px;
+  }
+
+  .activity-bar__label {
+    display: none;
+  }
 }

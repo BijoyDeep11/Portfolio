@@ -430,11 +430,6 @@ function About() {
           <span>05 / ABOUT</span>
           <span />
         </div>
-
-        <a href="#process" className="about-footer-next">
-          <span>PREVIOUS / PROCESS</span>
-          <span>04 / 05</span>
-        </a>
       </footer>
     </section>
   );
