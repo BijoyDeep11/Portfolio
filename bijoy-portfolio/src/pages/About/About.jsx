@@ -1,11 +1,441 @@
+import "./About.css";
+
+function Icon({ type }) {
+  const commonProps = {
+    width: 22,
+    height: 22,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    "aria-hidden": "true",
+  };
+
+  const paths = {
+    graduation: (
+      <>
+        <path
+          d="M3 9.5L12 5L21 9.5L12 14L3 9.5Z"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M7 12V16.5C9.8 18.7 14.2 18.7 17 16.5V12"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <path
+          d="M21 10V16"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+        />
+      </>
+    ),
+
+    location: (
+      <>
+        <path
+          d="M20 10.5C20 16 12 22 12 22C12 22 4 16 4 10.5C4 6.36 7.58 3 12 3C16.42 3 20 6.36 20 10.5Z"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <circle
+          cx="12"
+          cy="10"
+          r="2.5"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+      </>
+    ),
+
+    heart: (
+      <path
+        d="M20.84 4.61C19.81 3.58 18.43 3 17 3C15.57 3 14.19 3.58 13.16 4.61L12 5.77L10.84 4.61C8.69 2.46 5.2 2.46 3.05 4.61C0.9 6.76 0.9 10.25 3.05 12.4L12 21.35L20.95 12.4C23.1 10.25 23.1 6.76 20.84 4.61Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+    ),
+
+    mail: (
+      <>
+        <rect
+          x="3"
+          y="5"
+          width="18"
+          height="14"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <path
+          d="M4 7L12 13L20 7"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinejoin="round"
+        />
+      </>
+    ),
+
+    phone: (
+      <path
+        d="M6.6 3H9L10.5 7L8.7 8.8C9.7 11 11 12.3 13.2 13.3L15 11.5L19 13V15.4C19 16.3 18.3 17 17.4 17C9.7 17 7 14.3 7 6.6C7 5.7 5.7 5 6.6 5V3Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+    ),
+
+    arrow: (
+      <>
+        <path
+          d="M7 17L17 7"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+        />
+        <path
+          d="M9 7H17V15"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </>
+    ),
+  };
+
+  return <svg {...commonProps}>{paths[type]}</svg>;
+}
+
+function GithubIcon() {
+  return (
+    <svg
+      className="about-social-icon"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M12 2C6.48 2 2 6.58 2 12.24C2 16.77 4.87 20.61 8.84 22C9.34 22.1 9.52 21.78 9.52 21.5V19.76C6.73 20.39 6.14 18.39 6.14 18.39C5.68 17.18 5.03 16.86 5.03 16.86C4.12 16.22 5.1 16.23 5.1 16.23C6.1 16.31 6.63 17.28 6.63 17.28C7.53 18.87 8.99 18.42 9.56 18.16C9.65 17.5 9.91 17.05 10.2 16.8C7.97 16.54 5.62 15.65 5.62 11.58C5.62 10.42 6.02 9.47 6.67 8.72C6.56 8.46 6.21 7.38 6.77 5.92C6.77 5.92 7.63 5.64 9.6 6.99C10.42 6.75 11.21 6.63 12 6.63C12.79 6.63 13.58 6.75 14.4 6.99C16.37 5.64 17.23 5.92 17.23 5.92C17.79 7.38 17.44 8.46 17.33 8.72C17.98 9.47 18.38 10.42 18.38 11.58C18.38 15.66 16.02 16.54 13.79 16.79C14.15 17.11 14.48 17.73 14.48 18.68V21.5C14.48 21.78 14.66 22.1 15.16 22C19.13 20.61 22 16.77 22 12.24C22 6.58 17.52 2 12 2Z" />
+    </svg>
+  );
+}
+
+function LinkedinIcon() {
+  return (
+    <svg
+      className="about-social-icon"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M6.5 8.5H3V21H6.5V8.5ZM4.75 3C3.64 3 3 3.76 3 4.73C3 5.68 3.62 6.46 4.71 6.46H4.75C5.89 6.46 6.5 5.68 6.5 4.73C6.5 3.76 5.89 3 4.75 3ZM21 13.84C21 10.05 18.98 8.29 16.3 8.29C14.12 8.29 13.14 9.49 12.6 10.34V8.5H9.1V21H12.6V14.04C12.6 13.67 12.63 13.3 12.76 13.03C13.04 12.29 13.68 11.53 14.76 11.53C16.18 11.53 16.9 12.61 16.9 14.2V21H21V13.84Z" />
+    </svg>
+  );
+}
+
+function TwitterIcon() {
+  return (
+    <svg
+      className="about-social-icon"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M18.9 2H22L15.23 9.74L23.2 22H16.96L12.07 14.61L5.6 22H2.5L9.74 13.73L2.1 2H8.5L12.92 8.75L18.9 2ZM17.8 19.84H19.52L7.58 4.05H5.73L17.8 19.84Z" />
+    </svg>
+  );
+}
+
+function InstagramIcon() {
+  return (
+    <svg
+      className="about-social-icon"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <rect
+        x="3"
+        y="3"
+        width="18"
+        height="18"
+        rx="5"
+        stroke="currentColor"
+        strokeWidth="1.7"
+      />
+      <circle
+        cx="12"
+        cy="12"
+        r="4"
+        stroke="currentColor"
+        strokeWidth="1.7"
+      />
+      <circle
+        cx="17.5"
+        cy="6.5"
+        r="1"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+function WhatsAppIcon() {
+  return (
+    <svg
+      className="about-social-icon about-whatsapp-icon"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.5 0 .2 5.3.2 11.9C.2 14 .7 16 1.8 17.8L.1 24L6.4 22.4C8.1 23.3 10.1 23.8 12.1 23.8C18.7 23.8 24 18.5 24 11.9C24 8.7 22.8 5.7 20.5 3.5Z"
+        fill="currentColor"
+      />
+      <path
+        d="M17.5 14.5C17.2 14.3 15.7 13.6 15.4 13.5C15.1 13.4 14.9 13.4 14.7 13.7C14.5 14 13.9 14.7 13.7 14.9C13.5 15.1 13.3 15.1 13 14.9C12.7 14.8 11.8 14.4 10.8 13.5C10 12.8 9.5 11.9 9.3 11.6C9.2 11.3 9.3 11.1 9.5 10.9C9.7 10.7 9.9 10.5 10.1 10.3C10.3 10.1 10.4 9.9 10.5 9.7C10.6 9.5 10.5 9.3 10.5 9.1C10.4 8.9 9.9 7.4 9.6 6.8C9.3 6.2 9.1 6.2 8.9 6.2H8.3C8.1 6.2 7.8 6.3 7.6 6.6C7.3 6.9 6.5 7.6 6.5 9.1C6.5 10.5 7.6 11.9 7.8 12.1C8 12.3 9.9 15.5 13 16.8C13.7 17.1 14.3 17.3 14.8 17.4C15.5 17.6 16.1 17.5 16.6 17.4C17.2 17.3 18.4 16.7 18.6 16C18.9 15.3 18.9 14.7 18.8 14.6C18.6 14.6 18.1 14.5 17.5 14.5Z"
+        fill="#080b10"
+      />
+    </svg>
+  );
+}
+
+const socialLinks = [
+  {
+    label: "GitHub",
+    href: "#",
+    icon: <GithubIcon />,
+  },
+  {
+    label: "LinkedIn",
+    href: "#",
+    icon: <LinkedinIcon />,
+  },
+  {
+    label: "Twitter",
+    href: "#",
+    icon: <TwitterIcon />,
+  },
+  {
+    label: "Instagram",
+    href: "#",
+    icon: <InstagramIcon />,
+  },
+  {
+    label: "WhatsApp",
+    href: "#",
+    icon: <WhatsAppIcon />,
+  },
+];
+
 function About() {
   return (
-    <section
-      id="about"
-      className="placeholder-page"
-    >
-      <span>06</span>
-      <h2>ABOUT / CONTACT</h2>
+    <section id="about" className="about-page">
+      <div className="about-grid" />
+      <div className="about-blue-glow about-blue-glow--top" />
+      <div className="about-blue-glow about-blue-glow--bottom" />
+
+      <div className="about-background-word">BIO</div>
+
+      {/* HEADER */}
+      <header className="about-header">
+        <div className="about-header-left">
+          <span className="about-brand">BIJOY.DEV</span>
+          <span>SOFTWARE ENGINEER / BUILDER</span>
+        </div>
+
+        <div className="about-header-center">2026</div>
+
+        <div className="about-header-right">
+          <span>05 / 05</span>
+          <span>ABOUT / CONTACT</span>
+        </div>
+      </header>
+
+      <main className="about-main">
+        {/* LEFT / PORTRAIT */}
+        <section className="about-portrait-section">
+          <div className="about-section-label">
+            <span>//</span>
+            <span>ABOUT ME</span>
+          </div>
+
+          <div className="about-portrait-frame">
+            <div className="about-portrait-glitch about-portrait-glitch--one" />
+            <div className="about-portrait-glitch about-portrait-glitch--two" />
+            <div className="about-portrait-glitch about-portrait-glitch--three" />
+
+            <img
+              src="/images/bijoy-about.jpg"
+              alt="Bijoy"
+              className="about-portrait"
+            />
+
+            <div className="about-portrait-overlay" />
+
+            <div className="about-signature">Bijoy</div>
+          </div>
+        </section>
+
+        {/* CENTER / PROFILE */}
+        <section className="about-profile">
+          <div className="about-profile-heading">
+            <span className="about-heading-line" />
+            <span>HELLO, I'M</span>
+          </div>
+
+          <h1>BIJOY</h1>
+
+          <p className="about-profile-role">
+            A SOFTWARE ENGINEER
+            <br />
+            WHO BUILDS AND EXPLORES.
+          </p>
+
+          <p className="about-description">
+            I enjoy turning ideas into real products,
+            learning new things, and solving meaningful
+            problems with technology.
+          </p>
+
+          <div className="about-details">
+            <div className="about-detail">
+              <div className="about-detail-icon">
+                <Icon type="graduation" />
+              </div>
+
+              <div>
+                <strong>B.Tech CSE</strong>
+                <span>Asansol Engineering College</span>
+              </div>
+            </div>
+
+            <div className="about-detail">
+              <div className="about-detail-icon">
+                <Icon type="location" />
+              </div>
+
+              <div>
+                <strong>Asansol, West Bengal, India</strong>
+                <span>Open to opportunities</span>
+              </div>
+            </div>
+
+            <div className="about-detail">
+              <div className="about-detail-icon">
+                <Icon type="heart" />
+              </div>
+
+              <div>
+                <strong>Cricket, Fitness, Tech</strong>
+                <span>What keeps me going</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="about-profile-footer">
+            <span className="about-footer-line" />
+            <span>
+              BUILDING A BETTER
+              <br />
+              VERSION OF MYSELF.
+            </span>
+          </div>
+        </section>
+
+        {/* RIGHT / CONTACT */}
+        <section className="about-contact">
+          <div className="about-contact-label">
+            <span>//</span>
+            <span>CONTACT</span>
+          </div>
+
+          <h2>
+            LET'S
+            <br />
+            CONNECT.
+          </h2>
+
+          <p className="about-contact-intro">
+            Have a project in mind or just want
+            to say hi? I'd love to hear from you.
+          </p>
+
+          <div className="about-contact-cards">
+            <a
+              href="mailto:bijoy.dev@gmail.com"
+              className="about-contact-card"
+            >
+              <div className="about-contact-icon">
+                <Icon type="mail" />
+              </div>
+
+              <div className="about-contact-info">
+                <span>EMAIL</span>
+                <strong>bijoy.dev@gmail.com</strong>
+              </div>
+
+              <span className="about-contact-arrow">
+                <Icon type="arrow" />
+              </span>
+            </a>
+
+            <a
+              href="tel:+917488120356"
+              className="about-contact-card"
+            >
+              <div className="about-contact-icon">
+                <Icon type="phone" />
+              </div>
+
+              <div className="about-contact-info">
+                <span>PHONE</span>
+                <strong>+91 74881 20356</strong>
+              </div>
+
+              <span className="about-contact-arrow">
+                <Icon type="arrow" />
+              </span>
+            </a>
+          </div>
+
+          <div className="about-social-divider" />
+
+          <div className="about-socials">
+            {socialLinks.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                aria-label={social.label}
+                className="about-social"
+              >
+                {social.icon}
+              </a>
+            ))}
+          </div>
+
+          <div className="about-find-more">
+            <span>FIND ME ELSEWHERE</span>
+            <span className="about-find-line" />
+          </div>
+        </section>
+      </main>
+
+      {/* FOOTER */}
+      <footer className="about-footer">
+        <div className="about-footer-page">
+          <span>05 / ABOUT</span>
+          <span />
+        </div>
+
+        <a href="#process" className="about-footer-next">
+          <span>PREVIOUS / PROCESS</span>
+          <span>04 / 05</span>
+        </a>
+      </footer>
     </section>
   );
 }

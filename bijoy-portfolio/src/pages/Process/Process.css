@@ -1,0 +1,774 @@
+/* ========================================
+   PROCESS PAGE
+======================================== */
+
+.process-page {
+  position: relative;
+
+  min-height: 100svh;
+  height: 100svh;
+
+  padding:
+    54px
+    var(--page-padding)
+    70px;
+
+  overflow: hidden;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.process-header {
+  position: relative;
+
+  z-index: 5;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  padding-bottom: 16px;
+
+  border-bottom:
+    1px solid
+    var(--border-faint);
+}
+
+.process-header-left,
+.process-header-right {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+
+  color:
+    var(--color-text-muted);
+
+  font-size: 8px;
+
+  line-height: 1.35;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+.process-header-left span:first-child {
+  color:
+    var(--color-text);
+
+  font-weight: 600;
+}
+
+.process-header-right {
+  align-items: flex-end;
+}
+
+
+/* ========================================
+   HERO
+======================================== */
+
+.process-hero {
+  position: relative;
+
+  z-index: 4;
+
+  display: grid;
+
+  grid-template-columns:
+    0.75fr
+    1.5fr
+    0.75fr;
+
+  align-items: end;
+
+  gap: 30px;
+
+  padding:
+    46px 0
+    36px;
+}
+
+.process-hero-label {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  align-self: start;
+
+  color:
+    var(--color-text-muted);
+
+  font-size: 8px;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+.process-blue-line {
+  display: block;
+
+  width: 28px;
+  height: 2px;
+
+  background:
+    var(--color-blue-bright);
+
+  box-shadow:
+    0 0 12px
+    rgba(18, 107, 255, 0.4);
+}
+
+
+/* ========================================
+   TITLE
+======================================== */
+
+.process-title {
+  display: flex;
+
+  flex-direction: column;
+
+  margin: 0;
+
+  font-family:
+    var(--font-display);
+
+  font-size:
+    clamp(
+      70px,
+      7.4vw,
+      116px
+    );
+
+  line-height: 0.79;
+
+  letter-spacing: -0.065em;
+
+  font-weight: 800;
+
+  color:
+    var(--color-text);
+}
+
+.process-title span:last-child {
+  color:
+    var(--color-blue-bright);
+}
+
+
+/* ========================================
+   INTRO
+======================================== */
+
+.process-intro {
+  max-width: 300px;
+
+  margin: 0 0 3px;
+
+  color:
+    var(--color-text-muted);
+
+  font-family:
+    var(--font-body);
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+/* ========================================
+   PROCESS SYSTEM
+======================================== */
+
+.process-system {
+  position: relative;
+
+  z-index: 4;
+
+  padding:
+    24px 0
+    10px;
+}
+
+
+/* ========================================
+   CONNECTING LINE
+======================================== */
+
+.process-line {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  top: 42px;
+
+  height: 1px;
+
+  background:
+    rgba(255, 255, 255, 0.16);
+}
+
+
+/* ========================================
+   STEPS
+======================================== */
+
+.process-steps {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, 1fr);
+
+  gap: 16px;
+}
+
+.process-step {
+  position: relative;
+
+  min-width: 0;
+}
+
+.process-step-top {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  height: 36px;
+}
+
+.process-step-number {
+  color:
+    var(--color-text-muted);
+
+  font-size: 9px;
+
+  letter-spacing: 0.08em;
+}
+
+.process-step-node {
+  width: 11px;
+  height: 11px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.42);
+
+  border-radius: 50%;
+
+  background:
+    var(--color-bg);
+}
+
+
+/* ========================================
+   ACTIVE BUILD NODE
+======================================== */
+
+.process-step--active
+.process-step-node {
+  border-color:
+    var(--color-blue-bright);
+
+  background:
+    var(--color-blue-bright);
+
+  box-shadow:
+    0 0 14px
+    rgba(18, 107, 255, 0.75);
+}
+
+.process-step--active
+.process-step-number {
+  color:
+    var(--color-blue-bright);
+}
+
+
+/* ========================================
+   STEP CONTENT
+======================================== */
+
+.process-step-content {
+  padding-top: 22px;
+}
+
+.process-step-content h3 {
+  margin: 0;
+
+  font-family:
+    var(--font-display);
+
+  font-size:
+    clamp(
+      18px,
+      1.6vw,
+      25px
+    );
+
+  line-height: 1;
+
+  letter-spacing: -0.035em;
+
+  font-weight: 700;
+
+  color:
+    var(--color-text);
+}
+
+.process-step--active
+.process-step-content h3 {
+  color:
+    var(--color-blue-bright);
+}
+
+.process-step-content p {
+  max-width: 205px;
+
+  margin: 10px 0 0;
+
+  color:
+    var(--color-text-muted);
+
+  font-size: 10px;
+
+  line-height: 1.45;
+}
+
+.process-step-meta {
+  display: block;
+
+  margin-top: 14px;
+
+  color:
+    var(--color-text-dim);
+
+  font-size: 7px;
+
+  letter-spacing: 0.1em;
+
+  line-height: 1.4;
+
+  text-transform: uppercase;
+}
+
+
+/* ========================================
+   BUILD SEQUENCE
+======================================== */
+
+.process-build-sequence {
+  position: relative;
+
+  z-index: 4;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 13px;
+
+  margin-top: 22px;
+
+  color:
+    var(--color-text-soft);
+
+  font-size: 8px;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+}
+
+.process-sequence-arrow {
+  color:
+    var(--color-blue-bright);
+
+  font-size: 12px;
+}
+
+
+/* ========================================
+   TECHNICAL ANNOTATIONS
+======================================== */
+
+.process-annotation {
+  position: absolute;
+
+  z-index: 4;
+
+  bottom: 105px;
+
+  color:
+    var(--color-text-dim);
+
+  font-size: 7px;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+.process-annotation--left {
+  left: var(--page-padding);
+}
+
+.process-annotation--center {
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+}
+
+.process-annotation--right {
+  right: var(--page-padding);
+}
+
+
+/* ========================================
+   CURRENT STATE
+======================================== */
+
+.process-current-state {
+  position: absolute;
+
+  left: var(--page-padding);
+
+  bottom: 104px;
+
+  z-index: 5;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  color:
+    var(--color-text-muted);
+
+  font-size: 8px;
+
+  letter-spacing: 0.11em;
+
+  text-transform: uppercase;
+}
+
+.process-state-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background:
+    var(--color-blue-bright);
+
+  box-shadow:
+    0 0 11px
+    rgba(18, 107, 255, 0.8);
+}
+
+
+/* ========================================
+   BACKGROUND WORDS
+======================================== */
+
+.process-background-words {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 4px;
+
+  padding-top: 90px;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  opacity: 0.028;
+
+  font-family:
+    var(--font-display);
+
+  font-size:
+    clamp(
+      80px,
+      11vw,
+      180px
+    );
+
+  line-height: 0.72;
+
+  letter-spacing: -0.07em;
+
+  font-weight: 800;
+
+  color:
+    var(--color-text);
+
+  user-select: none;
+}
+
+.process-background-words span:nth-child(2) {
+  margin-left: 15%;
+}
+
+.process-background-words span:nth-child(3) {
+  margin-left: 31%;
+}
+
+.process-background-words span:nth-child(4) {
+  margin-left: 47%;
+}
+
+.process-background-words span:nth-child(5) {
+  margin-left: 63%;
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.process-footer {
+  position: absolute;
+
+  left: var(--page-padding);
+  right: var(--page-padding);
+
+  bottom: 28px;
+
+  z-index: 6;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  color:
+    var(--color-text-muted);
+
+  font-size: 9px;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+.process-footer > span {
+  color:
+    var(--color-text-soft);
+}
+
+.process-footer a {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-end;
+
+  gap: 4px;
+
+  color:
+    var(--color-text-soft);
+
+  transition:
+    color 250ms ease;
+}
+
+.process-footer a:hover {
+  color:
+    var(--color-blue-bright);
+}
+
+.process-footer a span:last-child {
+  color:
+    var(--color-text-muted);
+
+  font-size: 8px;
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1100px) {
+
+  .process-page {
+    padding:
+      50px
+      48px
+      70px;
+  }
+
+  .process-hero {
+    grid-template-columns:
+      0.5fr
+      1.4fr
+      0.7fr;
+  }
+
+  .process-title {
+    font-size:
+      clamp(
+        64px,
+        8vw,
+        100px
+      );
+  }
+
+  .process-step-content p {
+    font-size: 9px;
+  }
+
+}
+
+
+/* ========================================
+   SMALL TABLET
+======================================== */
+
+@media (max-width: 850px) {
+
+  .process-page {
+    height: auto;
+    min-height: 100svh;
+
+    padding:
+      110px
+      32px
+      70px;
+  }
+
+  .process-hero {
+    grid-template-columns:
+      1fr;
+
+    gap: 22px;
+
+    padding:
+      45px 0
+      30px;
+  }
+
+  .process-intro {
+    max-width: 430px;
+  }
+
+  .process-steps {
+    grid-template-columns:
+      repeat(5, minmax(130px, 1fr));
+
+    min-width: 720px;
+  }
+
+  .process-system {
+    overflow-x: auto;
+
+    padding-bottom: 18px;
+
+    scrollbar-width: none;
+  }
+
+  .process-system::-webkit-scrollbar {
+    display: none;
+  }
+
+  .process-annotation,
+  .process-current-state {
+    display: none;
+  }
+
+  .process-background-words {
+    opacity: 0.02;
+  }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+  .process-page {
+    padding:
+      100px
+      22px
+      50px;
+  }
+
+  .process-header-left span:last-child {
+    display: none;
+  }
+
+  .process-header-right span:first-child {
+    display: none;
+  }
+
+  .process-title {
+    font-size:
+      clamp(
+        54px,
+        15vw,
+        78px
+      );
+  }
+
+  .process-intro {
+    font-size: 11px;
+  }
+
+  .process-build-sequence {
+    margin-top: 15px;
+
+    font-size: 7px;
+
+    gap: 9px;
+  }
+
+  .process-footer {
+    position: relative;
+
+    left: auto;
+    right: auto;
+    bottom: auto;
+
+    margin-top: 32px;
+  }
+
+}
