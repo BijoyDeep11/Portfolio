@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import "./ActivityBar.css";
 
 const pages = [
@@ -9,6 +11,39 @@ const pages = [
 ];
 
 function ActivityBar() {
+  const [activePage, setActivePage] = useState("home");
+
+  useEffect(() => {
+    const sections = pages
+      .map((page) => document.getElementById(page.target))
+      .filter(Boolean);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleSections = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort(
+            (a, b) =>
+              b.intersectionRatio - a.intersectionRatio
+          );
+
+        if (visibleSections.length > 0) {
+          setActivePage(visibleSections[0].target.id);
+        }
+      },
+      {
+        threshold: [0.2, 0.4, 0.6],
+        rootMargin: "-10% 0px -10% 0px",
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
+
   return (
     <nav className="activity-bar" aria-label="Portfolio navigation">
       {pages.map((page) => (
@@ -16,7 +51,7 @@ function ActivityBar() {
           key={page.number}
           href={`#${page.target}`}
           className={`activity-bar__item ${
-            page.number === "01" ? "is-active" : ""
+            activePage === page.target ? "is-active" : ""
           }`}
         >
           <span className="activity-bar__number">
