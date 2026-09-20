@@ -3,7 +3,7 @@ import "./Dashboard.css";
 const stats = [
   {
     number: "01",
-    value: "06",
+    value: "03",
     label: "PROJECTS BUILT",
   },
   {

@@ -7,390 +7,423 @@ const projects = [
     name: "LAW LENS",
     description:
       "A document-grounded legal intelligence workspace that turns complex contracts into searchable, contextual conversations with page-aware citations.",
+    technologies: ["REACT", "FLASK", "POSTGRESQL", "PGVECTOR", "RAG", "OPENAI"],
     status: "DEPLOYED",
     type: "FULL-STACK SYSTEM",
     role: "FULL-STACK / AI",
-    technologies: [
-      "React",
-      "Flask",
-      "PostgreSQL",
-      "pgvector",
-      "RAG",
-      "OpenAI",
-    ],
-    images: [
-      "/images/lawlens-01.png",
-      "/images/lawlens-02.png",
-    ],
     liveUrl: "https://law-lens-frontend-pink.vercel.app",
     githubUrl: "https://github.com/BijoyDeep11/LawLens",
-    featured: true,
   },
-
   {
     number: "02",
     category: "AI / NLP / PYTHON",
     name: "RESUME SCREENER",
     description:
       "An explainable resume screening system combining keyword and semantic similarity to analyze resumes against job descriptions and generate actionable recommendations.",
+    technologies: ["PYTHON", "SPACY", "NLTK", "TF-IDF", "SBERT", "STREAMLIT"],
     status: "DEPLOYED",
     type: "AI / NLP SYSTEM",
     role: "PYTHON DEVELOPER",
-    technologies: [
-      "Python",
-      "spaCy",
-      "NLTK",
-      "TF-IDF",
-      "SBERT",
-      "Streamlit",
-    ],
-    images: [
-      "/images/resume-screener-01.png",
-      "/images/resume-screener-02.png",
-    ],
     liveUrl:
       "https://resume-screener-kbbbxzskmmicaaiockje4t.streamlit.app",
     githubUrl: "https://github.com/BijoyDeep11/resume-screener",
-    featured: false,
   },
-
   {
     number: "03",
     category: "FULL-STACK / WEB APP",
     name: "SCRIBE.",
     description:
       "A modern blogging platform for reading, writing, and managing articles with secure authentication, rich text editing, media management, and protected publishing workflows.",
+    technologies: [
+      "REACT",
+      "APPWRITE",
+      "REDUX TOOLKIT",
+      "TAILWIND CSS",
+      "TINYMCE",
+      "VITE",
+    ],
     status: "DEPLOYED",
     type: "FULL-STACK WEB APP",
     role: "FULL-STACK DEVELOPER",
-    technologies: [
-      "React",
-      "Appwrite",
-      "Redux Toolkit",
-      "Tailwind CSS",
-      "TinyMCE",
-      "Vite",
-    ],
-    images: [
-      "/images/scribe-01.png",
-      "/images/scribe-02.png",
-    ],
     liveUrl: "https://blog-app-nine-eta.vercel.app/",
     githubUrl: "https://github.com/BijoyDeep11/Blog-App",
-    featured: false,
   },
 ];
 
+function ExternalIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M14 5h5v5" />
+      <path d="M19 5l-8 8" />
+      <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5" />
+    </svg>
+  );
+}
+
+function GithubIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        fill="currentColor"
+        stroke="none"
+        d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.167 6.84 9.49.5.09.68-.217.68-.483 0-.237-.01-1.024-.014-1.855-2.782.605-3.369-1.18-3.369-1.18-.455-1.157-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.005.07 1.534 1.032 1.534 1.032.892 1.53 2.341 1.088 2.915.832.091-.647.35-1.088.636-1.339-2.222-.253-4.555-1.111-4.555-4.943 0-1.091.39-1.984 1.03-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.56 9.56 0 0 1 12 6.845a9.58 9.58 0 0 1 2.504.337c1.91-1.294 2.75-1.025 2.75-1.025.545 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.337 4.687-4.565 4.935.359.31.679.92.679 1.854 0 1.338-.012 2.418-.012 2.748 0 .269.18.579.688.481A10.002 10.002 0 0 0 22 12c0-5.523-4.477-10-10-10Z"
+      />
+    </svg>
+  );
+}
+
 function ProjectLinks({ project }) {
   return (
-    <div className="project-links">
+    <div className="projects-links">
       <a
         href={project.liveUrl}
         target="_blank"
         rel="noreferrer"
-        className="project-link project-link--primary"
+        className="projects-link projects-link--primary"
       >
-        <span className="project-link-icon" aria-hidden="true">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M14 5H19V10"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M19 5L11 13"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M19 14V18C19 18.5523 18.5523 19 18 19H6C5.44772 19 5 18.5523 5 18V6C5 5.44772 5.44772 5 6 5H10"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-            />
-          </svg>
-        </span>
-
         <span>LIVE DEMO</span>
+        <ExternalIcon />
       </a>
 
       <a
         href={project.githubUrl}
         target="_blank"
         rel="noreferrer"
-        className="project-link"
+        className="projects-link"
       >
-        <span className="project-link-icon project-link-icon--github" aria-hidden="true">
-          <svg
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M12 2C6.477 2 2 6.477 2 12C2 16.418 4.865 20.167 8.84 21.49C9.34 21.58 9.52 21.272 9.52 21.005C9.52 20.765 9.51 20.14 9.505 19.31C6.726 19.91 6.14 17.97 6.14 17.97C5.685 16.815 5.03 16.507 5.03 16.507C4.122 15.887 5.1 15.9 5.1 15.9C6.105 15.97 6.635 16.932 6.635 16.932C7.53 18.465 8.98 18.03 9.54 17.77C9.63 17.125 9.89 16.685 10.175 16.435C7.955 16.18 5.62 15.325 5.62 11.42C5.62 10.305 6.015 9.395 6.66 8.68C6.555 8.425 6.195 7.39 6.755 5.99C6.755 5.99 7.59 5.72 9.49 7.005C10.285 6.785 11.14 6.675 12 6.67C12.86 6.675 13.715 6.785 14.51 7.005C16.41 5.72 17.245 5.99 17.245 5.99C17.805 7.39 17.445 8.425 17.34 8.68C17.985 9.395 18.38 10.305 18.38 11.42C18.38 15.335 16.04 16.175 13.815 16.425C14.175 16.735 14.495 17.345 14.495 18.28C14.495 19.615 14.485 20.69 14.485 21.005C14.485 21.275 14.665 21.585 15.17 21.49C19.14 20.165 22 16.415 22 12C22 6.477 17.523 2 12 2Z"
-            />
-          </svg>
-        </span>
-
+        <GithubIcon />
         <span>GITHUB</span>
       </a>
     </div>
   );
 }
 
-function ProjectTags({ project }) {
+function ProjectDetails({ project }) {
   return (
-    <div className="project-technologies">
-      {project.technologies.map((technology) => (
-        <span className="project-tech" key={technology}>
-          {technology}
-        </span>
-      ))}
+    <>
+      <div className="projects-tags">
+        {project.technologies.map((tech) => (
+          <span key={tech}>{tech}</span>
+        ))}
+      </div>
+
+      <div className="projects-meta">
+        <div>
+          <small>STATUS</small>
+          <span><i />{project.status}</span>
+        </div>
+        <div>
+          <small>TYPE</small>
+          <span>{project.type}</span>
+        </div>
+        <div>
+          <small>ROLE</small>
+          <span>{project.role}</span>
+        </div>
+      </div>
+
+      <ProjectLinks project={project} />
+    </>
+  );
+}
+
+function LawLensPreview() {
+  return (
+    <div className="product-window product-window--lawlens">
+      <div className="product-window-bar">
+        <div className="lawlens-brand">
+          <span>⚖</span>
+          <strong>LawLens</strong>
+        </div>
+
+        <div className="lawlens-user">
+          <span>◉</span>
+          <div>
+            <b>SAM BAHADUR</b>
+            <small>Personal workspace</small>
+          </div>
+          <em>⌄</em>
+        </div>
+      </div>
+
+      <div className="lawlens-layout">
+        <aside className="lawlens-sidebar">
+          <div className="lawlens-nav is-active">▦ <span>Dashboard</span></div>
+          <div className="lawlens-nav">▤ <span>Documents</span></div>
+          <div className="lawlens-nav">□ <span>Chat</span></div>
+          <div className="lawlens-nav">⌕ <span>Analytics</span></div>
+        </aside>
+
+        <div className="lawlens-content">
+          <div className="lawlens-kicker">
+            <span /> LEGAL INTELLIGENCE WORKSPACE
+          </div>
+
+          <div className="lawlens-heading">
+            <div>
+              <h4>Welcome back, <b>SAM BAHADUR</b></h4>
+              <p>Your documents, conversations and AI analysis in one place.</p>
+            </div>
+            <button>＋ Upload document</button>
+          </div>
+
+          <div className="lawlens-stats">
+            <div><small>DOCUMENTS</small><b>1</b><span>Your workspace</span></div>
+            <div><small>PAGES INDEXED</small><b>7</b><span>Across repository</span></div>
+            <div><small>CATEGORIES</small><b>1</b><span>Across repository</span></div>
+            <div><small>CHUNKS INDEXED</small><b>30</b><span>Across repository</span></div>
+          </div>
+
+          <div className="lawlens-lower">
+            <div className="lawlens-repository">
+              <small>REPOSITORY</small>
+              <h5>Document workspace <span>View all ↗</span></h5>
+              <p>Your indexed legal knowledge base</p>
+
+              <div className="lawlens-document">
+                <strong>▤</strong>
+                <div>
+                  <b>LawLens_Test_Legal_Document</b>
+                  <span>Legal Notice · 7 pages · 30 Aug 2026</span>
+                </div>
+                <i>● INDEXED</i>
+              </div>
+            </div>
+
+            <div className="lawlens-chat">
+              <small>AI WORKSPACE</small>
+              <h5>Recent conversations</h5>
+
+              <div>◯ <b>How quickly must a Critical Incident be acknowledged...</b> ↗</div>
+              <div>◯ <b>Chat: LawLens_Test_Legal_Document</b> ↗</div>
+              <div>◯ <b>General Document Chat</b> ↗</div>
+
+              <section>
+                <strong>✣</strong>
+                <div><b>Ask LawLens</b><span>Ask a question about your documents</span></div>
+                <em>↗</em>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
 
-function ProjectMetadata({ project }) {
+function ResumePreview() {
   return (
-    <div className="project-metadata">
-      <div>
-        <span>STATUS</span>
-        <strong>{project.status}</strong>
+    <div className="product-window product-window--resume">
+      <div className="browser-bar">
+        <i /><i /><i />
+        <span>resume-screener</span>
+        <b>⋮</b>
       </div>
 
-      <div>
-        <span>TYPE</span>
-        <strong>{project.type}</strong>
-      </div>
+      <div className="resume-preview-layout">
+        <div className="resume-upload-panel">
+          <h4>📄 AI-Powered Resume Screener</h4>
+          <p>Upload resumes and a job description to see how well they match.</p>
 
-      <div>
-        <span>ROLE</span>
-        <strong>{project.role}</strong>
+          <label>Upload Resume(s) (PDF or DOCX)</label>
+          <div className="resume-drop">
+            <strong>♧</strong>
+            <span>Drag and drop files here<small>Limit 200MB per file · PDF, DOCX</small></span>
+            <button>Browse files</button>
+          </div>
+
+          <label>Upload Job Description (TXT)</label>
+          <div className="resume-drop">
+            <strong>♧</strong>
+            <span>Drag and drop file here<small>Limit 200MB per file · TXT</small></span>
+            <button>Browse files</button>
+          </div>
+
+          <button className="resume-analyze">Analyze Match</button>
+        </div>
+
+        <div className="resume-detail-panel">
+          <h5>🔎 Detailed View</h5>
+
+          <div className="resume-score">
+            <small>Final Match Score</small>
+            <b>24.72%</b>
+          </div>
+          <div className="resume-score">
+            <small>TF-IDF Similarity</small>
+            <b>9.67%</b>
+          </div>
+          <div className="resume-score">
+            <small>Semantic Similarity</small>
+            <b>59.95%</b>
+          </div>
+
+          <div className="resume-section">
+            <h6>📍 Skill Hits in Context</h6>
+            <p><b>Skills found here:</b> Mongodb, C, Node</p>
+            <span>...developer building end-to-end apps. skills react, node.js, mongodb projects task manager app mern stack application...</span>
+          </div>
+
+          <div className="resume-section">
+            <h6>📄 Extracted Profile</h6>
+            <p><b>Name:</b> Rohit Patel</p>
+            <p><b>Skills:</b> mongodb, c, react, node</p>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
-function FeaturedVisual({ project }) {
+function ScribePreview() {
   return (
-    <div className="featured-visual">
-      <div className="featured-visual-grid" />
-      <div className="featured-visual-glow" />
-
-      <div className="featured-image featured-image--main">
-        <img
-          src={project.images[0]}
-          alt={`${project.name} landing interface`}
-        />
+    <div className="product-window product-window--scribe">
+      <div className="scribe-browser-bar">
+        <span>♧ <b>Scribe.</b></span>
+        <nav>
+          <span>Home</span>
+          <span>All Posts</span>
+          <span>Add Post</span>
+          <span>Logout</span>
+        </nav>
       </div>
 
-      <div className="featured-image featured-image--secondary">
-        <img
-          src={project.images[1]}
-          alt={`${project.name} dashboard interface`}
-        />
+      <div className="scribe-hero">
+        <div className="scribe-pen">✎</div>
+        <h4>
+          Publish your passions,
+          <em>your way.</em>
+        </h4>
+        <p>
+          Create a unique and beautiful blog. It’s easy and free.
+          <b> Login</b> to start reading the latest stories.
+        </p>
       </div>
 
-      <div className="featured-image-index">
-        01 / 03
-      </div>
+      <div className="scribe-latest">
+        <small>LATEST WRITINGS</small>
 
-      <div className="featured-visual-label">
-        <span />
-        <span>PROJECT VIEW</span>
+        <div className="scribe-post-grid">
+          <article className="scribe-post scribe-post--large">
+            <div className="scribe-post-image scribe-post-image--diagram">
+              <span>WaspBlog Application Workflow</span>
+              <i /><i /><i /><i />
+            </div>
+            <h5>Building My First<br />Full-Stack Blog</h5>
+            <span>Sep 20, 2026</span>
+          </article>
+
+          <article className="scribe-post">
+            <div className="scribe-post-image scribe-post-image--code">
+              <span>VECTOR DB</span>
+            </div>
+            <h5>Understanding<br />Vector Databases</h5>
+            <span>Sep 12, 2026</span>
+          </article>
+
+          <article className="scribe-post">
+            <div className="scribe-post-image scribe-post-image--mountain">
+              <span>TECH / BUILD</span>
+            </div>
+            <h5>My Journey<br />in Tech</h5>
+            <span>Aug 28, 2026</span>
+          </article>
+        </div>
       </div>
     </div>
   );
 }
 
-function SecondaryVisual({ project }) {
+function ProjectPreview({ number }) {
+  if (number === "01") return <LawLensPreview />;
+  if (number === "02") return <ResumePreview />;
+  return <ScribePreview />;
+}
+
+function ProjectSection({ project, reverse = false }) {
   return (
-    <div className="secondary-visual">
-      <div className="secondary-visual-glow" />
+    <article className={`project-row ${reverse ? "project-row--reverse" : ""}`}>
+      <div className="project-copy">
+        <div className="project-index">
+          <span>{project.number}</span>
+          <i />
+        </div>
 
-      <div className="secondary-image secondary-image--main">
-        <img
-          src={project.images[0]}
-          alt={`${project.name} interface`}
-        />
+        <span className="project-category">{project.category}</span>
+
+        <h3 className="project-title">
+          {project.name.split(" ").map((word, index) => (
+            <span
+              key={`${word}-${index}`}
+              className={index === project.name.split(" ").length - 1 ? "project-title-accent" : ""}
+            >
+              {word}{" "}
+            </span>
+          ))}
+        </h3>
+
+        <p className="project-description">{project.description}</p>
+
+        <ProjectDetails project={project} />
       </div>
 
-      <div className="secondary-image secondary-image--secondary">
-        <img
-          src={project.images[1]}
-          alt={`${project.name} secondary interface`}
-        />
+      <div className="project-visual">
+        <div className="project-visual-glow" />
+        <ProjectPreview number={project.number} />
       </div>
-    </div>
+    </article>
   );
 }
 
 function Projects() {
-  const featuredProject = projects[0];
-  const secondaryProjects = projects.slice(1);
-
   return (
     <section id="projects" className="projects-page">
-
-      {/* ========================================
-          HEADER
-      ======================================== */}
+      <div className="projects-grid" />
+      <div className="projects-atmosphere" />
 
       <header className="projects-header">
-
-        <div className="projects-kicker">
-          <span className="projects-kicker-line" />
-          <span>PROJECTS / BUILDS / EXPERIMENTS</span>
+        <div className="projects-header-kicker">
+          <span />
+          <span>SELECTED WORK</span>
         </div>
 
-        <div className="projects-header-row">
+        <div className="projects-header-main">
+          <div>
+            <h1>
+              THREE SYSTEMS
+              <br />
+              I’VE BUILT <span>AND SHIPPED.</span>
+            </h1>
 
-          <h2 className="projects-title">
-            <span>SELECTED</span>
-            <span>WORK</span>
-          </h2>
-
-          <p className="projects-header-description">
-            A collection of projects where I turn ideas into real,
-            working systems. Each project represents a problem I
-            cared about, a skill I wanted to learn, and a step
-            towards the engineer I want to become.
-          </p>
-
-        </div>
-
-        <span className="projects-page-index">
-          [ 03 / 05 ]
-        </span>
-
-      </header>
-
-
-      {/* ========================================
-          FEATURED PROJECT
-      ======================================== */}
-
-      <article className="project-featured">
-
-        <div className="project-featured-info">
-
-          <div className="project-number">
-            <span>{featuredProject.number}</span>
-            <span className="project-number-line" />
-            <span>FEATURED BUILD</span>
+            <p>
+              Different problems. Different technologies.
+              <br />
+              Same approach: turn ideas into real, usable products.
+            </p>
           </div>
 
-          <span className="project-category">
-            {featuredProject.category}
-          </span>
-
-          <h3 className="project-name">
-            <span>LAW</span>{" "}
-            <span className="project-name-accent">LENS</span>
-          </h3>
-
-          <p className="project-description">
-            {featuredProject.description}
-          </p>
-
-          <ProjectTags project={featuredProject} />
-
-          <ProjectMetadata project={featuredProject} />
-
-          <ProjectLinks project={featuredProject} />
-
+          <div className="projects-count">
+            <strong>03</strong>
+            <span>PROJECTS</span>
+          </div>
         </div>
+      </header>
 
-        <FeaturedVisual project={featuredProject} />
-
-      </article>
-
-
-      {/* ========================================
-          SECONDARY PROJECTS
-      ======================================== */}
-
-      <div className="projects-secondary">
-
-        {secondaryProjects.map((project) => (
-          <article
-            className="project-secondary"
-            key={project.number}
-          >
-
-            <div className="project-secondary-info">
-
-              <div className="project-secondary-top">
-                <div className="project-number">
-                  <span>{project.number}</span>
-                  <span className="project-number-line" />
-                </div>
-              </div>
-
-              <span className="project-category">
-                {project.category}
-              </span>
-
-              <h3 className="project-secondary-name">
-                {project.number === "02" ? (
-                  <>
-                    RESUME <span>SCREENER</span>
-                  </>
-                ) : (
-                  <>
-                    SCRIBE<span>.</span>
-                  </>
-                )}
-              </h3>
-
-              <p className="project-secondary-description">
-                {project.description}
-              </p>
-
-              <ProjectTags project={project} />
-
-              <ProjectMetadata project={project} />
-
-              <ProjectLinks project={project} />
-
-            </div>
-
-            <SecondaryVisual project={project} />
-
-          </article>
-        ))}
-
+      <div className="projects-list">
+        <ProjectSection project={projects[0]} />
+        <ProjectSection project={projects[1]} reverse />
+        <ProjectSection project={projects[2]} />
       </div>
 
-
-      {/* ========================================
-          FOOTER
-      ======================================== */}
-
       <footer className="projects-footer">
-
         <span>03 / SELECTED WORK</span>
-
-        <span className="projects-footer-line" />
-
+        <i />
         <a href="#process">
           <span>NEXT / PROCESS</span>
-          <span>04 / 05</span>
-          <span className="projects-footer-arrow">→</span>
+          <b>04 / 05</b>
+          <em>→</em>
         </a>
-
       </footer>
-
     </section>
   );
 }
