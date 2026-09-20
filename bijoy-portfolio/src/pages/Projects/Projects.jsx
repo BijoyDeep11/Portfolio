@@ -3,79 +3,139 @@ import "./Projects.css";
 const projects = [
   {
     number: "01",
-    category: "[CATEGORY / TYPE]",
-    name: "[PROJECT NAME]",
-    description: "[SHORT PROJECT DESCRIPTION]",
-    status: "[STATUS]",
-    type: "[PROJECT TYPE]",
-    role: "[ROLE / CONTRIBUTION]",
+    category: "AI / RAG / FULL-STACK",
+    name: "LAW LENS",
+    description:
+      "A document-grounded legal intelligence workspace that turns complex contracts into searchable, contextual conversations with page-aware citations.",
+    status: "DEPLOYED",
+    type: "FULL-STACK SYSTEM",
+    role: "FULL-STACK / AI",
     technologies: [
-      "[TECH 01]",
-      "[TECH 02]",
-      "[TECH 03]",
-      "[TECH 04]",
+      "React",
+      "Flask",
+      "PostgreSQL",
+      "pgvector",
+      "RAG",
+      "OpenAI",
     ],
+    images: ["/images/lawlens-01.png", "/images/lawlens-02.png"],
+    liveUrl: "https://law-lens-frontend-pink.vercel.app",
+    githubUrl: "https://github.com/BijoyDeep11/LawLens",
     featured: true,
   },
+
   {
     number: "02",
-    category: "[CATEGORY / TYPE]",
-    name: "[PROJECT NAME]",
-    description: "[SHORT PROJECT DESCRIPTION]",
-    status: "[STATUS]",
-    type: "[PROJECT TYPE]",
-    role: "[ROLE / CONTRIBUTION]",
+    category: "AI / NLP / PYTHON",
+    name: "RESUME SCREENER",
+    description:
+      "An explainable resume screening system combining keyword and semantic similarity to analyze resumes against job descriptions and generate actionable recommendations.",
+    status: "DEPLOYED",
+    type: "AI / NLP SYSTEM",
+    role: "PYTHON DEVELOPER",
     technologies: [
-      "[TECH 01]",
-      "[TECH 02]",
-      "[TECH 03]",
-      "[TECH 04]",
+      "Python",
+      "spaCy",
+      "NLTK",
+      "TF-IDF",
+      "SBERT",
+      "Streamlit",
     ],
+    images: [
+      "/images/resume-screener-01.png",
+      "/images/resume-screener-02.png",
+    ],
+    liveUrl:
+      "https://resume-screener-kbbbxzskmmicaaiockje4t.streamlit.app",
+    githubUrl: "https://github.com/BijoyDeep11/resume-screener",
     featured: false,
   },
+
   {
     number: "03",
-    category: "[CATEGORY / TYPE]",
-    name: "[PROJECT NAME]",
-    description: "[SHORT PROJECT DESCRIPTION]",
-    status: "[STATUS]",
-    type: "[PROJECT TYPE]",
-    role: "[ROLE / CONTRIBUTION]",
+    category: "FULL-STACK / WEB APP",
+    name: "SCRIBE.",
+    description:
+      "A modern blogging platform for reading, writing, and managing articles with secure authentication, rich text editing, media management, and protected publishing workflows.",
+    status: "DEPLOYED",
+    type: "FULL-STACK WEB APP",
+    role: "FULL-STACK DEVELOPER",
     technologies: [
-      "[TECH 01]",
-      "[TECH 02]",
-      "[TECH 03]",
-      "[TECH 04]",
+      "React",
+      "Appwrite",
+      "Redux Toolkit",
+      "Tailwind CSS",
+      "TinyMCE",
+      "Vite",
     ],
+    images: ["/images/scribe-01.png", "/images/scribe-02.png"],
+    liveUrl: "https://blog-app-nine-eta.vercel.app/",
+    githubUrl: "https://github.com/BijoyDeep11/Blog-App",
     featured: false,
   },
 ];
 
-function ProjectPlaceholder({
-  project,
-  className = "",
-}) {
+function ProjectVisual({ project, className = "" }) {
   return (
-    <div
-      className={`project-visual-placeholder ${className}`}
-    >
-      <div className="project-placeholder-center">
-        <span className="project-placeholder-plus">
-          +
-        </span>
+    <div className={`project-visual ${className}`}>
+      <div className="project-visual-grid" />
 
-        <span className="project-placeholder-label">
-          PROJECT IMAGE
-        </span>
+      <div className="project-visual-glow" />
 
-        <span className="project-placeholder-format">
-          JPG / PNG / WEBP
-        </span>
+      <div className="project-image-frame">
+        <img
+          src={project.images[0]}
+          alt={`${project.name} project interface`}
+          className="project-image project-image-primary"
+        />
+
+        {project.images[1] && (
+          <img
+            src={project.images[1]}
+            alt={`${project.name} project interface secondary view`}
+            className="project-image project-image-secondary"
+          />
+        )}
       </div>
 
-      <span className="project-placeholder-index">
-        {project.number}
-      </span>
+      <div className="project-visual-index">
+        {project.number} / 03
+      </div>
+
+      <div className="project-visual-label">
+        <span className="project-visual-label-dot" />
+        <span>PROJECT VIEW</span>
+      </div>
+    </div>
+  );
+}
+
+function ProjectLinks({ project }) {
+  return (
+    <div className="project-links">
+      {project.liveUrl && (
+        <a
+          href={project.liveUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="project-link"
+        >
+          <span className="project-link-arrow">↗</span>
+          <span>LIVE DEMO</span>
+        </a>
+      )}
+
+      {project.githubUrl && (
+        <a
+          href={project.githubUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="project-link"
+        >
+          <span className="project-link-arrow">↗</span>
+          <span>GITHUB</span>
+        </a>
+      )}
     </div>
   );
 }
@@ -83,44 +143,23 @@ function ProjectPlaceholder({
 function ProjectInfo({ project }) {
   return (
     <div className="project-info">
-
       <div className="project-info-top">
-
-        <span className="project-category">
-          {project.category}
-        </span>
-
+        <span className="project-category">{project.category}</span>
       </div>
 
+      <h3 className="project-name">{project.name}</h3>
 
-      <h3 className="project-name">
-        {project.name}
-      </h3>
-
-
-      <p className="project-description">
-        {project.description}
-      </p>
-
+      <p className="project-description">{project.description}</p>
 
       <div className="project-technologies">
-
-        {project.technologies.map(
-          (technology) => (
-            <span
-              key={technology}
-              className="project-tech"
-            >
-              {technology}
-            </span>
-          )
-        )}
-
+        {project.technologies.map((technology) => (
+          <span key={technology} className="project-tech">
+            {technology}
+          </span>
+        ))}
       </div>
 
-
       <div className="project-metadata">
-
         <div>
           <span>STATUS</span>
           <strong>{project.status}</strong>
@@ -135,23 +174,9 @@ function ProjectInfo({ project }) {
           <span>ROLE</span>
           <strong>{project.role}</strong>
         </div>
-
       </div>
 
-
-      <button
-        type="button"
-        className="project-explore"
-      >
-        <span className="project-explore-arrow">
-          ↗
-        </span>
-
-        <span>
-          EXPLORE PROJECT
-        </span>
-      </button>
-
+      <ProjectLinks project={project} />
     </div>
   );
 }
@@ -161,138 +186,68 @@ function Projects() {
   const secondaryProjects = projects.slice(1);
 
   return (
-    <section
-      id="projects"
-      className="projects-page"
-    >
-
-      {/* =====================================
-          HEADER
-      ===================================== */}
-
+    <section id="projects" className="projects-page">
       <header className="projects-header">
-
         <div className="projects-kicker">
-
           <span className="projects-kicker-line" />
-
-          <span>
-            PROJECTS / BUILDS / EXPERIMENTS
-          </span>
-
+          <span>PROJECTS / BUILDS / EXPERIMENTS</span>
         </div>
-
 
         <h2 className="projects-title">
           <span>SELECTED</span>
           <span>WORK</span>
         </h2>
-
       </header>
 
-
-      {/* =====================================
-          FEATURED PROJECT
-      ===================================== */}
-
       <article className="project-featured">
-
         <div className="project-featured-info">
-
           <div className="project-number">
-            <span>
-              {featuredProject.number}
-            </span>
-
+            <span>{featuredProject.number}</span>
             <span className="project-number-line" />
+            <span>FEATURED BUILD</span>
           </div>
 
-
-          <ProjectInfo
-            project={featuredProject}
-          />
-
+          <ProjectInfo project={featuredProject} />
         </div>
 
-
-        <ProjectPlaceholder
+        <ProjectVisual
           project={featuredProject}
           className="project-featured-visual"
         />
-
       </article>
 
-
-      {/* =====================================
-          SECONDARY PROJECTS
-      ===================================== */}
-
       <div className="projects-secondary">
-
-        {secondaryProjects.map(
-          (project) => (
-            <article
-              className="project-secondary"
-              key={project.number}
-            >
-
-              <div className="project-secondary-header">
-
-                <div className="project-number">
-
-                  <span>
-                    {project.number}
-                  </span>
-
-                  <span className="project-number-line" />
-
-                </div>
-
-                <span className="project-secondary-category">
-                  {project.category}
-                </span>
-
+        {secondaryProjects.map((project) => (
+          <article className="project-secondary" key={project.number}>
+            <div className="project-secondary-header">
+              <div className="project-number">
+                <span>{project.number}</span>
+                <span className="project-number-line" />
               </div>
 
+              <span className="project-secondary-category">
+                {project.category}
+              </span>
+            </div>
 
-              <ProjectPlaceholder
-                project={project}
-                className="project-secondary-visual"
-              />
+            <ProjectVisual
+              project={project}
+              className="project-secondary-visual"
+            />
 
-
-              <ProjectInfo
-                project={project}
-              />
-
-            </article>
-          )
-        )}
-
+            <ProjectInfo project={project} />
+          </article>
+        ))}
       </div>
 
-
-      {/* =====================================
-          FOOTER
-      ===================================== */}
-
       <footer className="projects-footer">
-
-        <span>
-          03 / SELECTED WORK
-        </span>
-
+        <span>03 / SELECTED WORK</span>
 
         <a href="#process">
-          NEXT / PROCESS
-
-          <span>
-            04 / 06
-          </span>
+          <span>NEXT / PROCESS</span>
+          <span>04 / 05</span>
         </a>
-
       </footer>
-
     </section>
   );
 }
