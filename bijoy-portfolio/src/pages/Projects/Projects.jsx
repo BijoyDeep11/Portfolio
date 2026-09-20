@@ -18,7 +18,10 @@ const projects = [
       "RAG",
       "OpenAI",
     ],
-    images: ["/images/lawlens-01.png", "/images/lawlens-02.png"],
+    images: [
+      "/images/lawlens-01.png",
+      "/images/lawlens-02.png",
+    ],
     liveUrl: "https://law-lens-frontend-pink.vercel.app",
     githubUrl: "https://github.com/BijoyDeep11/LawLens",
     featured: true,
@@ -68,115 +71,125 @@ const projects = [
       "TinyMCE",
       "Vite",
     ],
-    images: ["/images/scribe-01.png", "/images/scribe-02.png"],
+    images: [
+      "/images/scribe-01.png",
+      "/images/scribe-02.png",
+    ],
     liveUrl: "https://blog-app-nine-eta.vercel.app/",
     githubUrl: "https://github.com/BijoyDeep11/Blog-App",
     featured: false,
   },
 ];
 
-function ProjectVisual({ project, className = "" }) {
+function ProjectLinks({ project }) {
   return (
-    <div className={`project-visual ${className}`}>
-      <div className="project-visual-grid" />
+    <div className="project-links">
+      <a
+        href={project.liveUrl}
+        target="_blank"
+        rel="noreferrer"
+        className="project-link project-link--primary"
+      >
+        <span className="project-link-arrow">↗</span>
+        <span>LIVE DEMO</span>
+      </a>
 
-      <div className="project-visual-glow" />
+      <a
+        href={project.githubUrl}
+        target="_blank"
+        rel="noreferrer"
+        className="project-link"
+      >
+        <span className="project-link-arrow">↗</span>
+        <span>GITHUB</span>
+      </a>
+    </div>
+  );
+}
 
-      <div className="project-image-frame">
+function ProjectTags({ project }) {
+  return (
+    <div className="project-technologies">
+      {project.technologies.map((technology) => (
+        <span className="project-tech" key={technology}>
+          {technology}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function ProjectMetadata({ project }) {
+  return (
+    <div className="project-metadata">
+      <div>
+        <span>STATUS</span>
+        <strong>{project.status}</strong>
+      </div>
+
+      <div>
+        <span>TYPE</span>
+        <strong>{project.type}</strong>
+      </div>
+
+      <div>
+        <span>ROLE</span>
+        <strong>{project.role}</strong>
+      </div>
+    </div>
+  );
+}
+
+function FeaturedVisual({ project }) {
+  return (
+    <div className="featured-visual">
+      <div className="featured-visual-grid" />
+      <div className="featured-visual-glow" />
+
+      <div className="featured-image featured-image--main">
         <img
           src={project.images[0]}
-          alt={`${project.name} project interface`}
-          className="project-image project-image-primary"
+          alt={`${project.name} landing interface`}
         />
-
-        {project.images[1] && (
-          <img
-            src={project.images[1]}
-            alt={`${project.name} project interface secondary view`}
-            className="project-image project-image-secondary"
-          />
-        )}
       </div>
 
-      <div className="project-visual-index">
-        {project.number} / 03
+      <div className="featured-image featured-image--secondary">
+        <img
+          src={project.images[1]}
+          alt={`${project.name} dashboard interface`}
+        />
       </div>
 
-      <div className="project-visual-label">
-        <span className="project-visual-label-dot" />
+      <div className="featured-image-index">
+        01 / 03
+      </div>
+
+      <div className="featured-visual-label">
+        <span />
         <span>PROJECT VIEW</span>
       </div>
     </div>
   );
 }
 
-function ProjectLinks({ project }) {
+function SecondaryVisual({ project }) {
   return (
-    <div className="project-links">
-      {project.liveUrl && (
-        <a
-          href={project.liveUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="project-link"
-        >
-          <span className="project-link-arrow">↗</span>
-          <span>LIVE DEMO</span>
-        </a>
-      )}
+    <div className="secondary-visual">
+      <div className="secondary-visual-glow" />
 
-      {project.githubUrl && (
-        <a
-          href={project.githubUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="project-link"
-        >
-          <span className="project-link-arrow">↗</span>
-          <span>GITHUB</span>
-        </a>
-      )}
-    </div>
-  );
-}
-
-function ProjectInfo({ project }) {
-  return (
-    <div className="project-info">
-      <div className="project-info-top">
-        <span className="project-category">{project.category}</span>
+      <div className="secondary-image secondary-image--main">
+        <img
+          src={project.images[0]}
+          alt={`${project.name} interface`}
+        />
       </div>
 
-      <h3 className="project-name">{project.name}</h3>
-
-      <p className="project-description">{project.description}</p>
-
-      <div className="project-technologies">
-        {project.technologies.map((technology) => (
-          <span key={technology} className="project-tech">
-            {technology}
-          </span>
-        ))}
+      <div className="secondary-image secondary-image--secondary">
+        <img
+          src={project.images[1]}
+          alt={`${project.name} secondary interface`}
+        />
       </div>
-
-      <div className="project-metadata">
-        <div>
-          <span>STATUS</span>
-          <strong>{project.status}</strong>
-        </div>
-
-        <div>
-          <span>TYPE</span>
-          <strong>{project.type}</strong>
-        </div>
-
-        <div>
-          <span>ROLE</span>
-          <strong>{project.role}</strong>
-        </div>
-      </div>
-
-      <ProjectLinks project={project} />
     </div>
   );
 }
@@ -187,67 +200,156 @@ function Projects() {
 
   return (
     <section id="projects" className="projects-page">
+
+      {/* ========================================
+          HEADER
+      ======================================== */}
+
       <header className="projects-header">
+
         <div className="projects-kicker">
           <span className="projects-kicker-line" />
           <span>PROJECTS / BUILDS / EXPERIMENTS</span>
         </div>
 
-        <h2 className="projects-title">
-          <span>SELECTED</span>
-          <span>WORK</span>
-        </h2>
+        <div className="projects-header-row">
+
+          <h2 className="projects-title">
+            <span>SELECTED</span>
+            <span>WORK</span>
+          </h2>
+
+          <p className="projects-header-description">
+            A collection of projects where I turn ideas into real,
+            working systems. Each project represents a problem I
+            cared about, a skill I wanted to learn, and a step
+            towards the engineer I want to become.
+          </p>
+
+        </div>
+
+        <span className="projects-page-index">
+          [ 03 / 05 ]
+        </span>
+
       </header>
 
+
+      {/* ========================================
+          FEATURED PROJECT
+      ======================================== */}
+
       <article className="project-featured">
+
         <div className="project-featured-info">
+
           <div className="project-number">
             <span>{featuredProject.number}</span>
             <span className="project-number-line" />
             <span>FEATURED BUILD</span>
           </div>
 
-          <ProjectInfo project={featuredProject} />
+          <span className="project-category">
+            {featuredProject.category}
+          </span>
+
+          <h3 className="project-name">
+            <span>LAW</span>{" "}
+            <span className="project-name-accent">LENS</span>
+          </h3>
+
+          <p className="project-description">
+            {featuredProject.description}
+          </p>
+
+          <ProjectTags project={featuredProject} />
+
+          <ProjectMetadata project={featuredProject} />
+
+          <ProjectLinks project={featuredProject} />
+
         </div>
 
-        <ProjectVisual
-          project={featuredProject}
-          className="project-featured-visual"
-        />
+        <FeaturedVisual project={featuredProject} />
+
       </article>
 
+
+      {/* ========================================
+          SECONDARY PROJECTS
+      ======================================== */}
+
       <div className="projects-secondary">
+
         {secondaryProjects.map((project) => (
-          <article className="project-secondary" key={project.number}>
-            <div className="project-secondary-header">
-              <div className="project-number">
-                <span>{project.number}</span>
-                <span className="project-number-line" />
+          <article
+            className="project-secondary"
+            key={project.number}
+          >
+
+            <div className="project-secondary-info">
+
+              <div className="project-secondary-top">
+                <div className="project-number">
+                  <span>{project.number}</span>
+                  <span className="project-number-line" />
+                </div>
               </div>
 
-              <span className="project-secondary-category">
+              <span className="project-category">
                 {project.category}
               </span>
+
+              <h3 className="project-secondary-name">
+                {project.number === "02" ? (
+                  <>
+                    RESUME <span>SCREENER</span>
+                  </>
+                ) : (
+                  <>
+                    SCRIBE<span>.</span>
+                  </>
+                )}
+              </h3>
+
+              <p className="project-secondary-description">
+                {project.description}
+              </p>
+
+              <ProjectTags project={project} />
+
+              <ProjectMetadata project={project} />
+
+              <ProjectLinks project={project} />
+
             </div>
 
-            <ProjectVisual
-              project={project}
-              className="project-secondary-visual"
-            />
+            <SecondaryVisual project={project} />
 
-            <ProjectInfo project={project} />
           </article>
         ))}
+
       </div>
 
+
+      {/* ========================================
+          FOOTER
+      ======================================== */}
+
       <footer className="projects-footer">
+
         <span>03 / SELECTED WORK</span>
+
+        <span className="projects-footer-line" />
 
         <a href="#process">
           <span>NEXT / PROCESS</span>
           <span>04 / 05</span>
+          <span className="projects-footer-arrow">→</span>
         </a>
+
       </footer>
+
     </section>
   );
 }
