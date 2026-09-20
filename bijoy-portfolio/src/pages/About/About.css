@@ -1078,4 +1078,10 @@ mask-image: radial-gradient(
   .about-footer {
     margin-top: 30px;
   }
+
+}
+
+/* REMOVE PORTRAIT GLITCH BARS */
+.about-portrait-glitch {
+  display: none !important;
 }
