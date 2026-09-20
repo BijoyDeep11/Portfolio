@@ -199,6 +199,9 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
+/* ========================================
+   PORTRAIT / GLITCH IMAGE
+======================================== */
 
 .about-portrait-frame {
   position: absolute;
@@ -207,84 +210,189 @@
 
   width: min(430px, 100%);
   height: calc(100% - 88px);
-  
-  overflow: hidden;
 
-  border: 1px solid rgba(18, 107, 255, 0.45);
+  overflow: visible;
 
-  background:
-    linear-gradient(
-      135deg,
-      rgba(18, 107, 255, 0.16),
-      transparent 45%
-    ),
-    #080b10;
+  /*
+    IMPORTANT:
+    No rectangular border.
+    No rectangular background.
+  */
+  border: none;
+  background: transparent;
 
-  box-shadow:
-    0 0 40px rgba(18, 107, 255, 0.08),
-    inset 0 0 50px rgba(0, 0, 0, 0.5);
+  box-shadow: none;
+
+  /*
+    Gives the whole portrait a subtle blue
+    atmospheric presence without creating
+    another visible frame.
+  */
+  isolation: isolate;
 }
 
+
+/* ----------------------------------------
+   IMAGE
+---------------------------------------- */
+
 .about-portrait {
+  position: absolute;
+  inset: 0;
+
   width: 100%;
   height: 100%;
+
   object-fit: cover;
   object-position: center;
 
+  /*
+    Your image already contains the
+    monochrome + blue glitch treatment.
+    Keep it visible instead of crushing it.
+  */
   filter:
-    grayscale(0.9)
-    contrast(1.12)
-    brightness(0.78);
+    grayscale(0.72)
+    contrast(1.16)
+    brightness(0.82);
 
-  opacity: 0.92;
+  opacity: 0.96;
+
+  /*
+    Removes the rectangular visual boundary.
+    The center stays strong while the edges
+    dissolve into the page.
+  */
+  -webkit-mask-image: radial-gradient(
+  ellipse 68% 70% at 50% 47%,
+  #000 35%,
+  rgba(0, 0, 0, 0.98) 50%,
+  rgba(0, 0, 0, 0.72) 65%,
+  rgba(0, 0, 0, 0.3) 80%,
+  transparent 100%
+);
+
+mask-image: radial-gradient(
+  ellipse 68% 70% at 50% 47%,
+  #000 35%,
+  rgba(0, 0, 0, 0.98) 50%,
+  rgba(0, 0, 0, 0.72) 65%,
+  rgba(0, 0, 0, 0.3) 80%,
+  transparent 100%
+);
+  /*
+    Lets the bright glitch / blue pixels
+    visually merge with the dark page.
+  */
+  mix-blend-mode: lighten;
 }
+
+
+/* ----------------------------------------
+   ATMOSPHERIC BLUE LIGHT
+---------------------------------------- */
+
+.about-portrait-frame::before {
+  content: "";
+
+  position: absolute;
+  z-index: -1;
+
+  inset: 8% 5% 5%;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 46%,
+      rgba(18, 107, 255, 0.22) 0%,
+      rgba(18, 107, 255, 0.11) 34%,
+      rgba(18, 107, 255, 0.035) 58%,
+      transparent 76%
+    );
+
+  filter: blur(34px);
+
+  pointer-events: none;
+}
+
+
+/* ----------------------------------------
+   IMAGE OVERLAY
+---------------------------------------- */
 
 .about-portrait-overlay {
   position: absolute;
   inset: 0;
 
+  pointer-events: none;
+
   background:
-    linear-gradient(
-      90deg,
-      rgba(18, 107, 255, 0.14),
-      transparent 45%,
-      rgba(0, 0, 0, 0.18)
-    ),
-    linear-gradient(
-      180deg,
-      transparent 60%,
-      rgba(0, 0, 0, 0.45)
+    radial-gradient(
+      ellipse at center,
+      transparent 42%,
+      rgba(8, 8, 8, 0.06) 60%,
+      rgba(8, 8, 8, 0.45) 82%,
+      rgba(8, 8, 8, 0.9) 100%
     );
 
-  mix-blend-mode: screen;
-  pointer-events: none;
+  /*
+    Keeps the center readable while helping
+    the outer pixels disappear into #080b10.
+  */
+  -webkit-mask-image: radial-gradient(
+    ellipse 74% 72% at 50% 48%,
+    #000 35%,
+    rgba(0, 0, 0, 0.8) 65%,
+    transparent 100%
+  );
+
+  mask-image: radial-gradient(
+    ellipse 74% 72% at 50% 48%,
+    #000 35%,
+    rgba(0, 0, 0, 0.8) 65%,
+    transparent 100%
+  );
+
+  mix-blend-mode: multiply;
 }
+
+
+/* ----------------------------------------
+   GLITCH BARS
+---------------------------------------- */
 
 .about-portrait-glitch {
   position: absolute;
-  z-index: 3;
+  z-index: 5;
 
-  height: 8px;
+  height: 5px;
 
   background: var(--color-blue-bright);
 
-  opacity: 0.8;
+  opacity: 0.75;
 
   box-shadow:
-    0 0 14px rgba(18, 107, 255, 0.75);
+    0 0 14px rgba(18, 107, 255, 0.65),
+    0 0 28px rgba(18, 107, 255, 0.22);
 
   pointer-events: none;
+
+  /*
+    Makes the bars feel like they are
+    emerging from the portrait rather
+    than sitting on top of a rectangle.
+  */
+  filter: blur(0.2px);
 }
 
 .about-portrait-glitch--one {
   top: 22%;
-  left: -25px;
+  left: -28px;
   width: 130px;
 }
 
 .about-portrait-glitch--two {
   top: 61%;
-  right: -35px;
+  right: -40px;
   width: 150px;
 }
 
@@ -292,12 +400,18 @@
   bottom: 13%;
   left: 35px;
   width: 90px;
-  opacity: 0.5;
+  opacity: 0.45;
 }
+
+
+/* ----------------------------------------
+   SIGNATURE
+---------------------------------------- */
 
 .about-signature {
   position: absolute;
-  z-index: 4;
+  z-index: 6;
+
   bottom: 18px;
   left: 48px;
 
@@ -308,6 +422,13 @@
   font-weight: 500;
 
   transform: rotate(-7deg);
+
+  /*
+    Keep the signature visible but let it
+    feel integrated with the blue image.
+  */
+  text-shadow:
+    0 0 12px rgba(18, 107, 255, 0.35);
 }
 
 .about-location-side {
@@ -889,11 +1010,11 @@
   }
 
   .about-portrait-frame {
-    left: 40px;
-
-    width: calc(100% - 40px);
-    height: 430px;
-  }
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+}
 
   .about-location-side {
     bottom: 10px;

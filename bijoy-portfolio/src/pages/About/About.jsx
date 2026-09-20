@@ -269,7 +269,7 @@ function About() {
             <div className="about-portrait-glitch about-portrait-glitch--three" />
 
             <img
-              src="/images/bijoy-about.jpg"
+              src="/images/bijoy-about.png"
               alt="Bijoy"
               className="about-portrait"
             />
