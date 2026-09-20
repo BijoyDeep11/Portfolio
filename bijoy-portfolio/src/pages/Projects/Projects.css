@@ -400,13 +400,15 @@
 
   align-items: center;
 
+  justify-content: center;
+
   gap: 9px;
 
   min-width: 120px;
 
   height: 40px;
 
-  padding: 0 14px;
+  padding: 0 15px;
 
   border:
     1px solid
@@ -457,8 +459,35 @@
     var(--color-blue-bright);
 }
 
-.project-link-arrow {
-  font-size: 13px;
+
+/* ========================================
+   PROJECT LINK ICONS
+======================================== */
+
+.project-link-icon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 17px;
+  height: 17px;
+
+  flex-shrink: 0;
+
+  color: currentColor;
+}
+
+.project-link-icon svg {
+  display: block;
+
+  width: 15px;
+  height: 15px;
+}
+
+.project-link-icon--github svg {
+  width: 16px;
+  height: 16px;
 }
 
 
@@ -789,8 +818,14 @@
   font-size: 7px;
 }
 
-.project-secondary .project-link-arrow {
-  font-size: 10px;
+.project-secondary .project-link-icon svg {
+  width: 13px;
+  height: 13px;
+}
+
+.project-secondary .project-link-icon--github svg {
+  width: 14px;
+  height: 14px;
 }
 
 

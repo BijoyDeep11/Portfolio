@@ -90,7 +90,35 @@ function ProjectLinks({ project }) {
         rel="noreferrer"
         className="project-link project-link--primary"
       >
-        <span className="project-link-arrow">↗</span>
+        <span className="project-link-icon" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M14 5H19V10"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M19 5L11 13"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M19 14V18C19 18.5523 18.5523 19 18 19H6C5.44772 19 5 18.5523 5 18V6C5 5.44772 5.44772 5 6 5H10"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+            />
+          </svg>
+        </span>
+
         <span>LIVE DEMO</span>
       </a>
 
@@ -100,7 +128,20 @@ function ProjectLinks({ project }) {
         rel="noreferrer"
         className="project-link"
       >
-        <span className="project-link-arrow">↗</span>
+        <span className="project-link-icon project-link-icon--github" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M12 2C6.477 2 2 6.477 2 12C2 16.418 4.865 20.167 8.84 21.49C9.34 21.58 9.52 21.272 9.52 21.005C9.52 20.765 9.51 20.14 9.505 19.31C6.726 19.91 6.14 17.97 6.14 17.97C5.685 16.815 5.03 16.507 5.03 16.507C4.122 15.887 5.1 15.9 5.1 15.9C6.105 15.97 6.635 16.932 6.635 16.932C7.53 18.465 8.98 18.03 9.54 17.77C9.63 17.125 9.89 16.685 10.175 16.435C7.955 16.18 5.62 15.325 5.62 11.42C5.62 10.305 6.015 9.395 6.66 8.68C6.555 8.425 6.195 7.39 6.755 5.99C6.755 5.99 7.59 5.72 9.49 7.005C10.285 6.785 11.14 6.675 12 6.67C12.86 6.675 13.715 6.785 14.51 7.005C16.41 5.72 17.245 5.99 17.245 5.99C17.805 7.39 17.445 8.425 17.34 8.68C17.985 9.395 18.38 10.305 18.38 11.42C18.38 15.335 16.04 16.175 13.815 16.425C14.175 16.735 14.495 17.345 14.495 18.28C14.495 19.615 14.485 20.69 14.485 21.005C14.485 21.275 14.665 21.585 15.17 21.49C19.14 20.165 22 16.415 22 12C22 6.477 17.523 2 12 2Z"
+            />
+          </svg>
+        </span>
+
         <span>GITHUB</span>
       </a>
     </div>
