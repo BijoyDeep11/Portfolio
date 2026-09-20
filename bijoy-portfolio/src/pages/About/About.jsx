@@ -88,6 +88,28 @@ function Icon({ type }) {
       />
     ),
 
+    resume: (
+      <>
+        <path
+          d="M6 3.5H14.5L18 7V20.5H6V3.5Z"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M14 3.5V7.5H18"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M9 11H15M9 14H15M9 17H13"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+        />
+      </>
+    ),
     arrow: (
       <>
         <path
@@ -366,34 +388,17 @@ function About() {
 
           <div className="about-contact-cards">
             <a
-              href="mailto:bijoy.dev@gmail.com"
+              href="#"
               className="about-contact-card"
+              aria-label="View resume"
             >
               <div className="about-contact-icon">
-                <Icon type="mail" />
+                <Icon type="resume" />
               </div>
 
               <div className="about-contact-info">
-                <span>EMAIL</span>
-                <strong>bijoy.dev@gmail.com</strong>
-              </div>
-
-              <span className="about-contact-arrow">
-                <Icon type="arrow" />
-              </span>
-            </a>
-
-            <a
-              href="tel:+917488120356"
-              className="about-contact-card"
-            >
-              <div className="about-contact-icon">
-                <Icon type="phone" />
-              </div>
-
-              <div className="about-contact-info">
-                <span>PHONE</span>
-                <strong>+91 74881 20356</strong>
+                <span>RESUME</span>
+                <strong>VIEW MY RESUME</strong>
               </div>
 
               <span className="about-contact-arrow">
