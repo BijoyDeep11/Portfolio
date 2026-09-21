@@ -1,3 +1,4 @@
+import CustomCursor from "./components/CustomCursor"
 import ActivityBar from "./components/ActivityBar/ActivityBar";
 
 import Landing from "./pages/Landing/Landing";
@@ -9,6 +10,7 @@ import About from "./pages/About/About";
 function App() {
   return (
     <>
+      <CustomCursor />
       <ActivityBar />
 
       <main>
