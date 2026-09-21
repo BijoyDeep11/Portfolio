@@ -311,7 +311,7 @@ function About() {
 
           <h1>BIJOY</h1>
 
-          <p className="about-profile-role">
+          <p className="about-profile-role about-profile-role-accent">
             A SOFTWARE ENGINEER
             <br />
             WHO BUILDS AND EXPLORES.
@@ -378,7 +378,7 @@ function About() {
           <h2>
             LET'S
             <br />
-            CONNECT.
+            <span className="about-contact-accent">CONNECT.</span>
           </h2>
 
           <p className="about-contact-intro">

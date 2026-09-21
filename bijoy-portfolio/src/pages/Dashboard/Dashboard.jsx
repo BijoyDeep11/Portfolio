@@ -102,8 +102,7 @@ function Dashboard() {
 
         <h2 className="dashboard-title">
           <span>ENGINEERING</span>
-
-          <span>
+          <span className="dashboard-title-accent">
             DASHBOARD
           </span>
         </h2>

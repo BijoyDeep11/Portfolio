@@ -1085,3 +1085,12 @@ mask-image: radial-gradient(
 .about-portrait-glitch {
   display: none !important;
 }
+/* TYPOGRAPHIC BLUE ACCENTS */
+.about-name-accent {
+  color: var(--color-blue-bright) !important;
+}
+
+.about-contact-accent {
+  color: var(--color-blue-bright) !important;
+}
+
