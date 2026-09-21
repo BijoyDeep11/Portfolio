@@ -354,7 +354,7 @@
   display: grid;
 
   grid-template-columns:
-    repeat(3, 1fr);
+    repeat(4, 1fr);
 
   height: calc(100% - 75px);
 
@@ -363,7 +363,7 @@
 
 .dashboard-stack-column {
   padding:
-    0 22px;
+    0 16px;
 
   border-right:
     1px solid

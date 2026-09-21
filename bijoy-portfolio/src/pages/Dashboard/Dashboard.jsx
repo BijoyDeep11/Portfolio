@@ -43,12 +43,22 @@ const stack = [
     ],
   },
   {
-    title: "DATA / TOOLS",
+    title: "DATA / AI",
     technologies: [
       "POSTGRESQL",
-      "SQLITE",
-      "APPWRITE",
+      "MYSQL",
       "GIT / GITHUB",
+      "LLM",
+      "RAG",
+      "GENAI",
+    ],
+  },
+  {
+    title: "LANGUAGES",
+    technologies: [
+      "C",
+      "C++",
+      "PYTHON",
     ],
   },
 ];
@@ -102,6 +112,7 @@ function Dashboard() {
 
         <h2 className="dashboard-title">
           <span>ENGINEERING</span>
+
           <span className="dashboard-title-accent">
             DASHBOARD
           </span>
@@ -122,11 +133,13 @@ function Dashboard() {
             key={stat.number}
           >
             <div className="dashboard-stat-top">
+
               <span>
                 {stat.number}
               </span>
 
               <span className="dashboard-stat-indicator" />
+
             </div>
 
             <div className="dashboard-stat-value">
@@ -136,6 +149,7 @@ function Dashboard() {
             <div className="dashboard-stat-label">
               {stat.label}
             </div>
+
           </article>
         ))}
 
@@ -155,6 +169,7 @@ function Dashboard() {
           <div className="dashboard-panel-header">
 
             <div>
+
               <h3>
                 CURRENT STACK
               </h3>
@@ -162,6 +177,7 @@ function Dashboard() {
               <span>
                 TECHNOLOGIES / 2026
               </span>
+
             </div>
 
           </div>
@@ -217,6 +233,7 @@ function Dashboard() {
           <div className="dashboard-panel-header">
 
             <div>
+
               <h3>
                 CURRENT FOCUS
               </h3>
@@ -224,6 +241,7 @@ function Dashboard() {
               <span>
                 WHAT I'M BUILDING / LEARNING
               </span>
+
             </div>
 
           </div>
