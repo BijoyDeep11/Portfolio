@@ -1,4 +1,10 @@
+import { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import "./About.css";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function Icon({ type }) {
   const commonProps = {
@@ -110,6 +116,7 @@ function Icon({ type }) {
         />
       </>
     ),
+
     arrow: (
       <>
         <path
@@ -254,22 +261,420 @@ const socialLinks = [
 ];
 
 function About() {
+  const aboutRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const page = aboutRef.current;
+
+      const header = page.querySelector(".about-header");
+
+      const backgroundWord = page.querySelector(
+        ".about-background-word"
+      );
+
+      const portraitSection = page.querySelector(
+        ".about-portrait-section"
+      );
+
+      const portrait = page.querySelector(
+        ".about-portrait"
+      );
+
+      const signature = page.querySelector(
+        ".about-signature"
+      );
+
+      const profile = page.querySelector(
+        ".about-profile"
+      );
+
+      const profileHeading = page.querySelector(
+        ".about-profile-heading"
+      );
+
+      const profileName = page.querySelector(
+        ".about-profile h1"
+      );
+
+      const profileRole = page.querySelector(
+        ".about-profile-role"
+      );
+
+      const description = page.querySelector(
+        ".about-description"
+      );
+
+      const details = page.querySelectorAll(
+        ".about-detail"
+      );
+
+      const contact = page.querySelector(
+        ".about-contact"
+      );
+
+      const contactHeading = page.querySelector(
+        ".about-contact h2"
+      );
+
+      const contactIntro = page.querySelector(
+        ".about-contact-intro"
+      );
+
+      const contactCards = page.querySelectorAll(
+        ".about-contact-card"
+      );
+
+      const divider = page.querySelector(
+        ".about-social-divider"
+      );
+
+      const socials = page.querySelectorAll(
+        ".about-social"
+      );
+
+      const findMore = page.querySelector(
+        ".about-find-more"
+      );
+
+      const footer = page.querySelector(
+        ".about-footer"
+      );
+
+      /* ========================================
+         INITIAL STATES
+      ======================================== */
+
+      gsap.set(header, {
+        opacity: 0,
+        y: -15,
+      });
+
+      gsap.set(portraitSection, {
+        opacity: 0,
+        x: -35,
+      });
+
+      gsap.set(portrait, {
+        scale: 1.08,
+      });
+
+      gsap.set(signature, {
+        opacity: 0,
+        y: 12,
+      });
+
+      gsap.set(profile, {
+        opacity: 0,
+        x: 35,
+      });
+
+      gsap.set(
+        [
+          profileHeading,
+          profileName,
+          profileRole,
+          description,
+        ],
+        {
+          opacity: 0,
+          y: 22,
+        }
+      );
+
+      gsap.set(details, {
+        opacity: 0,
+        y: 18,
+      });
+
+      gsap.set(contact, {
+        opacity: 0,
+        x: 35,
+      });
+
+      gsap.set(
+        [
+          contactHeading,
+          contactIntro,
+          divider,
+          findMore,
+        ],
+        {
+          opacity: 0,
+          y: 18,
+        }
+      );
+
+      gsap.set(contactCards, {
+        opacity: 0,
+        x: 20,
+      });
+
+      gsap.set(socials, {
+        opacity: 0,
+        y: 15,
+      });
+
+      gsap.set(footer, {
+        opacity: 0,
+        y: 12,
+      });
+
+      /* ========================================
+         MAIN SCROLL TIMELINE
+      ======================================== */
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: page,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 2,
+        },
+      });
+      tl.to(header, {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power2.out",
+      })
+
+        /* PORTRAIT */
+        .to(
+          portraitSection,
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            ease: "power3.out",
+          },
+          "-=0.35"
+        )
+
+        .to(
+          portrait,
+          {
+            scale: 1,
+            duration: 1,
+            ease: "power2.out",
+          },
+          "<"
+        )
+
+        .to(
+          signature,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.4,
+            ease: "power2.out",
+          },
+          "-=0.45"
+        )
+
+        /* PROFILE */
+        .to(
+          profile,
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.75,
+            ease: "power3.out",
+          },
+          "-=0.55"
+        )
+
+        .to(
+          profileHeading,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.4,
+          },
+          "-=0.4"
+        )
+
+        .to(
+          profileName,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            ease: "power3.out",
+          },
+          "-=0.2"
+        )
+
+        .to(
+          profileRole,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+          },
+          "-=0.35"
+        )
+
+        .to(
+          description,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+          },
+          "-=0.25"
+        )
+
+        .to(
+          details,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.45,
+            stagger: 0.12,
+            ease: "power2.out",
+          },
+          "-=0.2"
+        )
+
+        /* CONTACT */
+        .to(
+          contact,
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.7,
+            ease: "power3.out",
+          },
+          "-=0.55"
+        )
+
+        .to(
+          contactHeading,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.55,
+            ease: "power3.out",
+          },
+          "-=0.35"
+        )
+
+        .to(
+          contactIntro,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.45,
+          },
+          "-=0.3"
+        )
+
+        .to(
+          contactCards,
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.5,
+            stagger: 0.12,
+            ease: "power2.out",
+          },
+          "-=0.2"
+        )
+
+        .to(
+          divider,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.35,
+          },
+          "-=0.15"
+        )
+
+        .to(
+          socials,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.45,
+          },
+          "-=0.15"
+        )
+
+        .to(
+          findMore,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.35,
+          },
+          "-=0.15"
+        )
+
+        /* FOOTER */
+        .to(
+          footer,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.4,
+          },
+          "-=0.1"
+        );
+
+      /* ========================================
+         BACKGROUND BIO PARALLAX
+      ======================================== */
+
+      gsap.to(backgroundWord, {
+        yPercent: -10,
+        rotate: 90,
+        ease: "none",
+        scrollTrigger: {
+          trigger: page,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1.8,
+        },
+      });
+    }, aboutRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section id="about" className="about-page">
+    <section
+      id="about"
+      className="about-page"
+      ref={aboutRef}
+    >
       <div className="about-grid" />
+
       <div className="about-blue-glow about-blue-glow--top" />
+
       <div className="about-blue-glow about-blue-glow--bottom" />
 
-      <div className="about-background-word">BIO</div>
+      <div className="about-background-word">
+        BIO
+      </div>
 
       {/* HEADER */}
+
       <header className="about-header">
         <div className="about-header-left">
-          <span className="about-brand">BIJOY.DEV</span>
-          <span>SOFTWARE ENGINEER / BUILDER</span>
+          <span className="about-brand">
+            BIJOY.DEV
+          </span>
+
+          <span>
+            SOFTWARE ENGINEER / BUILDER
+          </span>
         </div>
 
-        <div className="about-header-center">2026</div>
+        <div className="about-header-center">
+          2026
+        </div>
 
         <div className="about-header-right">
           <span>05 / 05</span>
@@ -278,7 +683,9 @@ function About() {
       </header>
 
       <main className="about-main">
+
         {/* LEFT / PORTRAIT */}
+
         <section className="about-portrait-section">
           <div className="about-section-label">
             <span>//</span>
@@ -287,7 +694,9 @@ function About() {
 
           <div className="about-portrait-frame">
             <div className="about-portrait-glitch about-portrait-glitch--one" />
+
             <div className="about-portrait-glitch about-portrait-glitch--two" />
+
             <div className="about-portrait-glitch about-portrait-glitch--three" />
 
             <img
@@ -298,18 +707,26 @@ function About() {
 
             <div className="about-portrait-overlay" />
 
-            <div className="about-signature">Bijoy</div>
+            <div className="about-signature">
+              Bijoy
+            </div>
           </div>
         </section>
 
         {/* CENTER / PROFILE */}
+
         <section className="about-profile">
           <div className="about-profile-heading">
             <span className="about-heading-line" />
-            <span>HELLO, I'M</span>
+
+            <span>
+              HELLO, I'M
+            </span>
           </div>
 
-          <h1>BIJOY</h1>
+          <h1>
+            BIJOY
+          </h1>
 
           <p className="about-profile-role about-profile-role-accent">
             A SOFTWARE ENGINEER
@@ -324,14 +741,20 @@ function About() {
           </p>
 
           <div className="about-details">
+
             <div className="about-detail">
               <div className="about-detail-icon">
                 <Icon type="graduation" />
               </div>
 
               <div>
-                <strong>B.Tech CSE</strong>
-                <span>Asansol Engineering College</span>
+                <strong>
+                  B.Tech CSE
+                </strong>
+
+                <span>
+                  Asansol Engineering College
+                </span>
               </div>
             </div>
 
@@ -341,8 +764,13 @@ function About() {
               </div>
 
               <div>
-                <strong>Asansol, West Bengal, India</strong>
-                <span>Open to opportunities</span>
+                <strong>
+                  Asansol, West Bengal, India
+                </strong>
+
+                <span>
+                  Open to opportunities
+                </span>
               </div>
             </div>
 
@@ -352,14 +780,21 @@ function About() {
               </div>
 
               <div>
-                <strong>Cricket, Fitness, Tech</strong>
-                <span>What keeps me going</span>
+                <strong>
+                  Cricket, Fitness, Tech
+                </strong>
+
+                <span>
+                  What keeps me going
+                </span>
               </div>
             </div>
+
           </div>
 
           <div className="about-profile-footer">
             <span className="about-footer-line" />
+
             <span>
               BUILDING A BETTER
               <br />
@@ -369,7 +804,9 @@ function About() {
         </section>
 
         {/* RIGHT / CONTACT */}
+
         <section className="about-contact">
+
           <div className="about-contact-label">
             <span>//</span>
             <span>CONTACT</span>
@@ -378,7 +815,9 @@ function About() {
           <h2>
             LET'S
             <br />
-            <span className="about-contact-accent">CONNECT.</span>
+            <span className="about-contact-accent">
+              CONNECT.
+            </span>
           </h2>
 
           <p className="about-contact-intro">
@@ -387,6 +826,7 @@ function About() {
           </p>
 
           <div className="about-contact-cards">
+
             <a
               href="https://docs.google.com/document/d/1LMbFt5bHIZHSY9Irtap16id_3pZsa22L/edit?usp=drive_link&ouid=116051463258942372766&rtpof=true&sd=true"
               target="_blank"
@@ -399,14 +839,20 @@ function About() {
               </div>
 
               <div className="about-contact-info">
-                <span>RESUME</span>
-                <strong>VIEW MY RESUME</strong>
+                <span>
+                  RESUME
+                </span>
+
+                <strong>
+                  VIEW MY RESUME
+                </strong>
               </div>
 
               <span className="about-contact-arrow">
                 <Icon type="arrow" />
               </span>
             </a>
+
           </div>
 
           <div className="about-social-divider" />
@@ -425,19 +871,29 @@ function About() {
           </div>
 
           <div className="about-find-more">
-            <span>FIND ME ELSEWHERE</span>
+            <span>
+              FIND ME ELSEWHERE
+            </span>
+
             <span className="about-find-line" />
           </div>
+
         </section>
+
       </main>
 
       {/* FOOTER */}
+
       <footer className="about-footer">
         <div className="about-footer-page">
-          <span>05 / ABOUT</span>
+          <span>
+            05 / ABOUT
+          </span>
+
           <span />
         </div>
       </footer>
+
     </section>
   );
 }

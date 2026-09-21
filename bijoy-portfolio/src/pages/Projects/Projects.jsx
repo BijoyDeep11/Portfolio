@@ -1,4 +1,12 @@
+import { useLayoutEffect, useRef } from "react";
+
+import { gsap } from "gsap";
+
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import "./Projects.css";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
@@ -112,10 +120,12 @@ function ProjectDetails({ project }) {
           <small>STATUS</small>
           <span><i />{project.status}</span>
         </div>
+
         <div>
           <small>TYPE</small>
           <span>{project.type}</span>
         </div>
+
         <div>
           <small>ROLE</small>
           <span>{project.role}</span>
@@ -138,10 +148,12 @@ function LawLensPreview() {
 
         <div className="lawlens-user">
           <span>◉</span>
+
           <div>
             <b>SAM BAHADUR</b>
             <small>Personal workspace</small>
           </div>
+
           <em>⌄</em>
         </div>
       </div>
@@ -164,6 +176,7 @@ function LawLensPreview() {
               <h4>Welcome back, <b>SAM BAHADUR</b></h4>
               <p>Your documents, conversations and AI analysis in one place.</p>
             </div>
+
             <button>＋ Upload document</button>
           </div>
 
@@ -182,10 +195,12 @@ function LawLensPreview() {
 
               <div className="lawlens-document">
                 <strong>▤</strong>
+
                 <div>
                   <b>LawLens_Test_Legal_Document</b>
                   <span>Legal Notice · 7 pages · 30 Aug 2026</span>
                 </div>
+
                 <i>● INDEXED</i>
               </div>
             </div>
@@ -200,7 +215,12 @@ function LawLensPreview() {
 
               <section>
                 <strong>✣</strong>
-                <div><b>Ask LawLens</b><span>Ask a question about your documents</span></div>
+
+                <div>
+                  <b>Ask LawLens</b>
+                  <span>Ask a question about your documents</span>
+                </div>
+
                 <em>↗</em>
               </section>
             </div>
@@ -226,16 +246,28 @@ function ResumePreview() {
           <p>Upload resumes and a job description to see how well they match.</p>
 
           <label>Upload Resume(s) (PDF or DOCX)</label>
+
           <div className="resume-drop">
             <strong>♧</strong>
-            <span>Drag and drop files here<small>Limit 200MB per file · PDF, DOCX</small></span>
+
+            <span>
+              Drag and drop files here
+              <small>Limit 200MB per file · PDF, DOCX</small>
+            </span>
+
             <button>Browse files</button>
           </div>
 
           <label>Upload Job Description (TXT)</label>
+
           <div className="resume-drop">
             <strong>♧</strong>
-            <span>Drag and drop file here<small>Limit 200MB per file · TXT</small></span>
+
+            <span>
+              Drag and drop file here
+              <small>Limit 200MB per file · TXT</small>
+            </span>
+
             <button>Browse files</button>
           </div>
 
@@ -249,10 +281,12 @@ function ResumePreview() {
             <small>Final Match Score</small>
             <b>24.72%</b>
           </div>
+
           <div className="resume-score">
             <small>TF-IDF Similarity</small>
             <b>9.67%</b>
           </div>
+
           <div className="resume-score">
             <small>Semantic Similarity</small>
             <b>59.95%</b>
@@ -280,6 +314,7 @@ function ScribePreview() {
     <div className="product-window product-window--scribe">
       <div className="scribe-browser-bar">
         <span>♧ <b>Scribe.</b></span>
+
         <nav>
           <span>Home</span>
           <span>All Posts</span>
@@ -290,10 +325,12 @@ function ScribePreview() {
 
       <div className="scribe-hero">
         <div className="scribe-pen">✎</div>
+
         <h4>
           Publish your passions,
           <em>your way.</em>
         </h4>
+
         <p>
           Create a unique and beautiful blog. It’s easy and free.
           <b> Login</b> to start reading the latest stories.
@@ -309,6 +346,7 @@ function ScribePreview() {
               <span>WaspBlog Application Workflow</span>
               <i /><i /><i /><i />
             </div>
+
             <h5>Building My First<br />Full-Stack Blog</h5>
             <span>Sep 20, 2026</span>
           </article>
@@ -317,6 +355,7 @@ function ScribePreview() {
             <div className="scribe-post-image scribe-post-image--code">
               <span>VECTOR DB</span>
             </div>
+
             <h5>Understanding<br />Vector Databases</h5>
             <span>Sep 12, 2026</span>
           </article>
@@ -325,6 +364,7 @@ function ScribePreview() {
             <div className="scribe-post-image scribe-post-image--mountain">
               <span>TECH / BUILD</span>
             </div>
+
             <h5>My Journey<br />in Tech</h5>
             <span>Aug 28, 2026</span>
           </article>
@@ -376,9 +416,152 @@ function ProjectSection({ project, reverse = false }) {
 }
 
 function Projects() {
+  const projectsRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+      if (prefersReducedMotion) {
+        return;
+      }
+
+      const headerTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".projects-header",
+          start: "top 78%",
+          once: true,
+        },
+        defaults: {
+          ease: "power3.out",
+        },
+      });
+
+      headerTimeline
+        .from(".projects-header-kicker", {
+          y: 20,
+          opacity: 0,
+          duration: 0.5,
+        })
+        .from(
+          ".projects-header-main h1",
+          {
+            y: 45,
+            opacity: 0,
+            duration: 0.8,
+          },
+          "-=0.25"
+        )
+        .from(
+          ".projects-header-main p",
+          {
+            y: 20,
+            opacity: 0,
+            duration: 0.5,
+          },
+          "-=0.45"
+        )
+        .from(
+          ".projects-count",
+          {
+            y: 20,
+            opacity: 0,
+            duration: 0.5,
+          },
+          "-=0.35"
+        );
+
+      gsap.utils.toArray(".project-row").forEach((row) => {
+        const copy = row.querySelector(".project-copy");
+        const visual = row.querySelector(".project-visual");
+        const windowElement = row.querySelector(".product-window");
+        const glow = row.querySelector(".project-visual-glow");
+
+        const rowTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: row,
+            start: "top 78%",
+            once: true,
+          },
+          defaults: {
+            ease: "power3.out",
+          },
+        });
+
+        rowTimeline
+          .from(copy, {
+            y: 40,
+            opacity: 0,
+            duration: 0.7,
+          })
+          .from(
+            visual,
+            {
+              y: 35,
+              opacity: 0,
+              duration: 0.8,
+            },
+            "-=0.55"
+          )
+          .from(
+            windowElement,
+            {
+              scale: 0.97,
+              duration: 0.9,
+            },
+            "-=0.7"
+          );
+
+        gsap.to(windowElement, {
+          y: -45,
+          ease: "none",
+          scrollTrigger: {
+            trigger: row,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 1.2,
+          },
+        });
+
+        gsap.to(glow, {
+          y: -55,
+          scale: 1.08,
+          ease: "none",
+          scrollTrigger: {
+            trigger: row,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 1.5,
+          },
+        });
+      });
+
+      gsap.from(".projects-footer", {
+        y: 25,
+        opacity: 0,
+        duration: 0.6,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".projects-footer",
+          start: "top 90%",
+          once: true,
+        },
+      });
+    }, projectsRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section id="projects" className="projects-page">
+    <section
+      id="projects"
+      className="projects-page"
+      ref={projectsRef}
+    >
       <div className="projects-grid" />
+
       <div className="projects-atmosphere" />
 
       <header className="projects-header">
@@ -411,13 +594,17 @@ function Projects() {
 
       <div className="projects-list">
         <ProjectSection project={projects[0]} />
+
         <ProjectSection project={projects[1]} reverse />
+
         <ProjectSection project={projects[2]} />
       </div>
 
       <footer className="projects-footer">
         <span>03 / SELECTED WORK</span>
+
         <i />
+
         <a href="#process">
           <span>NEXT / PROCESS</span>
           <b>04 / 05</b>

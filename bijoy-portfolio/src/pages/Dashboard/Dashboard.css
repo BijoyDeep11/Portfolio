@@ -12,7 +12,9 @@
     var(--page-padding)
     70px;
 
-  overflow: hidden;
+  box-sizing: border-box;
+
+  overflow: visible;
 }
 
 
@@ -108,21 +110,27 @@
   display: grid;
 
   grid-template-columns:
-    repeat(4, 1fr);
+    repeat(4, minmax(0, 1fr));
 
   gap: 16px;
 
   margin-bottom: 24px;
+
+  width: 100%;
 }
 
 .dashboard-stat {
   position: relative;
+
+  min-width: 0;
 
   min-height: 132px;
 
   padding:
     18px
     20px;
+
+  box-sizing: border-box;
 
   border:
     1px solid
@@ -195,6 +203,8 @@
   width: 7px;
   height: 7px;
 
+  flex-shrink: 0;
+
   border-radius: 50%;
 
   background:
@@ -264,10 +274,14 @@
   display: grid;
 
   grid-template-columns:
-    1.15fr
-    0.85fr;
+    minmax(0, 1.15fr)
+    minmax(0, 0.85fr);
 
   gap: 16px;
+
+  width: 100%;
+
+  margin: 0;
 }
 
 
@@ -278,10 +292,14 @@
 .dashboard-panel {
   position: relative;
 
+  min-width: 0;
+
   min-height: 330px;
 
   padding:
     24px 28px;
+
+  box-sizing: border-box;
 
   border:
     1px solid
@@ -354,14 +372,18 @@
   display: grid;
 
   grid-template-columns:
-    repeat(4, 1fr);
-
-  height: calc(100% - 75px);
+    repeat(4, minmax(0, 1fr));
 
   margin-top: 20px;
+
+  min-height: 220px;
+
+  height: auto;
 }
 
 .dashboard-stack-column {
+  min-width: 0;
+
   padding:
     0 16px;
 
@@ -473,7 +495,7 @@
 
   grid-template-columns:
     58px
-    1fr;
+    minmax(0, 1fr);
 
   gap: 12px;
 
@@ -526,6 +548,10 @@
 /* ========================================
    FOCUS CONTENT
 ======================================== */
+
+.dashboard-focus-content {
+  min-width: 0;
+}
 
 .dashboard-focus-content h4 {
   margin: 0;
@@ -584,12 +610,11 @@
 ======================================== */
 
 .dashboard-bottom {
-  position: absolute;
+  position: relative;
 
-  left: var(--page-padding);
-  right: var(--page-padding);
-
-  bottom: 28px;
+  left: auto;
+  right: auto;
+  bottom: auto;
 
   z-index: 3;
 
@@ -598,6 +623,10 @@
   align-items: center;
 
   justify-content: space-between;
+
+  width: 100%;
+
+  margin-top: 26px;
 
   color:
     var(--color-text-muted);
@@ -687,16 +716,10 @@
 
   .dashboard-stats {
     grid-template-columns:
-      repeat(2, 1fr);
+      repeat(2, minmax(0, 1fr));
   }
 
   .dashboard-bottom {
-    position: relative;
-
-    left: auto;
-    right: auto;
-    bottom: auto;
-
     margin-top: 32px;
   }
 
@@ -755,7 +778,7 @@
     grid-template-columns:
       1fr;
 
-    height: auto;
+    min-height: auto;
   }
 
   .dashboard-stack-column {
@@ -782,7 +805,7 @@
   .dashboard-focus-item {
     grid-template-columns:
       42px
-      1fr;
+      minmax(0, 1fr);
   }
 
   .dashboard-status {
@@ -802,4 +825,109 @@
 
 .dashboard-title-accent {
   color: var(--color-blue-bright) !important;
+}
+
+/* ========================================
+   DASHBOARD OVERLAP FIX
+======================================== */
+
+.dashboard-page {
+  box-sizing: border-box;
+  min-height: 100svh;
+  overflow: visible;
+}
+
+/* Stats stay in normal document flow */
+.dashboard-stats {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 42px;
+}
+
+/* Prevent grid children from forcing overflow */
+.dashboard-stat {
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Panels MUST come after stats */
+.dashboard-panels {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 16px;
+  width: 100%;
+  margin: 0;
+}
+
+/* Prevent panel content from affecting grid weirdly */
+.dashboard-panel {
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* IMPORTANT:
+   Remove the percentage height that was causing
+   the stack content to behave unpredictably.
+*/
+.dashboard-stack-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  height: auto !important;
+  min-height: 220px;
+  margin-top: 20px;
+}
+
+/* Bottom navigation participates in normal flow */
+.dashboard-bottom {
+  position: relative !important;
+
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+
+  width: 100%;
+  margin-top: 32px;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1100px) {
+  .dashboard-panels {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 850px) {
+  .dashboard-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard-bottom {
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-stack-grid {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .dashboard-bottom {
+    margin-top: 28px;
+  }
 }

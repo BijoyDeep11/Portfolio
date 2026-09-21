@@ -772,3 +772,56 @@
   }
 
 }
+
+/* ========================================
+   SCROLL ANIMATION SUPPORT
+======================================== */
+
+.process-header,
+.process-hero-label,
+.process-title,
+.process-intro,
+.process-step,
+.process-build-sequence,
+.process-annotation,
+.process-current-state,
+.process-footer {
+  will-change: transform, opacity;
+}
+
+.process-line {
+  transform-origin: left center;
+  will-change: transform;
+}
+
+.process-background-words {
+  will-change: transform;
+}
+
+.process-step-node {
+  will-change: transform, box-shadow;
+}
+
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .process-header,
+  .process-hero-label,
+  .process-title,
+  .process-intro,
+  .process-step,
+  .process-build-sequence,
+  .process-annotation,
+  .process-current-state,
+  .process-footer {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .process-line {
+    transform: scaleX(1) !important;
+  }
+}

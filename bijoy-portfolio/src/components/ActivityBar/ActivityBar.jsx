@@ -18,34 +18,61 @@ function ActivityBar() {
       .map((page) => document.getElementById(page.target))
       .filter(Boolean);
 
+    const visibilityMap = new Map();
+
+    sections.forEach((section) => {
+      visibilityMap.set(section.id, {
+        isIntersecting: false,
+        ratio: 0,
+      });
+    });
+
     const observer = new IntersectionObserver(
       (entries) => {
-        const visibleSections = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort(
-            (a, b) =>
-              b.intersectionRatio - a.intersectionRatio
-          );
+        entries.forEach((entry) => {
+          visibilityMap.set(entry.target.id, {
+            isIntersecting: entry.isIntersecting,
+            ratio: entry.intersectionRatio,
+          });
+        });
+
+        const visibleSections = sections
+          .filter((section) => {
+            const state = visibilityMap.get(section.id);
+
+            return state?.isIntersecting;
+          })
+          .sort((a, b) => {
+            const ratioA = visibilityMap.get(a.id)?.ratio || 0;
+            const ratioB = visibilityMap.get(b.id)?.ratio || 0;
+
+            return ratioB - ratioA;
+          });
 
         if (visibleSections.length > 0) {
-          setActivePage(visibleSections[0].target.id);
+          setActivePage(visibleSections[0].id);
         }
       },
       {
-        threshold: [0.2, 0.4, 0.6],
-        rootMargin: "-10% 0px -10% 0px",
+        threshold: [0.2, 0.4, 0.6, 0.8],
+        rootMargin: "-15% 0px -15% 0px",
       }
     );
 
-    sections.forEach((section) => observer.observe(section));
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
 
     return () => {
-      sections.forEach((section) => observer.unobserve(section));
+      observer.disconnect();
     };
   }, []);
 
   return (
-    <nav className="activity-bar" aria-label="Portfolio navigation">
+    <nav
+      className="activity-bar"
+      aria-label="Portfolio navigation"
+    >
       {pages.map((page) => (
         <a
           key={page.number}

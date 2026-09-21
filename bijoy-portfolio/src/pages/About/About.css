@@ -1094,3 +1094,64 @@ mask-image: radial-gradient(
   color: var(--color-blue-bright) !important;
 }
 
+/* ========================================
+   ABOUT SCROLL ANIMATION
+======================================== */
+
+.about-header,
+.about-portrait-section,
+.about-portrait,
+.about-signature,
+.about-profile,
+.about-profile-heading,
+.about-profile h1,
+.about-profile-role,
+.about-description,
+.about-detail,
+.about-contact,
+.about-contact h2,
+.about-contact-intro,
+.about-contact-card,
+.about-social-divider,
+.about-social,
+.about-find-more,
+.about-footer {
+  will-change: transform, opacity;
+}
+
+.about-background-word {
+  will-change: transform;
+}
+
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .about-header,
+  .about-portrait-section,
+  .about-portrait,
+  .about-signature,
+  .about-profile,
+  .about-profile-heading,
+  .about-profile h1,
+  .about-profile-role,
+  .about-description,
+  .about-detail,
+  .about-contact,
+  .about-contact h2,
+  .about-contact-intro,
+  .about-contact-card,
+  .about-social-divider,
+  .about-social,
+  .about-find-more,
+  .about-footer {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .about-background-word {
+    transform: rotate(90deg) !important;
+  }
+}
