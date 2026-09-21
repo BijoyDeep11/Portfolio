@@ -125,7 +125,7 @@ function Landing() {
         ".landing-left-meta, .landing-right-meta, .landing-scroll",
         {
           y: 20,
-          opacity: 0,
+          // opacity: 0,
           ease: "none",
           scrollTrigger: {
             trigger: landingRef.current,
@@ -150,18 +150,18 @@ function Landing() {
 
       {/* TOP INFORMATION */}
 
-      <div className="landing-top-info">
+      {/* <div className="landing-top-info">
         <div className="landing-top-item">
-          <span>PERSONAL</span>
-          <span>PORTFOLIO</span>
-        </div>
+          {/* <span>PERSONAL</span>
+          <span>PORTFOLIO</span> */}
+          {/* </div> */} 
 
-        <div className="landing-top-item">
+        {/* <div className="landing-top-item">
           <span>YEAR</span>
           <span>2026</span>
-        </div>
+        </div> */}
 
-        <div className="landing-top-message">
+        {/* <div className="landing-top-message">
           <span className="landing-blue-line" />
 
           <div>
@@ -169,7 +169,7 @@ function Landing() {
             <span>FOR A BETTER TOMORROW</span>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* HERO */}
 
@@ -229,11 +229,11 @@ function Landing() {
         </div>
 
         <div className="landing-portrait-label">
-          <span className="landing-blue-line" />
+          {/* <span className="landing-blue-line" /> */}
 
-          <span>
+          {/* <span>
             ENGINEER / LEARNER / BUILDER
-          </span>
+          </span> */}
         </div>
       </div>
 

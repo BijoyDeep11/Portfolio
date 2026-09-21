@@ -831,7 +831,7 @@ function About() {
           <h2>
             LET'S
             <br />
-            CONNECT.
+            <span>CONNECT.</span>
           </h2>
 
           <p className="about-contact-intro">

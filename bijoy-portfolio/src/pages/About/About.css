@@ -1155,3 +1155,7 @@ mask-image: radial-gradient(
     transform: rotate(90deg) !important;
   }
 }
+
+.about-contact h span {
+  color: var(--color-blue-bright);
+}

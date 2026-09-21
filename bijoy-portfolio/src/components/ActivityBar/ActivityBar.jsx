@@ -39,7 +39,6 @@ function ActivityBar() {
         const visibleSections = sections
           .filter((section) => {
             const state = visibilityMap.get(section.id);
-
             return state?.isIntersecting;
           })
           .sort((a, b) => {
@@ -73,23 +72,39 @@ function ActivityBar() {
       className="activity-bar"
       aria-label="Portfolio navigation"
     >
-      {pages.map((page) => (
-        <a
-          key={page.number}
-          href={`#${page.target}`}
-          className={`activity-bar__item ${
-            activePage === page.target ? "is-active" : ""
-          }`}
-        >
-          <span className="activity-bar__number">
-            {page.number}
-          </span>
+      <div className="activity-bar__brand">
+        BIJOY.DEV
+      </div>
 
-          <span className="activity-bar__label">
-            {page.label}
-          </span>
-        </a>
-      ))}
+      <div className="activity-bar__nav">
+        {pages.map((page) => (
+          <a
+            key={page.number}
+            href={`#${page.target}`}
+            data-magnetic
+            className={`activity-bar__item ${
+              activePage === page.target ? "is-active" : ""
+            }`}
+          >
+            {/* <span className="activity-bar__number">
+              {page.number}
+            </span> */}
+
+            <span className="activity-bar__label">
+              {page.label}
+            </span>
+          </a>
+        ))}
+      </div>
+
+      {/* <a
+        href="#about"
+        className="activity-bar__contact"
+        data-magnetic="primary"
+      >
+        CONTACT
+        <span>↗</span>
+      </a> */}
     </nav>
   );
 }

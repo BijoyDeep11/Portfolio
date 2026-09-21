@@ -481,6 +481,12 @@
   color: var(--color-text-soft);
 }
 
+.landing-left-meta,
+.landing-right-meta,
+.landing-scroll {
+  z-index: 5;
+}
+
 
 /* ========================================
    SCROLL
