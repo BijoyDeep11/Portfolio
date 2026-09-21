@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+
 import {
   motion,
   useMotionValue,
@@ -14,6 +15,8 @@ const CustomCursor = () => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
+  const cursorScale = useMotionValue(1);
+
   const dotX = useSpring(mouseX, {
     stiffness: 900,
     damping: 45,
@@ -26,6 +29,12 @@ const CustomCursor = () => {
     mass: 0.15,
   });
 
+  const scale = useSpring(cursorScale, {
+    stiffness: 700,
+    damping: 35,
+    mass: 0.15,
+  });
+
   useEffect(() => {
     if (window.matchMedia("(pointer: coarse)").matches) {
       return;
@@ -33,7 +42,6 @@ const CustomCursor = () => {
 
     const handleMouseMove = (event) => {
       const { clientX, clientY } = event;
-
       const activeElement = activeElementRef.current;
 
       if (activeElement) {
@@ -42,7 +50,6 @@ const CustomCursor = () => {
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
 
-        // How strongly the cursor is pulled
         const magneticStrength = 0.18;
 
         const targetX =
@@ -69,6 +76,13 @@ const CustomCursor = () => {
       if (!target) return;
 
       activeElementRef.current = target;
+
+      const isPrimary =
+        target.matches(
+          "[data-magnetic='primary'], .magnetic-primary"
+        );
+
+      cursorScale.set(isPrimary ? 1.7 : 1.4);
     };
 
     const handlePointerOut = (event) => {
@@ -86,6 +100,8 @@ const CustomCursor = () => {
       }
 
       activeElementRef.current = null;
+
+      cursorScale.set(1);
     };
 
     window.addEventListener(
@@ -119,7 +135,7 @@ const CustomCursor = () => {
         handlePointerOut
       );
     };
-  }, [mouseX, mouseY]);
+  }, [mouseX, mouseY, cursorScale]);
 
   return (
     <motion.div
@@ -128,6 +144,7 @@ const CustomCursor = () => {
       style={{
         x: dotX,
         y: dotY,
+        scale,
       }}
     />
   );

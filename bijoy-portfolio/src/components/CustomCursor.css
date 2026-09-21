@@ -4,7 +4,6 @@
 
 .custom-cursor {
   position: fixed;
-
   top: 0;
   left: 0;
 
@@ -14,7 +13,6 @@
   border-radius: 50%;
 
   pointer-events: none;
-
   z-index: 999999;
 
   background: #1683ff;
@@ -26,6 +24,9 @@
     0 0 18px rgba(18, 107, 255, 0.3);
 
   will-change: transform;
+
+  transition:
+    box-shadow 0.25s ease;
 }
 
 
@@ -39,6 +40,12 @@
   button,
   [data-magnetic] {
     cursor: none;
+  }
+
+  .magnetic-primary:hover ~ .custom-cursor {
+    box-shadow:
+      0 0 10px rgba(22, 131, 255, 0.9),
+      0 0 24px rgba(18, 107, 255, 0.45);
   }
 }
 

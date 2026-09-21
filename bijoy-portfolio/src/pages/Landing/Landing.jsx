@@ -1,7 +1,11 @@
 import { useLayoutEffect, useRef } from "react";
+
 import { gsap } from "gsap";
+
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import ShaderBackground from "./ShaderBackground";
+
 import "./Landing.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -142,20 +146,24 @@ function Landing() {
       className="landing-page"
       ref={landingRef}
     >
-        <ShaderBackground />
+      <ShaderBackground />
 
-      {/* **TOP INFORMATION** */}
+      {/* TOP INFORMATION */}
+
       <div className="landing-top-info">
         <div className="landing-top-item">
           <span>PERSONAL</span>
           <span>PORTFOLIO</span>
         </div>
+
         <div className="landing-top-item">
           <span>YEAR</span>
           <span>2026</span>
         </div>
+
         <div className="landing-top-message">
           <span className="landing-blue-line" />
+
           <div>
             <span>BUILDING DIGITAL SYSTEMS</span>
             <span>FOR A BETTER TOMORROW</span>
@@ -163,10 +171,12 @@ function Landing() {
         </div>
       </div>
 
-      {/* **HERO** */}
+      {/* HERO */}
+
       <div className="landing-hero">
         <div className="landing-eyebrow">
           <span className="landing-blue-line" />
+
           <span>
             HELLO, I'M BIJOY
           </span>
@@ -174,9 +184,11 @@ function Landing() {
 
         <h1 className="landing-title">
           <span>I BUILD</span>
+
           <span className="landing-title-blue">
             DIGITAL
           </span>
+
           <span>
             SYSTEMS
           </span>
@@ -188,13 +200,16 @@ function Landing() {
             products, interactive experiences and
             data-driven systems.
           </p>
+
           <a
             href="#projects"
-            className="landing-cta"
+            className="landing-cta magnetic-primary"
+            data-magnetic="primary"
           >
             <span className="landing-cta-circle">
               ↗
             </span>
+
             <span>
               EXPLORE MY WORK
             </span>
@@ -202,7 +217,8 @@ function Landing() {
         </div>
       </div>
 
-      {/* **PORTRAIT** */}
+      {/* PORTRAIT */}
+
       <div className="landing-portrait">
         <div className="landing-portrait-circle">
           <img
@@ -214,40 +230,48 @@ function Landing() {
 
         <div className="landing-portrait-label">
           <span className="landing-blue-line" />
+
           <span>
             ENGINEER / LEARNER / BUILDER
           </span>
         </div>
       </div>
 
-      {/* **BOTTOM LEFT** */}
+      {/* BOTTOM LEFT */}
+
       <div className="landing-left-meta">
         <span>
           BASED IN INDIA
         </span>
+
         <span>
           BUILDING SINCE 2023
         </span>
       </div>
 
-      {/* **SCROLL** */}
+      {/* SCROLL */}
+
       <a
         href="#dashboard"
         className="landing-scroll"
+        data-magnetic
       >
         <span>
           SCROLL TO EXPLORE
         </span>
+
         <span className="landing-scroll-arrow">
           ↓
         </span>
       </a>
 
-      {/* **BOTTOM RIGHT** */}
+      {/* BOTTOM RIGHT */}
+
       <div className="landing-right-meta">
         <span>
           OPEN TO
         </span>
+
         <span>
           INTERNSHIPS / COLLABORATIONS
         </span>

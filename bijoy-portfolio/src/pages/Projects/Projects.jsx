@@ -15,7 +15,14 @@ const projects = [
     name: "LAW LENS",
     description:
       "A document-grounded legal intelligence workspace that turns complex contracts into searchable, contextual conversations with page-aware citations.",
-    technologies: ["REACT", "FLASK", "POSTGRESQL", "PGVECTOR", "RAG", "OPENAI"],
+    technologies: [
+      "REACT",
+      "FLASK",
+      "POSTGRESQL",
+      "PGVECTOR",
+      "RAG",
+      "OPENAI",
+    ],
     status: "DEPLOYED",
     type: "FULL-STACK SYSTEM",
     role: "FULL-STACK / AI",
@@ -28,7 +35,14 @@ const projects = [
     name: "RESUME SCREENER",
     description:
       "An explainable resume screening system combining keyword and semantic similarity to analyze resumes against job descriptions and generate actionable recommendations.",
-    technologies: ["PYTHON", "SPACY", "NLTK", "TF-IDF", "SBERT", "STREAMLIT"],
+    technologies: [
+      "PYTHON",
+      "SPACY",
+      "NLTK",
+      "TF-IDF",
+      "SBERT",
+      "STREAMLIT",
+    ],
     status: "DEPLOYED",
     type: "AI / NLP SYSTEM",
     role: "PYTHON DEVELOPER",
@@ -70,11 +84,14 @@ function ExternalIcon() {
 
 function GithubIcon() {
   return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className="github-icon"
+    >
       <path
         fill="currentColor"
-        stroke="none"
-        d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.167 6.84 9.49.5.09.68-.217.68-.483 0-.237-.01-1.024-.014-1.855-2.782.605-3.369-1.18-3.369-1.18-.455-1.157-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.005.07 1.534 1.032 1.534 1.032.892 1.53 2.341 1.088 2.915.832.091-.647.35-1.088.636-1.339-2.222-.253-4.555-1.111-4.555-4.943 0-1.091.39-1.984 1.03-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.56 9.56 0 0 1 12 6.845a9.58 9.58 0 0 1 2.504.337c1.91-1.294 2.75-1.025 2.75-1.025.545 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.337 4.687-4.565 4.935.359.31.679.92.679 1.854 0 1.338-.012 2.418-.012 2.748 0 .269.18.579.688.481A10.002 10.002 0 0 0 22 12c0-5.523-4.477-10-10-10Z"
+        d="M12 2.25a9.75 9.75 0 0 0-3.084 19.002c.488.09.667-.212.667-.47 0-.232-.009-.846-.013-1.66-2.714.59-3.287-1.309-3.287-1.309-.444-1.127-1.084-1.428-1.084-1.428-.886-.606.067-.594.067-.594.98.069 1.496 1.006 1.496 1.006.871 1.492 2.285 1.061 2.842.811.089-.631.341-1.062.62-1.306-2.167-.247-4.445-1.083-4.445-4.822 0-1.065.381-1.936 1.006-2.619-.101-.247-.436-1.24.096-2.585 0 0 .82-.262 2.686.999A9.33 9.33 0 0 1 12 6.94a9.35 9.35 0 0 1 2.445.329c1.864-1.261 2.683-.999 2.683-.999.533 1.345.198 2.338.097 2.585.626.683 1.005 1.554 1.005 2.619 0 3.749-2.282 4.572-4.456 4.815.35.302.662.898.662 1.81 0 1.306-.012 2.358-.012 2.678 0 .26.176.565.673.469A9.75 9.75 0 0 0 12 2.25Z"
       />
     </svg>
   );
@@ -87,7 +104,8 @@ function ProjectLinks({ project }) {
         href={project.liveUrl}
         target="_blank"
         rel="noreferrer"
-        className="projects-link projects-link--primary"
+        className="projects-link projects-link--primary magnetic-primary"
+        data-magnetic="primary"
       >
         <span>LIVE DEMO</span>
         <ExternalIcon />
@@ -98,6 +116,7 @@ function ProjectLinks({ project }) {
         target="_blank"
         rel="noreferrer"
         className="projects-link"
+        data-magnetic
       >
         <GithubIcon />
         <span>GITHUB</span>
@@ -111,14 +130,23 @@ function ProjectDetails({ project }) {
     <>
       <div className="projects-tags">
         {project.technologies.map((tech) => (
-          <span key={tech}>{tech}</span>
+          <span
+            key={tech}
+            className="project-tech"
+            data-magnetic
+          >
+            {tech}
+          </span>
         ))}
       </div>
 
       <div className="projects-meta">
         <div>
           <small>STATUS</small>
-          <span><i />{project.status}</span>
+          <span>
+            <i />
+            {project.status}
+          </span>
         </div>
 
         <div>
@@ -160,10 +188,21 @@ function LawLensPreview() {
 
       <div className="lawlens-layout">
         <aside className="lawlens-sidebar">
-          <div className="lawlens-nav is-active">▦ <span>Dashboard</span></div>
-          <div className="lawlens-nav">▤ <span>Documents</span></div>
-          <div className="lawlens-nav">□ <span>Chat</span></div>
-          <div className="lawlens-nav">⌕ <span>Analytics</span></div>
+          <div className="lawlens-nav is-active">
+            ▦ <span>Dashboard</span>
+          </div>
+
+          <div className="lawlens-nav">
+            ▤ <span>Documents</span>
+          </div>
+
+          <div className="lawlens-nav">
+            □ <span>Chat</span>
+          </div>
+
+          <div className="lawlens-nav">
+            ⌕ <span>Analytics</span>
+          </div>
         </aside>
 
         <div className="lawlens-content">
@@ -173,24 +212,52 @@ function LawLensPreview() {
 
           <div className="lawlens-heading">
             <div>
-              <h4>Welcome back, <b>SAM BAHADUR</b></h4>
-              <p>Your documents, conversations and AI analysis in one place.</p>
+              <h4>
+                Welcome back, <b>SAM BAHADUR</b>
+              </h4>
+
+              <p>
+                Your documents, conversations and AI analysis in one place.
+              </p>
             </div>
 
             <button>＋ Upload document</button>
           </div>
 
           <div className="lawlens-stats">
-            <div><small>DOCUMENTS</small><b>1</b><span>Your workspace</span></div>
-            <div><small>PAGES INDEXED</small><b>7</b><span>Across repository</span></div>
-            <div><small>CATEGORIES</small><b>1</b><span>Across repository</span></div>
-            <div><small>CHUNKS INDEXED</small><b>30</b><span>Across repository</span></div>
+            <div>
+              <small>DOCUMENTS</small>
+              <b>1</b>
+              <span>Your workspace</span>
+            </div>
+
+            <div>
+              <small>PAGES INDEXED</small>
+              <b>7</b>
+              <span>Across repository</span>
+            </div>
+
+            <div>
+              <small>CATEGORIES</small>
+              <b>1</b>
+              <span>Across repository</span>
+            </div>
+
+            <div>
+              <small>CHUNKS INDEXED</small>
+              <b>30</b>
+              <span>Across repository</span>
+            </div>
           </div>
 
           <div className="lawlens-lower">
             <div className="lawlens-repository">
               <small>REPOSITORY</small>
-              <h5>Document workspace <span>View all ↗</span></h5>
+
+              <h5>
+                Document workspace <span>View all ↗</span>
+              </h5>
+
               <p>Your indexed legal knowledge base</p>
 
               <div className="lawlens-document">
@@ -198,7 +265,9 @@ function LawLensPreview() {
 
                 <div>
                   <b>LawLens_Test_Legal_Document</b>
-                  <span>Legal Notice · 7 pages · 30 Aug 2026</span>
+                  <span>
+                    Legal Notice · 7 pages · 30 Aug 2026
+                  </span>
                 </div>
 
                 <i>● INDEXED</i>
@@ -207,11 +276,20 @@ function LawLensPreview() {
 
             <div className="lawlens-chat">
               <small>AI WORKSPACE</small>
+
               <h5>Recent conversations</h5>
 
-              <div>◯ <b>How quickly must a Critical Incident be acknowledged...</b> ↗</div>
-              <div>◯ <b>Chat: LawLens_Test_Legal_Document</b> ↗</div>
-              <div>◯ <b>General Document Chat</b> ↗</div>
+              <div>
+                ◯ <b>How quickly must a Critical Incident be acknowledged...</b> ↗
+              </div>
+
+              <div>
+                ◯ <b>Chat: LawLens_Test_Legal_Document</b> ↗
+              </div>
+
+              <div>
+                ◯ <b>General Document Chat</b> ↗
+              </div>
 
               <section>
                 <strong>✣</strong>
@@ -235,15 +313,22 @@ function ResumePreview() {
   return (
     <div className="product-window product-window--resume">
       <div className="browser-bar">
-        <i /><i /><i />
+        <i />
+        <i />
+        <i />
+
         <span>resume-screener</span>
+
         <b>⋮</b>
       </div>
 
       <div className="resume-preview-layout">
         <div className="resume-upload-panel">
           <h4>📄 AI-Powered Resume Screener</h4>
-          <p>Upload resumes and a job description to see how well they match.</p>
+
+          <p>
+            Upload resumes and a job description to see how well they match.
+          </p>
 
           <label>Upload Resume(s) (PDF or DOCX)</label>
 
@@ -271,7 +356,9 @@ function ResumePreview() {
             <button>Browse files</button>
           </div>
 
-          <button className="resume-analyze">Analyze Match</button>
+          <button className="resume-analyze">
+            Analyze Match
+          </button>
         </div>
 
         <div className="resume-detail-panel">
@@ -294,14 +381,27 @@ function ResumePreview() {
 
           <div className="resume-section">
             <h6>📍 Skill Hits in Context</h6>
-            <p><b>Skills found here:</b> Mongodb, C, Node</p>
-            <span>...developer building end-to-end apps. skills react, node.js, mongodb projects task manager app mern stack application...</span>
+
+            <p>
+              <b>Skills found here:</b> Mongodb, C, Node
+            </p>
+
+            <span>
+              ...developer building end-to-end apps. skills react, node.js,
+              mongodb projects task manager app mern stack application...
+            </span>
           </div>
 
           <div className="resume-section">
             <h6>📄 Extracted Profile</h6>
-            <p><b>Name:</b> Rohit Patel</p>
-            <p><b>Skills:</b> mongodb, c, react, node</p>
+
+            <p>
+              <b>Name:</b> Rohit Patel
+            </p>
+
+            <p>
+              <b>Skills:</b> mongodb, c, react, node
+            </p>
           </div>
         </div>
       </div>
@@ -313,7 +413,9 @@ function ScribePreview() {
   return (
     <div className="product-window product-window--scribe">
       <div className="scribe-browser-bar">
-        <span>♧ <b>Scribe.</b></span>
+        <span>
+          ♧ <b>Scribe.</b>
+        </span>
 
         <nav>
           <span>Home</span>
@@ -344,10 +446,18 @@ function ScribePreview() {
           <article className="scribe-post scribe-post--large">
             <div className="scribe-post-image scribe-post-image--diagram">
               <span>WaspBlog Application Workflow</span>
-              <i /><i /><i /><i />
+              <i />
+              <i />
+              <i />
+              <i />
             </div>
 
-            <h5>Building My First<br />Full-Stack Blog</h5>
+            <h5>
+              Building My First
+              <br />
+              Full-Stack Blog
+            </h5>
+
             <span>Sep 20, 2026</span>
           </article>
 
@@ -356,7 +466,12 @@ function ScribePreview() {
               <span>VECTOR DB</span>
             </div>
 
-            <h5>Understanding<br />Vector Databases</h5>
+            <h5>
+              Understanding
+              <br />
+              Vector Databases
+            </h5>
+
             <span>Sep 12, 2026</span>
           </article>
 
@@ -365,7 +480,12 @@ function ScribePreview() {
               <span>TECH / BUILD</span>
             </div>
 
-            <h5>My Journey<br />in Tech</h5>
+            <h5>
+              My Journey
+              <br />
+              in Tech
+            </h5>
+
             <span>Aug 28, 2026</span>
           </article>
         </div>
@@ -376,40 +496,57 @@ function ScribePreview() {
 
 function ProjectPreview({ number }) {
   if (number === "01") return <LawLensPreview />;
+
   if (number === "02") return <ResumePreview />;
+
   return <ScribePreview />;
 }
 
 function ProjectSection({ project, reverse = false }) {
   return (
-    <article className={`project-row ${reverse ? "project-row--reverse" : ""}`}>
+    <article
+      className={`project-row ${
+        reverse ? "project-row--reverse" : ""
+      }`}
+    >
       <div className="project-copy">
         <div className="project-index">
           <span>{project.number}</span>
           <i />
         </div>
 
-        <span className="project-category">{project.category}</span>
+        <span className="project-category">
+          {project.category}
+        </span>
 
         <h3 className="project-title">
           {project.name.split(" ").map((word, index) => (
             <span
               key={`${word}-${index}`}
-              className={index === project.name.split(" ").length - 1 ? "project-title-accent" : ""}
+              className={
+                index === project.name.split(" ").length - 1
+                  ? "project-title-accent"
+                  : ""
+              }
             >
               {word}{" "}
             </span>
           ))}
         </h3>
 
-        <p className="project-description">{project.description}</p>
+        <p className="project-description">
+          {project.description}
+        </p>
 
         <ProjectDetails project={project} />
       </div>
 
       <div className="project-visual">
         <div className="project-visual-glow" />
-        <ProjectPreview number={project.number} />
+
+        <ProjectPreview
+          number={project.number}
+        />
       </div>
     </article>
   );
@@ -434,6 +571,7 @@ function Projects() {
           start: "top 78%",
           once: true,
         },
+
         defaults: {
           ease: "power3.out",
         },
@@ -485,6 +623,7 @@ function Projects() {
             start: "top 78%",
             once: true,
           },
+
           defaults: {
             ease: "power3.out",
           },
@@ -549,6 +688,84 @@ function Projects() {
           once: true,
         },
       });
+
+      /*
+        MAGNETIC PROJECT INTERACTIONS
+
+        These only affect interactive project elements.
+        They do not touch the ScrollTrigger animations above.
+      */
+
+      const magneticElements = gsap.utils.toArray(
+        ".projects-link, .project-tech"
+      );
+
+      magneticElements.forEach((element) => {
+        const strength = element.matches(
+          ".projects-link--primary"
+        )
+          ? 0.12
+          : element.classList.contains("project-tech")
+          ? 0.08
+          : 0.1;
+
+        const xTo = gsap.quickTo(element, "x", {
+          duration: 0.35,
+          ease: "power3.out",
+        });
+
+        const yTo = gsap.quickTo(element, "y", {
+          duration: 0.35,
+          ease: "power3.out",
+        });
+
+        const handleMouseMove = (event) => {
+          const rect = element.getBoundingClientRect();
+
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+
+          const x = (event.clientX - centerX) * strength;
+          const y = (event.clientY - centerY) * strength;
+
+          xTo(x);
+          yTo(y);
+        };
+
+        const resetPosition = () => {
+          xTo(0);
+          yTo(0);
+        };
+
+        element.addEventListener(
+          "mousemove",
+          handleMouseMove
+        );
+
+        element.addEventListener(
+          "mouseleave",
+          resetPosition
+        );
+
+        element._magneticCleanup = () => {
+          element.removeEventListener(
+            "mousemove",
+            handleMouseMove
+          );
+
+          element.removeEventListener(
+            "mouseleave",
+            resetPosition
+          );
+        };
+      });
+
+      return () => {
+        magneticElements.forEach((element) => {
+          element._magneticCleanup?.();
+          delete element._magneticCleanup;
+        });
+      };
     }, projectsRef);
 
     return () => ctx.revert();
@@ -595,7 +812,10 @@ function Projects() {
       <div className="projects-list">
         <ProjectSection project={projects[0]} />
 
-        <ProjectSection project={projects[1]} reverse />
+        <ProjectSection
+          project={projects[1]}
+          reverse
+        />
 
         <ProjectSection project={projects[2]} />
       </div>
@@ -605,7 +825,10 @@ function Projects() {
 
         <i />
 
-        <a href="#process">
+        <a
+          href="#process"
+          data-magnetic
+        >
           <span>NEXT / PROCESS</span>
           <b>04 / 05</b>
           <em>→</em>
