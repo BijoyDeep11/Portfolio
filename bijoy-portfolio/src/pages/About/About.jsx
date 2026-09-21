@@ -228,27 +228,27 @@ function WhatsAppIcon() {
 const socialLinks = [
   {
     label: "GitHub",
-    href: "#",
+    href: "https://github.com/BijoyDeep11",
     icon: <GithubIcon />,
   },
   {
     label: "LinkedIn",
-    href: "#",
+    href: "https://www.linkedin.com/in/bijoydeepghosh?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     icon: <LinkedinIcon />,
   },
   {
     label: "Twitter",
-    href: "#",
+    href: "https://x.com/DeepBijoy11?t=PJj72cZPJmhnlEF9BrnGcw&s=09",
     icon: <TwitterIcon />,
   },
   {
     label: "Instagram",
-    href: "#",
+    href: "https://www.instagram.com/hardystic_33?stkn=NWFsaWIwenliZGtz",
     icon: <InstagramIcon />,
   },
   {
     label: "WhatsApp",
-    href: "#",
+    href: "https://wa.me/917001921080?s=t",
     icon: <WhatsAppIcon />,
   },
 ];
@@ -388,7 +388,9 @@ function About() {
 
           <div className="about-contact-cards">
             <a
-              href="#"
+              href="https://docs.google.com/document/d/1LMbFt5bHIZHSY9Irtap16id_3pZsa22L/edit?usp=drive_link&ouid=116051463258942372766&rtpof=true&sd=true"
+              target="_blank"
+              rel="noreferrer"
               className="about-contact-card"
               aria-label="View resume"
             >
