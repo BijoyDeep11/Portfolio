@@ -134,8 +134,8 @@ function Process() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: page,
-          start: "top bottom",
-          end: "bottom top",
+          start: "top 90%",
+          end: "top 10%",
           scrub: 1,
         },
       });
