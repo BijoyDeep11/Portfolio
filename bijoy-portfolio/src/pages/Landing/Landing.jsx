@@ -1,6 +1,7 @@
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ShaderBackground from "./ShaderBackground";
 import "./Landing.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -141,6 +142,8 @@ function Landing() {
       className="landing-page"
       ref={landingRef}
     >
+        <ShaderBackground />
+
       {/* **TOP INFORMATION** */}
       <div className="landing-top-info">
         <div className="landing-top-item">
