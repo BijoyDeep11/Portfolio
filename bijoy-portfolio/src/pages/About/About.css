@@ -1156,6 +1156,6 @@ mask-image: radial-gradient(
   }
 }
 
-.about-contact h span {
+.about-contact h2 span {
   color: var(--color-blue-bright);
 }
