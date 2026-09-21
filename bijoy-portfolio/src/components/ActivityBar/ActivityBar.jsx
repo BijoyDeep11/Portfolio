@@ -72,9 +72,22 @@ function ActivityBar() {
       className="activity-bar"
       aria-label="Portfolio navigation"
     >
-      <div className="activity-bar__brand">
-        BIJOY.DEV
-      </div>
+      <a
+        href="#home"
+        className="activity-bar__brand"
+        data-magnetic
+        aria-label="Bijoy home"
+      >
+        <img
+          src="/bijoy-logo.png"
+          alt=""
+          className="activity-bar__logo"
+        />
+
+        <span className="activity-bar__wordmark">
+          BIJOY<span>.DEV</span>
+        </span>
+      </a>
 
       <div className="activity-bar__nav">
         {pages.map((page) => (
