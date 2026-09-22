@@ -2050,3 +2050,172 @@
     cursor: auto;
   }
 }
+
+/* =========================================================
+   LAW LENS — MOBILE PRODUCT VIEW
+   ========================================================= */
+
+@media (max-width: 560px) {
+
+  /* Make the preview itself portrait */
+  .project-visual {
+    height: 500px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Mobile-sized viewport */
+  .product-window {
+    width: min(100%, 310px);
+    height: 100%;
+    border-radius: 9px;
+  }
+
+  /* Mobile header */
+  .product-window-bar {
+    height: 48px;
+    padding: 0 12px;
+  }
+
+  .lawlens-brand {
+    gap: 6px;
+  }
+
+  .lawlens-brand > span {
+    font-size: 16px;
+  }
+
+  .lawlens-brand strong {
+    font-size: 13px;
+  }
+
+  .lawlens-user {
+    gap: 5px;
+  }
+
+  .lawlens-user > span {
+    width: 23px;
+    height: 23px;
+  }
+
+  .lawlens-user b {
+    font-size: 7px;
+  }
+
+  .lawlens-user small {
+    font-size: 5px;
+  }
+
+  /* Remove desktop sidebar */
+  .lawlens-layout {
+    grid-template-columns: 1fr;
+    height: calc(100% - 48px);
+  }
+
+  .lawlens-sidebar {
+    display: none;
+  }
+
+  /* Full-width mobile content */
+  .lawlens-content {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 15px;
+    overflow: hidden;
+  }
+
+  .lawlens-kicker {
+    font-size: 7px;
+  }
+
+  .lawlens-kicker span {
+    width: 18px;
+  }
+
+  /* Heading becomes vertical */
+  .lawlens-heading {
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .lawlens-heading h4 {
+    font-size: 24px;
+    line-height: 0.95;
+  }
+
+  .lawlens-heading p {
+    max-width: 155px;
+    font-size: 7px;
+    line-height: 1.4;
+  }
+
+  .lawlens-heading button {
+    flex-shrink: 0;
+    padding: 10px 11px;
+    font-size: 7px;
+  }
+
+  /* 4 cards become a proper 2 × 2 mobile grid */
+  .lawlens-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 7px;
+    margin-top: 18px;
+  }
+
+  .lawlens-stats > div {
+    min-height: 62px;
+    padding: 10px;
+  }
+
+  .lawlens-stats small {
+    font-size: 6px;
+  }
+
+  .lawlens-stats b {
+    margin-top: 5px;
+    font-size: 20px;
+  }
+
+  .lawlens-stats span {
+    right: 7px;
+    bottom: 7px;
+    font-size: 5px;
+  }
+
+  /* Repository becomes full width */
+  .lawlens-lower {
+    display: block;
+    margin-top: 10px;
+  }
+
+  .lawlens-repository {
+    min-height: 145px;
+  }
+
+  /* Chat isn't necessary in the mobile preview */
+  .lawlens-chat {
+    display: none;
+  }
+
+  .lawlens-repository > small {
+    margin: 12px 12px 4px;
+    font-size: 6px;
+  }
+
+  .lawlens-repository h5 {
+    margin: 0 12px;
+    font-size: 11px;
+  }
+
+  .lawlens-repository > p {
+    margin: 4px 12px 12px;
+    font-size: 6px;
+  }
+
+  .lawlens-document {
+    grid-template-columns: 29px 1fr auto;
+    gap: 7px;
+    padding: 9px 12px;
+  }
+}
