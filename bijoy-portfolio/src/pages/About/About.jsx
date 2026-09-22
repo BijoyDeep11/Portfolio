@@ -798,9 +798,9 @@ function About() {
 
           {/* PROFILE FOOTER */}
 
-          <div className="about-profile-footer">
+          {/* <div className="about-profile-footer"> */}
 
-            <span className="about-footer-line" />
+            {/* <span className="about-footer-line" />
 
             <span>
               BUILDING A BETTER
@@ -808,7 +808,7 @@ function About() {
               VERSION OF MYSELF.
             </span>
 
-          </div>
+          </div> */}
 
         </section>
 

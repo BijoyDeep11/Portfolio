@@ -306,10 +306,10 @@ function Process() {
 
       <div className="process-hero">
         <div className="process-hero-label">
-          <span className="process-blue-line" />
+          {/* <span className="process-blue-line" /> */}
 
           <span>
-            PROCESS / METHODOLOGY
+            {/* PROCESS / METHODOLOGY */}
           </span>
         </div>
 
@@ -369,19 +369,19 @@ function Process() {
       ===================================== */}
 
       <div className="process-build-sequence">
-        <span>CODE</span>
+        {/* <span>CODE</span> */}
 
         <span className="process-sequence-arrow">
-          →
+          {/* → */}
         </span>
 
-        <span>TEST</span>
+        {/* <span>TEST</span> */}
 
         <span className="process-sequence-arrow">
-          →
+          {/* → */}
         </span>
 
-        <span>ITERATE</span>
+        {/* <span>ITERATE</span> */}
       </div>
 
       {/* =====================================
@@ -393,7 +393,7 @@ function Process() {
       </div>
 
       <div className="process-annotation process-annotation--center">
-        THINK / PROTOTYPE / IMPLEMENT
+        {/* THINK / PROTOTYPE / IMPLEMENT */}
       </div>
 
       <div className="process-annotation process-annotation--right">
@@ -405,10 +405,10 @@ function Process() {
       ===================================== */}
 
       <div className="process-current-state">
-        <span className="process-state-dot" />
+        {/* <span className="process-state-dot" /> */}
 
         <span>
-          CURRENT STATE / BUILDING
+          {/* CURRENT STATE / BUILDING */}
         </span>
       </div>
 

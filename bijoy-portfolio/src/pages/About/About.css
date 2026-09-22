@@ -551,7 +551,7 @@ mask-image: radial-gradient(
 
   color: var(--color-text-muted);
 
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.65;
 }
 
@@ -585,13 +585,13 @@ mask-image: radial-gradient(
 
 .about-detail strong {
   color: var(--color-text);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
 }
 
 .about-detail span {
   color: var(--color-text-muted);
-  font-size: 10px;
+  font-size: 13px;
 }
 
 .about-profile-footer {
@@ -648,7 +648,7 @@ mask-image: radial-gradient(
 
   color: var(--color-text-muted);
 
-  font-size: 12px;
+  font-size: 15px;
   line-height: 1.5;
 }
 
@@ -806,7 +806,7 @@ mask-image: radial-gradient(
 
   color: var(--color-text-muted);
 
-  font-size: 8px;
+  font-size: 12px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
 }
