@@ -76,64 +76,75 @@ function Landing() {
           "-=0.5"
         );
 
-      gsap.to(".landing-title", {
-        y: -55,
-        ease: "none",
-        scrollTrigger: {
-          trigger: landingRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 1,
-        },
-      });
+      /*
+        Keep the heavier parallax effects on desktop,
+        but let mobile use native scrolling for a smoother
+        touch experience.
+      */
+      const isMobile = window.matchMedia(
+        "(max-width: 768px)"
+      ).matches;
 
-      gsap.to(".landing-portrait", {
-        y: -100,
-        ease: "none",
-        scrollTrigger: {
-          trigger: landingRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 1.2,
-        },
-      });
-
-      gsap.to(".landing-description", {
-        y: -25,
-        ease: "none",
-        scrollTrigger: {
-          trigger: landingRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 1,
-        },
-      });
-
-      gsap.to(".landing-top-info", {
-        y: -20,
-        opacity: 0.5,
-        ease: "none",
-        scrollTrigger: {
-          trigger: landingRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 1,
-        },
-      });
-
-      gsap.to(
-        ".landing-left-meta, .landing-right-meta, .landing-scroll",
-        {
-          y: 20,
+      if (!isMobile) {
+        gsap.to(".landing-title", {
+          y: -55,
           ease: "none",
           scrollTrigger: {
             trigger: landingRef.current,
             start: "top top",
-            end: "65% top",
+            end: "bottom top",
             scrub: 1,
           },
-        }
-      );
+        });
+
+        gsap.to(".landing-portrait", {
+          y: -100,
+          ease: "none",
+          scrollTrigger: {
+            trigger: landingRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: 1.2,
+          },
+        });
+
+        gsap.to(".landing-description", {
+          y: -25,
+          ease: "none",
+          scrollTrigger: {
+            trigger: landingRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: 1,
+          },
+        });
+
+        gsap.to(".landing-top-info", {
+          y: -20,
+          opacity: 0.5,
+          ease: "none",
+          scrollTrigger: {
+            trigger: landingRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: 1,
+          },
+        });
+
+        gsap.to(
+          ".landing-left-meta, .landing-right-meta, .landing-scroll",
+          {
+            y: 20,
+            ease: "none",
+            scrollTrigger: {
+              trigger: landingRef.current,
+              start: "top top",
+              end: "65% top",
+              scrub: 1,
+            },
+          }
+        );
+      }
     }, landingRef);
 
     return () => ctx.revert();
