@@ -36,6 +36,7 @@
   z-index: 5;
 }
 
+
 .landing-top-item {
   display: flex;
 
@@ -351,139 +352,91 @@
 
   flex-wrap: nowrap;
 
-  gap: 22px;
+  gap: 12px;
 
-  margin-top: 20px;
+  margin-top: 22px;
 }
 
 
 /* ========================================
-   RESUME ACTION
+   ICON ACTIONS
 ======================================== */
 
-.landing-action--primary {
+.landing-social-action {
+  position: relative;
+
+  width: 48px;
+  height: 48px;
+
   display: inline-flex;
 
   align-items: center;
   justify-content: center;
 
-  gap: 9px;
-
-  height: 40px;
-
-  padding:
-    0 22px;
+  flex-shrink: 0;
 
   border:
     1px solid
-    var(--color-blue-bright);
+    rgba(255, 255, 255, 0.28);
 
-  border-radius: 2px;
-
-  color: #ffffff;
+  border-radius: 4px;
 
   background:
-    var(--color-blue-bright);
-
-  font-family:
-    var(--font-mono),
-    "IBM Plex Mono",
-    monospace;
-
-  font-size: 9px;
-
-  font-weight: 500;
-
-  letter-spacing: 0.11em;
-
-  text-transform: uppercase;
-
-  transition:
-    background 220ms var(--ease-standard),
-    border-color 220ms var(--ease-standard),
-    box-shadow 220ms var(--ease-standard),
-    filter 220ms var(--ease-standard);
-
-  will-change: transform;
-}
-
-.landing-action--primary:hover {
-  color: #ffffff;
-
-  background:
-    #0f76ea;
-
-  border-color:
-    #0f76ea;
-
-  box-shadow:
-    0 0 20px
-    rgba(18, 107, 255, 0.22),
-
-    0 0 35px
-    rgba(18, 107, 255, 0.1);
-
-  filter:
-    brightness(1.04);
-}
-
-.landing-action-icon {
-  font-size: 12px;
-
-  line-height: 1;
-}
-
-
-/* ========================================
-   GITHUB / LINKEDIN
-======================================== */
-
-.landing-social-action {
-  display: inline-flex;
-
-  align-items: center;
-
-  gap: 10px;
+    rgba(5, 7, 10, 0.45);
 
   color: var(--color-text-soft);
-
-  font-family:
-    var(--font-mono),
-    "IBM Plex Mono",
-    monospace;
-
-  font-size: 10px;
-
-  font-weight: 500;
-
-  letter-spacing: 0.1em;
-
-  text-transform: uppercase;
 
   text-decoration: none;
 
   transition:
     color 220ms var(--ease-standard),
-    filter 220ms var(--ease-standard);
+    border-color 220ms var(--ease-standard),
+    background 220ms var(--ease-standard),
+    box-shadow 220ms var(--ease-standard);
 
   will-change: transform;
 }
 
 .landing-social-action:hover {
-  color: var(--color-blue-bright);
+  color: #ffffff;
 
-  filter:
-    drop-shadow(
-      0 0 7px
-      rgba(18, 107, 255, 0.45)
-    );
+  border-color:
+    var(--color-blue-bright);
+
+  background:
+    rgba(18, 107, 255, 0.08);
+
+  box-shadow:
+    0 0 14px
+    rgba(18, 107, 255, 0.14),
+
+    0 0 28px
+    rgba(18, 107, 255, 0.06);
 }
 
-.landing-social-icon {
-  width: 25px;
-  height: 25px;
 
-  flex: 0 0 22px;
+/* ========================================
+   RESUME ICON
+======================================== */
+
+.landing-resume-action {
+  color: var(--color-text-soft);
+}
+
+.landing-resume-action:hover {
+  color: #ffffff;
+}
+
+
+/* ========================================
+   SOCIAL ICON
+======================================== */
+
+.landing-social-icon {
+  width: 21px;
+  height: 21px;
+
+  flex: 0 0 21px;
 
   display: block;
 
@@ -504,22 +457,98 @@
     );
 }
 
-.landing-social-action::after {
-  content: none;
 
-  margin-left: -3px;
+/* ========================================
+   HOVER TOOLTIP
+======================================== */
 
-  font-size: 11px;
+.landing-action-tooltip {
+  position: absolute;
+
+  left: 50%;
+  bottom: calc(100% + 9px);
+
+  transform:
+    translateX(-50%)
+    translateY(4px);
+
+  padding: 5px 8px;
+
+  background: #0a0c10;
+
+  border:
+    1px solid
+    rgba(22, 131, 255, 0.7);
+
+  color: #f2f2f2;
+
+  font-family:
+    var(--font-mono),
+    "IBM Plex Mono",
+    monospace;
+
+  font-size: 7px;
 
   line-height: 1;
 
+  letter-spacing: 0.1em;
+
+  white-space: nowrap;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
   transition:
-    transform 220ms var(--ease-standard);
+    opacity 180ms var(--ease-standard),
+    transform 180ms var(--ease-standard),
+    visibility 180ms var(--ease-standard);
+
+  z-index: 20;
 }
 
-.landing-social-action:hover::after {
+
+/* ========================================
+   TOOLTIP POINTER
+======================================== */
+
+.landing-action-tooltip::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: -4px;
+
+  width: 7px;
+  height: 7px;
+
+  background: #0a0c10;
+
+  border-right:
+    1px solid
+    rgba(22, 131, 255, 0.7);
+
+  border-bottom:
+    1px solid
+    rgba(22, 131, 255, 0.7);
+
   transform:
-    translate(2px, -2px);
+    translateX(-50%)
+    rotate(45deg);
+}
+
+.landing-social-action:hover
+  .landing-action-tooltip {
+  opacity: 1;
+
+  visibility: visible;
+
+  transform:
+    translateX(-50%)
+    translateY(0);
 }
 
 
@@ -589,7 +618,8 @@
   color: var(--color-text);
 }
 
-.landing-work-link:hover .landing-work-circle {
+.landing-work-link:hover
+  .landing-work-circle {
   background:
     var(--color-blue-bright);
 
@@ -601,6 +631,103 @@
     rgba(18, 107, 255, 0.2);
 }
 
+
+/* ========================================
+   VIEW PROJECTS CTA
+======================================== */
+
+.landing-project-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 48px;
+  width: fit-content;
+  padding: 0 14px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 4px;
+
+  background: transparent;
+
+  color: #ffffff !important;
+
+  font-family:
+    var(--font-mono),
+    "IBM Plex Mono",
+    monospace;
+
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  transition:
+    color 220ms ease,
+    border-color 220ms ease,
+    background 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
+}
+
+.landing-project-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  color: #ffffff !important;
+
+  white-space: nowrap;
+}
+
+.landing-project-label::after {
+  content: "→";
+
+  color: #ffffff !important;
+
+  font-size: 12px;
+  line-height: 1;
+
+  transition:
+    color 220ms ease,
+    transform 220ms ease;
+}
+
+/* ========================================
+   HOVER
+======================================== */
+
+.landing-project-action:hover {
+  color: #ffffff;
+
+  border-color: var(--color-blue-bright);
+
+  background: rgba(18, 107, 255, 0.05);
+
+  box-shadow:
+    0 0 12px rgba(22, 131, 255, 0.22),
+    0 0 26px rgba(22, 131, 255, 0.1);
+
+  transform: translateY(-1px);
+}
+
+.landing-project-action:hover
+.landing-project-label,
+.landing-project-action:hover
+.landing-project-label::after {
+  color: #ffffff;
+}
+
+.landing-project-action:hover
+.landing-project-label::after {
+  transform: translateX(3px);
+}
 
 /* ========================================
    PORTRAIT
@@ -920,6 +1047,10 @@
     right: 10%;
   }
 
+  .landing-project-action {
+    width: fit-content;
+  }
+
 }
 
 
@@ -942,7 +1073,6 @@
       70px;
   }
 
-
   .landing-top-info {
     top: 32px;
 
@@ -954,7 +1084,6 @@
     display: none;
   }
 
-
   .landing-hero {
     position: relative;
 
@@ -965,7 +1094,6 @@
 
     padding-top: 30px;
   }
-
 
   .landing-title {
     width: max-content;
@@ -979,13 +1107,11 @@
     line-height: 0.87;
   }
 
-
   .landing-description {
     width: min(460px, 90%);
 
     margin-top: 26px;
   }
-
 
   .landing-role {
     font-size: 10px;
@@ -993,11 +1119,9 @@
     letter-spacing: 0.14em;
   }
 
-
   .landing-intro {
     font-size: 15px;
   }
-
 
   .landing-primary-actions {
     flex-direction: row;
@@ -1006,44 +1130,35 @@
 
     flex-wrap: nowrap;
 
-    gap: 18px;
+    gap: 10px;
   }
-
-
-  .landing-action--primary {
-    height: 48px;
-
-    padding:
-      0 18px;
-
-    font-size: 8px;
-  }
-
 
   .landing-social-action {
-    font-size: 9px;
-
-    gap: 8px;
+    width: 46px;
+    height: 46px;
   }
-
 
   .landing-social-icon {
-    width: 19px;
-    height: 19px;
+    width: 20px;
+    height: 20px;
 
-    flex: 0 0 19px;
+    flex: 0 0 20px;
   }
-
-
-  .landing-social-action::after {
-    font-size: 10px;
-  }
-
 
   .landing-work-link {
     margin-top: 20px;
   }
 
+  .landing-project-action {
+    width: fit-content;
+    height: 46px;
+
+    margin-left: 0;
+
+    padding: 0 12px;
+
+    font-size: 8px;
+  }
 
   .landing-portrait {
     position: relative;
@@ -1060,7 +1175,6 @@
     margin-top: 55px;
   }
 
-
   .landing-portrait-circle {
     width: min(
       300px,
@@ -1068,11 +1182,9 @@
     );
   }
 
-
   .landing-left-meta {
     display: none;
   }
-
 
   .landing-right-meta {
     position: relative;
@@ -1086,7 +1198,6 @@
 
     align-items: flex-start;
   }
-
 
   .landing-scroll {
     display: flex;
@@ -1121,7 +1232,6 @@
       42px;
   }
 
-
   .landing-top-info {
     top: 24px;
 
@@ -1129,21 +1239,17 @@
     right: 22px;
   }
 
-
   .landing-top-item {
     font-size: 8px;
   }
-
 
   .landing-top-item:nth-child(2) {
     display: none;
   }
 
-
   .landing-hero {
     padding-top: 24px;
   }
-
 
   .landing-eyebrow {
     gap: 12px;
@@ -1153,11 +1259,9 @@
     font-size: 8px;
   }
 
-
   .landing-blue-line {
     width: 28px;
   }
-
 
   .landing-title {
     width: max-content;
@@ -1173,7 +1277,6 @@
     letter-spacing: -0.06em;
   }
 
-
   .landing-description {
     width: 100%;
 
@@ -1181,7 +1284,6 @@
 
     margin-top: 24px;
   }
-
 
   .landing-role {
     gap: 7px;
@@ -1195,18 +1297,15 @@
     line-height: 1.5;
   }
 
-
   .landing-role-divider {
     display: inline;
   }
-
 
   .landing-intro {
     font-size: 14px;
 
     line-height: 1.5;
   }
-
 
   .landing-primary-actions {
     flex-direction: row;
@@ -1215,61 +1314,51 @@
 
     flex-wrap: nowrap;
 
-    gap: 16px;
+    gap: 8px;
 
     width: 100%;
 
     margin-top: 22px;
   }
 
-
-  .landing-action--primary {
-    width: auto;
-
-    min-width: 0;
-
-    height: 46px;
-
-    padding:
-      0 16px;
-
-    font-size: 8px;
-  }
-
-
   .landing-social-action {
-    gap: 8px;
+    width: 44px;
+    height: 44px;
 
-    font-size: 8px;
-
-    letter-spacing: 0.08em;
+    border-radius: 4px;
   }
-
 
   .landing-social-icon {
-    width: 18px;
-    height: 18px;
+    width: 19px;
+    height: 19px;
 
-    flex: 0 0 18px;
+    flex: 0 0 19px;
   }
 
+  .landing-action-tooltip {
+    font-size: 6px;
 
-  .landing-social-action::after {
-    font-size: 10px;
+    padding: 5px 7px;
   }
 
+  .landing-project-action {
+    width: fit-content;
+    height: 44px;
 
-  .landing-action-icon {
-    font-size: 11px;
+    margin-left: 0;
+
+    padding: 0 10px;
+
+    font-size: 7px;
+
+    letter-spacing: 0.11em;
   }
-
 
   .landing-work-link {
     margin-top: 20px;
 
     font-size: 8px;
   }
-
 
   .landing-work-circle {
     width: 38px;
@@ -1278,16 +1367,13 @@
     font-size: 15px;
   }
 
-
   .landing-work-arrow {
     font-size: 11px;
   }
 
-
   .landing-portrait {
     margin-top: 42px;
   }
-
 
   .landing-portrait-circle {
     position: relative;
@@ -1297,7 +1383,6 @@
     border-radius: 50%;
   }
 
-
   .landing-portrait-label {
     margin-top: 18px;
 
@@ -1305,7 +1390,6 @@
 
     font-size: 7px;
   }
-
 
   .landing-right-meta {
     position: relative;
@@ -1323,7 +1407,6 @@
 
     letter-spacing: 0.08em;
   }
-
 
   .landing-scroll {
     display: flex;
@@ -1346,11 +1429,9 @@
     font-size: 8px;
   }
 
-
   .landing-scroll-arrow {
     font-size: 15px;
   }
-
 
   .landing-photo-placeholder span {
     width: 36px;
@@ -1359,11 +1440,9 @@
     font-size: 21px;
   }
 
-
   .landing-photo-placeholder small {
     font-size: 7px;
   }
-
 
   .landing-portrait-image {
     position: absolute;

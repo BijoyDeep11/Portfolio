@@ -162,6 +162,7 @@ function Landing() {
 
         <div className="landing-top-message">
           <span className="landing-blue-line" />
+
           <div>
             <span>BUILDING DIGITAL SYSTEMS</span>
             <span>FOR A BETTER TOMORROW</span>
@@ -194,9 +195,17 @@ function Landing() {
 
         <div className="landing-description">
           <div className="landing-role">
-            <span>ASPIRING SOFTWARE ENGINEER</span>
-            <span className="landing-role-divider">|</span>
-            <span>FULL-STACK / AI </span>
+            <span>
+              ASPIRING SOFTWARE ENGINEER
+            </span>
+
+            <span className="landing-role-divider">
+              |
+            </span>
+
+            <span>
+              FULL-STACK / AI
+            </span>
           </div>
 
           <p className="landing-intro">
@@ -206,17 +215,32 @@ function Landing() {
           </p>
 
           <div className="landing-primary-actions">
+            {/* RESUME */}
             <a
               href="/resume.pdf"
               target="_blank"
               rel="noreferrer"
-              className="landing-action landing-action--primary magnetic-primary"
+              className="landing-social-action landing-resume-action magnetic-primary"
               data-magnetic="primary"
+              aria-label="View Resume"
             >
-              <span className="landing-action-icon">↗</span>
-              <span>VIEW RESUME</span>
+              <svg
+                className="landing-social-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  fill="currentColor"
+                  d="M6 2.5h8.2L19 7.3V21.5H6V2.5Zm7.5 1.8v4h4M8.5 12h8M8.5 15h8M8.5 18h5"
+                />
+              </svg>
+
+              <span className="landing-action-tooltip">
+                VIEW RESUME
+              </span>
             </a>
 
+            {/* GITHUB */}
             <a
               href="YOUR_GITHUB_URL"
               target="_blank"
@@ -228,15 +252,18 @@ function Landing() {
               <svg
                 className="landing-social-icon"
                 viewBox="0 0 24 24"
+                fill="currentColor"
                 aria-hidden="true"
               >
-                <path
-                  fill="currentColor"
-                  d="M12 2.5a9.5 9.5 0 0 0-3 18.51c.48.09.65-.21.65-.46v-1.63c-2.65.58-3.21-1.28-3.21-1.28-.44-1.12-1.08-1.41-1.08-1.41-.88-.6.07-.59.07-.59.97.07 1.48.99 1.48.99.87 1.48 2.28 1.05 2.84.8.09-.62.34-1.05.62-1.29-2.12-.24-4.35-1.06-4.35-4.7 0-1.04.37-1.9.99-2.57-.1-.24-.43-1.22.09-2.54 0 0 .81-.26 2.64 1a9.1 9.1 0 0 1 4.8 0c1.83-1.26 2.64-1 2.64-1 .52 1.32.19 2.3.09 2.54.62.67.99 1.53.99 2.57 0 3.65-2.23 4.46-4.36 4.7.35.3.66.88.66 1.77v2.64c0 .25.17.55.66.46A9.5 9.5 0 0 0 12 2.5Z"
-                />
+                <path d="M12 2C6.48 2 2 6.58 2 12.24C2 16.77 4.87 20.61 8.84 22C9.34 22.1 9.52 21.78 9.52 21.5V19.76C6.73 20.39 6.14 18.39 6.14 18.39C5.68 17.18 5.03 16.86 5.03 16.86C4.12 16.22 5.1 16.23 5.1 16.23C6.1 16.31 6.63 17.28 6.63 17.28C7.53 18.87 8.99 18.42 9.56 18.16C9.65 17.5 9.91 17.05 10.2 16.8C7.97 16.54 5.62 15.65 5.62 11.58C5.62 10.42 6.02 9.47 6.67 8.72C6.56 8.46 6.21 7.38 6.77 5.92C6.77 5.92 7.63 5.64 9.6 6.99C10.42 6.75 11.21 6.63 12 6.63C12.79 6.63 13.58 6.75 14.4 6.99C16.37 5.64 17.23 5.92 17.23 5.92C17.79 7.38 17.44 8.46 17.33 8.72C17.98 9.47 18.38 10.42 18.38 11.58C18.38 15.66 16.02 16.54 13.79 16.79C14.15 17.11 14.48 17.73 14.48 18.68V21.5C14.48 21.78 14.66 22.1 15.16 22C19.13 20.61 22 16.77 22 12.24C22 6.58 17.52 2 12 2Z" />
               </svg>
+
+              <span className="landing-action-tooltip">
+                GITHUB
+              </span>
             </a>
 
+            {/* LINKEDIN */}
             <a
               href="YOUR_LINKEDIN_URL"
               target="_blank"
@@ -253,25 +280,23 @@ function Landing() {
               >
                 <path d="M6.5 8.5H3V21H6.5V8.5ZM4.75 3C3.64 3 3 3.76 3 4.73C3 5.68 3.62 6.46 4.71 6.46H4.75C5.89 6.46 6.5 5.68 6.5 4.73C6.5 3.76 5.89 3 4.75 3ZM21 13.84C21 10.05 18.98 8.29 16.3 8.29C14.12 8.29 13.14 9.49 12.6 10.34V8.5H9.1V21H12.6V14.04C12.6 13.67 12.63 13.3 12.76 13.03C13.04 12.29 13.68 11.53 14.76 11.53C16.18 11.53 16.9 12.61 16.9 14.2V21H21V13.84Z" />
               </svg>
+
+              <span className="landing-action-tooltip">
+                LINKEDIN
+              </span>
+            </a>
+
+            {/* VIEW PROJECTS */}
+            <a
+              href="#projects"
+              className="landing-project-action magnetic-primary"
+              data-magnetic="primary"
+            >
+              <span className="landing-project-icon">
+                VIEW PROJECTS
+              </span>
             </a>
           </div>
-          <a
-            href="#projects"
-            className="landing-work-link magnetic-primary"
-            data-magnetic="primary"
-          >
-            <span className="landing-work-circle">
-              →
-            </span>
-
-            <span>
-              VIEW MY WORK
-            </span>
-
-            {/* <span className="landing-work-arrow">
-              ↘
-            </span> */}
-          </a>
         </div>
       </div>
 
@@ -288,6 +313,7 @@ function Landing() {
         <div className="landing-portrait-label">
           {/*
           <span className="landing-blue-line" />
+
           <span>
             ENGINEER / LEARNER / BUILDER
           </span>
