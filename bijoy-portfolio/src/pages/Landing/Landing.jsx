@@ -268,9 +268,9 @@ function Landing() {
               VIEW MY WORK
             </span>
 
-            <span className="landing-work-arrow">
+            {/* <span className="landing-work-arrow">
               ↘
-            </span>
+            </span> */}
           </a>
         </div>
       </div>

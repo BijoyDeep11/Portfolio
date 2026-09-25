@@ -505,7 +505,7 @@
 }
 
 .landing-social-action::after {
-  content: "↗";
+  content: none;
 
   margin-left: -3px;
 
