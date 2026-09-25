@@ -217,7 +217,7 @@ function Landing() {
           <div className="landing-primary-actions">
             {/* RESUME */}
             <a
-              href="/resume.pdf"
+              href="https://docs.google.com/document/d/1LMbFt5bHIZHSY9Irtap16id_3pZsa22L/edit?usp=drive_link&ouid=116051463258942372766&rtpof=true&sd=true"
               target="_blank"
               rel="noreferrer"
               className="landing-social-action landing-resume-action magnetic-primary"
@@ -242,7 +242,7 @@ function Landing() {
 
             {/* GITHUB */}
             <a
-              href="YOUR_GITHUB_URL"
+              href="https://github.com/BijoyDeep11"
               target="_blank"
               rel="noreferrer"
               className="landing-social-action magnetic-primary"
@@ -265,7 +265,7 @@ function Landing() {
 
             {/* LINKEDIN */}
             <a
-              href="YOUR_LINKEDIN_URL"
+              href="https://www.linkedin.com/in/bijoydeepghosh?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
               target="_blank"
               rel="noreferrer"
               className="landing-social-action magnetic-primary"
