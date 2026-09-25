@@ -114,9 +114,9 @@
   position: absolute;
 
   left: 11%;
-  top: 24%;
+  top: 20%;
 
-  width: min(560px, 42vw);
+  width: min(700px, 44vw);
 
   z-index: 4;
 }
@@ -162,11 +162,11 @@
 
   font-size: clamp(
     68px,
-    6.1vw,
-    104px
+    5.8vw,
+    100px
   );
 
-  line-height: 0.86;
+  line-height: 0.84;
 
   letter-spacing: -0.055em;
 
@@ -195,9 +195,52 @@
 ======================================== */
 
 .landing-description {
-  width: 420px;
+  width: 560px;
+  max-width: 100%;
 
-  margin-top: 30px;
+  margin-top: 20px;
+}
+
+
+/* ========================================
+   ROLE
+======================================== */
+
+.landing-role {
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-bottom: 14px;
+
+  color: var(--color-text);
+
+  font-family:
+    var(--font-mono),
+    "IBM Plex Mono",
+    monospace;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+
+  line-height: 1.4;
+
+  text-transform: uppercase;
+}
+
+.landing-role-divider {
+  color: var(--color-blue-bright);
+}
+
+.landing-role span:last-child {
+  color: var(--color-text-soft);
 }
 
 
@@ -214,17 +257,19 @@
 
   font-family: var(--font-body);
 
-  font-size: 15px;
+  font-size: 14px;
 
-  line-height: 1.5;
+  line-height: 1.45;
+
+  max-width: 520px;
 
   letter-spacing: -0.01em;
 }
 
 
 /* ========================================
-   CTA
-   ======================================== */
+   LEGACY CTA
+======================================== */
 
 .landing-cta {
   display: inline-flex;
@@ -292,6 +337,271 @@
     0 0 35px rgba(18, 107, 255, 0.08);
 }
 
+
+/* ========================================
+   PRIMARY ACTIONS
+======================================== */
+
+.landing-primary-actions {
+  display: flex;
+
+  flex-direction: row;
+
+  align-items: center;
+
+  flex-wrap: nowrap;
+
+  gap: 22px;
+
+  margin-top: 20px;
+}
+
+
+/* ========================================
+   RESUME ACTION
+======================================== */
+
+.landing-action--primary {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  height: 40px;
+
+  padding:
+    0 22px;
+
+  border:
+    1px solid
+    var(--color-blue-bright);
+
+  border-radius: 2px;
+
+  color: #ffffff;
+
+  background:
+    var(--color-blue-bright);
+
+  font-family:
+    var(--font-mono),
+    "IBM Plex Mono",
+    monospace;
+
+  font-size: 9px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.11em;
+
+  text-transform: uppercase;
+
+  transition:
+    background 220ms var(--ease-standard),
+    border-color 220ms var(--ease-standard),
+    box-shadow 220ms var(--ease-standard),
+    filter 220ms var(--ease-standard);
+
+  will-change: transform;
+}
+
+.landing-action--primary:hover {
+  color: #ffffff;
+
+  background:
+    #0f76ea;
+
+  border-color:
+    #0f76ea;
+
+  box-shadow:
+    0 0 20px
+    rgba(18, 107, 255, 0.22),
+
+    0 0 35px
+    rgba(18, 107, 255, 0.1);
+
+  filter:
+    brightness(1.04);
+}
+
+.landing-action-icon {
+  font-size: 12px;
+
+  line-height: 1;
+}
+
+
+/* ========================================
+   GITHUB / LINKEDIN
+======================================== */
+
+.landing-social-action {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: var(--color-text-soft);
+
+  font-family:
+    var(--font-mono),
+    "IBM Plex Mono",
+    monospace;
+
+  font-size: 10px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  text-decoration: none;
+
+  transition:
+    color 220ms var(--ease-standard),
+    filter 220ms var(--ease-standard);
+
+  will-change: transform;
+}
+
+.landing-social-action:hover {
+  color: var(--color-blue-bright);
+
+  filter:
+    drop-shadow(
+      0 0 7px
+      rgba(18, 107, 255, 0.45)
+    );
+}
+
+.landing-social-icon {
+  width: 25px;
+  height: 25px;
+
+  flex: 0 0 22px;
+
+  display: block;
+
+  color: currentColor;
+
+  transition:
+    transform 220ms var(--ease-standard),
+    filter 220ms var(--ease-standard);
+}
+
+.landing-social-action:hover .landing-social-icon {
+  transform: scale(1.12);
+
+  filter:
+    drop-shadow(
+      0 0 5px
+      rgba(22, 131, 255, 0.55)
+    );
+}
+
+.landing-social-action::after {
+  content: "↗";
+
+  margin-left: -3px;
+
+  font-size: 11px;
+
+  line-height: 1;
+
+  transition:
+    transform 220ms var(--ease-standard);
+}
+
+.landing-social-action:hover::after {
+  transform:
+    translate(2px, -2px);
+}
+
+
+/* ========================================
+   VIEW MY WORK
+======================================== */
+
+.landing-work-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 17px;
+
+  color: var(--color-blue-bright);
+
+  font-family:
+    var(--font-mono),
+    "IBM Plex Mono",
+    monospace;
+
+  font-size: 9px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+
+  transition:
+    color 220ms var(--ease-standard),
+    transform 220ms var(--ease-standard);
+
+  will-change: transform;
+}
+
+.landing-work-circle {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  border:
+    1px solid
+    var(--color-blue-bright);
+
+  border-radius: 50%;
+
+  font-size: 17px;
+
+  transition:
+    background 300ms var(--ease-standard),
+    transform 300ms var(--ease-standard),
+    box-shadow 300ms var(--ease-standard);
+}
+
+.landing-work-arrow {
+  font-size: 13px;
+}
+
+.landing-work-link:hover {
+  color: var(--color-text);
+}
+
+.landing-work-link:hover .landing-work-circle {
+  background:
+    var(--color-blue-bright);
+
+  transform:
+    translateX(4px);
+
+  box-shadow:
+    0 0 18px
+    rgba(18, 107, 255, 0.2);
+}
+
+
 /* ========================================
    PORTRAIT
 ======================================== */
@@ -300,7 +610,7 @@
   position: absolute;
 
   left: 57%;
-  top: 29%;
+  top: 25%;
 
   z-index: 3;
 }
@@ -309,6 +619,7 @@
   position: relative;
 
   width: min(390px, 27vw);
+
   aspect-ratio: 1;
 
   display: flex;
@@ -345,6 +656,26 @@
   border:
     1px solid
     rgba(255, 255, 255, 0.06);
+
+  border-radius: 50%;
+}
+
+
+/* ========================================
+   PORTRAIT IMAGE
+======================================== */
+
+.landing-portrait-image {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
 
   border-radius: 50%;
 }
@@ -449,30 +780,36 @@
 
 
 /* ========================================
-   BOTTOM RIGHT
+   AVAILABILITY
 ======================================== */
 
 .landing-right-meta {
   position: absolute;
 
-  right: 12%;
-  bottom: 30px;
+  right: 8%;
+
+  bottom: 62px;
 
   display: flex;
 
   flex-direction: column;
 
-  align-items: flex-end;
+  align-items: flex-start;
 
-  gap: 4px;
+  gap: 5px;
 
   color: var(--color-text-muted);
 
+  font-family:
+    var(--font-mono),
+    "IBM Plex Mono",
+    monospace;
+
   font-size: 9px;
 
-  line-height: 1.4;
+  line-height: 1.5;
 
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
 
   text-transform: uppercase;
 }
@@ -480,6 +817,15 @@
 .landing-right-meta span:first-child {
   color: var(--color-text-soft);
 }
+
+.landing-right-meta span:not(:first-child) {
+  color: var(--color-text);
+}
+
+
+/* ========================================
+   LAYERING
+======================================== */
 
 .landing-left-meta,
 .landing-right-meta,
@@ -496,7 +842,7 @@
   position: absolute;
 
   left: 50%;
-  bottom: 28px;
+  bottom: 20px;
 
   transform: translateX(-50%);
 
@@ -585,6 +931,7 @@
 
   .landing-page {
     height: auto;
+
     min-height: 100svh;
 
     overflow: hidden;
@@ -640,13 +987,61 @@
   }
 
 
+  .landing-role {
+    font-size: 10px;
+
+    letter-spacing: 0.14em;
+  }
+
+
   .landing-intro {
     font-size: 15px;
   }
 
 
-  .landing-cta {
-    margin-top: 24px;
+  .landing-primary-actions {
+    flex-direction: row;
+
+    align-items: center;
+
+    flex-wrap: nowrap;
+
+    gap: 18px;
+  }
+
+
+  .landing-action--primary {
+    height: 48px;
+
+    padding:
+      0 18px;
+
+    font-size: 8px;
+  }
+
+
+  .landing-social-action {
+    font-size: 9px;
+
+    gap: 8px;
+  }
+
+
+  .landing-social-icon {
+    width: 19px;
+    height: 19px;
+
+    flex: 0 0 19px;
+  }
+
+
+  .landing-social-action::after {
+    font-size: 10px;
+  }
+
+
+  .landing-work-link {
+    margin-top: 20px;
   }
 
 
@@ -680,12 +1075,34 @@
 
 
   .landing-right-meta {
-    display: none;
+    position: relative;
+
+    right: auto;
+    bottom: auto;
+
+    margin-top: 30px;
+
+    display: flex;
+
+    align-items: flex-start;
   }
 
 
   .landing-scroll {
-    display: none;
+    display: flex;
+
+    position: relative;
+
+    left: auto;
+    bottom: auto;
+
+    transform: none;
+
+    justify-content: center;
+
+    margin:
+      45px auto
+      0;
   }
 
 }
@@ -766,6 +1183,24 @@
   }
 
 
+  .landing-role {
+    gap: 7px;
+
+    margin-bottom: 16px;
+
+    font-size: 8px;
+
+    letter-spacing: 0.11em;
+
+    line-height: 1.5;
+  }
+
+
+  .landing-role-divider {
+    display: inline;
+  }
+
+
   .landing-intro {
     font-size: 14px;
 
@@ -773,20 +1208,79 @@
   }
 
 
-  .landing-cta {
-    margin-top: 22px;
+  .landing-primary-actions {
+    flex-direction: row;
 
-    gap: 12px;
+    align-items: center;
+
+    flex-wrap: nowrap;
+
+    gap: 16px;
+
+    width: 100%;
+
+    margin-top: 22px;
+  }
+
+
+  .landing-action--primary {
+    width: auto;
+
+    min-width: 0;
+
+    height: 46px;
+
+    padding:
+      0 16px;
 
     font-size: 8px;
   }
 
 
-  .landing-cta-circle {
-    width: 48px;
-    height: 48px;
+  .landing-social-action {
+    gap: 8px;
 
-    font-size: 16px;
+    font-size: 8px;
+
+    letter-spacing: 0.08em;
+  }
+
+
+  .landing-social-icon {
+    width: 18px;
+    height: 18px;
+
+    flex: 0 0 18px;
+  }
+
+
+  .landing-social-action::after {
+    font-size: 10px;
+  }
+
+
+  .landing-action-icon {
+    font-size: 11px;
+  }
+
+
+  .landing-work-link {
+    margin-top: 20px;
+
+    font-size: 8px;
+  }
+
+
+  .landing-work-circle {
+    width: 38px;
+    height: 38px;
+
+    font-size: 15px;
+  }
+
+
+  .landing-work-arrow {
+    font-size: 11px;
   }
 
 
@@ -796,10 +1290,13 @@
 
 
   .landing-portrait-circle {
-  position: relative;
-  overflow: hidden;
-  border-radius: 50%;
-}
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 50%;
+  }
+
 
   .landing-portrait-label {
     margin-top: 18px;
@@ -807,6 +1304,51 @@
     gap: 12px;
 
     font-size: 7px;
+  }
+
+
+  .landing-right-meta {
+    position: relative;
+
+    right: auto;
+    bottom: auto;
+
+    margin-top: 28px;
+
+    align-items: flex-start;
+
+    font-size: 8px;
+
+    line-height: 1.55;
+
+    letter-spacing: 0.08em;
+  }
+
+
+  .landing-scroll {
+    display: flex;
+
+    position: relative;
+
+    left: auto;
+    bottom: auto;
+
+    transform: none;
+
+    justify-content: center;
+
+    width: fit-content;
+
+    margin:
+      42px auto
+      0;
+
+    font-size: 8px;
+  }
+
+
+  .landing-scroll-arrow {
+    font-size: 15px;
   }
 
 
@@ -821,19 +1363,27 @@
   .landing-photo-placeholder small {
     font-size: 7px;
   }
-.landing-portrait-image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 24%;
+
+
+  .landing-portrait-image {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center 24%;
+  }
+
 }
-}
+
 
 /* =========================================
    WEBGL SHADER BACKGROUND
-   ========================================= */
+========================================= */
 
 .shader-background {
   position: absolute;
