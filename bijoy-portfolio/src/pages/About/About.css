@@ -199,6 +199,7 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
+
 /* ========================================
    PORTRAIT / GLITCH IMAGE
 ======================================== */
@@ -230,7 +231,6 @@
   */
   isolation: isolate;
 }
-
 
 /* ----------------------------------------
    IMAGE
@@ -264,29 +264,29 @@
     dissolve into the page.
   */
   -webkit-mask-image: radial-gradient(
-  ellipse 68% 70% at 50% 47%,
-  #000 35%,
-  rgba(0, 0, 0, 0.98) 50%,
-  rgba(0, 0, 0, 0.72) 65%,
-  rgba(0, 0, 0, 0.3) 80%,
-  transparent 100%
-);
+    ellipse 68% 70% at 50% 47%,
+    #000 35%,
+    rgba(0, 0, 0, 0.98) 50%,
+    rgba(0, 0, 0, 0.72) 65%,
+    rgba(0, 0, 0, 0.3) 80%,
+    transparent 100%
+  );
 
-mask-image: radial-gradient(
-  ellipse 68% 70% at 50% 47%,
-  #000 35%,
-  rgba(0, 0, 0, 0.98) 50%,
-  rgba(0, 0, 0, 0.72) 65%,
-  rgba(0, 0, 0, 0.3) 80%,
-  transparent 100%
-);
+  mask-image: radial-gradient(
+    ellipse 68% 70% at 50% 47%,
+    #000 35%,
+    rgba(0, 0, 0, 0.98) 50%,
+    rgba(0, 0, 0, 0.72) 65%,
+    rgba(0, 0, 0, 0.3) 80%,
+    transparent 100%
+  );
+
   /*
     Lets the bright glitch / blue pixels
     visually merge with the dark page.
   */
   mix-blend-mode: lighten;
 }
-
 
 /* ----------------------------------------
    ATMOSPHERIC BLUE LIGHT
@@ -313,7 +313,6 @@ mask-image: radial-gradient(
 
   pointer-events: none;
 }
-
 
 /* ----------------------------------------
    IMAGE OVERLAY
@@ -354,7 +353,6 @@ mask-image: radial-gradient(
 
   mix-blend-mode: multiply;
 }
-
 
 /* ----------------------------------------
    GLITCH BARS
@@ -402,7 +400,6 @@ mask-image: radial-gradient(
   width: 90px;
   opacity: 0.45;
 }
-
 
 /* ----------------------------------------
    SIGNATURE
@@ -634,7 +631,7 @@ mask-image: radial-gradient(
   margin: 15px 0 17px;
 
   font-family: var(--font-display);
-  font-size: clamp(48px, 4.4vw, 72px);
+  font-size: clamp(58px, 4.2vw, 82px);
   line-height: 0.83;
   letter-spacing: -0.065em;
   font-weight: 800;
@@ -644,7 +641,7 @@ mask-image: radial-gradient(
 
 .about-contact-intro {
   max-width: 330px;
-  margin: 0 0 27px;
+  margin: 0 0 19px;
 
   color: var(--color-text-muted);
 
@@ -652,103 +649,170 @@ mask-image: radial-gradient(
   line-height: 1.5;
 }
 
-.about-contact-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+/* ========================================
+   CURRENTLY
+======================================== */
+
+.about-currently {
+  position: relative;
+  margin-top: 20px;
+  padding-left: 22px;
 }
 
-.about-contact-card {
-  position: relative;
-
+.about-currently-heading {
   display: flex;
   align-items: center;
-  gap: 17px;
+  gap: 9px;
 
-  min-height: 76px;
-  padding: 13px 16px;
+  margin-bottom: 13px;
 
-  border: 1px solid rgba(18, 107, 255, 0.55);
-  border-radius: 10px;
+  color: var(--color-text-muted);
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.about-currently-heading .about-heading-line {
+  width: 26px;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.about-currently-list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-currently-list::before {
+  content: "";
+
+  position: absolute;
+  left: -9px;
+  top: 4px;
+  bottom: 4px;
+
+  width: 1px;
 
   background:
     linear-gradient(
-      100deg,
-      rgba(18, 107, 255, 0.08),
-      rgba(5, 8, 12, 0.72)
+      to bottom,
+      rgba(18, 107, 255, 0.65),
+      rgba(255, 255, 255, 0.15),
+      rgba(18, 107, 255, 0.45)
     );
-
-  box-shadow:
-    inset 0 0 20px rgba(18, 107, 255, 0.035),
-    0 0 18px rgba(18, 107, 255, 0.04);
-
-  transition:
-    border-color 220ms ease,
-    transform 220ms ease,
-    box-shadow 220ms ease;
 }
 
-.about-contact-card:hover {
-  transform: translateX(4px);
+.about-currently-item {
+  position: relative;
 
-  border-color: var(--color-blue-bright);
+  min-height: 0;
+  padding: 0 0 11px;
 
-  box-shadow:
-    0 0 22px rgba(18, 107, 255, 0.13),
-    inset 0 0 20px rgba(18, 107, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 }
 
-.about-contact-icon {
-  display: grid;
-  place-items: center;
+.about-currently-item + .about-currently-item {
+  padding-top: 11px;
+}
 
-  width: 38px;
-  height: 38px;
+.about-currently-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
 
-  flex: 0 0 auto;
+.about-currently-dot {
+  position: absolute;
+
+  left: -13px;
+  top: 4px;
+
+  width: 7px;
+  height: 7px;
 
   border-radius: 50%;
 
-  background: rgba(0, 0, 0, 0.45);
+  background: var(--color-blue-bright);
 
-  color: var(--color-blue-bright);
+  box-shadow:
+    0 0 7px rgba(18, 107, 255, 0.8),
+    0 0 13px rgba(18, 107, 255, 0.3);
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
 }
 
-.about-contact-info {
+.about-currently-item + .about-currently-item .about-currently-dot {
+  top: 15px;
+}
+
+.about-currently-content {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-
-  min-width: 0;
+  gap: 3px;
 }
 
-.about-contact-info span {
+/* LABEL */
+.about-currently-label {
   color: var(--color-blue-bright);
 
-  font-size: 7px;
-  letter-spacing: 0.16em;
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-size: 8px;
   font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.14em;
 }
 
-.about-contact-info strong {
+/* MAIN CONTENT */
+.about-currently-content strong {
   color: var(--color-text);
 
-  font-size: 12px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  line-height: 1.1;
   font-weight: 500;
-
-  white-space: nowrap;
+  letter-spacing: 0.025em;
 }
 
-.about-contact-arrow {
-  margin-left: auto;
-
-  color: var(--color-blue-bright);
+/* LAW LENS */
+.about-currently-item:first-child
+  .about-currently-content strong {
+  font-size: 18px;
+  letter-spacing: 0;
 }
+
+/* SECONDARY META */
+.about-currently-meta {
+  color: var(--color-text-soft);
+
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-size: 7px;
+  line-height: 1.25;
+  letter-spacing: 0.09em;
+}
+
+.about-currently-item:hover .about-currently-dot {
+  transform: scale(1.3);
+
+  box-shadow:
+    0 0 9px rgba(18, 107, 255, 0.95),
+    0 0 16px rgba(18, 107, 255, 0.4);
+}
+
+.about-currently-dot {
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease;
+}
+
+/* ========================================
+   SOCIALS
+======================================== */
 
 .about-social-divider {
   width: 100%;
   height: 1px;
-  margin: 45px 0 18px;
+  margin: 30px 0 18px;
 
   background: rgba(255, 255, 255, 0.22);
 }
@@ -999,8 +1063,8 @@ mask-image: radial-gradient(
   }
 
   .about-portrait-section {
-      min-height: 430px;
-    }
+    min-height: 430px;
+  }
 
   .about-side-interests {
     position: relative;
@@ -1010,21 +1074,21 @@ mask-image: radial-gradient(
   }
 
   .about-portrait-frame {
-  position: relative;
+    position: relative;
 
-  top: auto;
-  left: auto;
+    top: auto;
+    left: auto;
 
-  width: min(78vw, 300px);
-  height: 390px;
+    width: min(78vw, 300px);
+    height: 390px;
 
-  margin: 18px auto 0;
+    margin: 18px auto 0;
 
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  overflow: visible;
-}
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    overflow: visible;
+  }
 
   .about-location-side {
     bottom: 10px;
@@ -1068,12 +1132,21 @@ mask-image: radial-gradient(
     font-size: clamp(45px, 15vw, 65px);
   }
 
-  .about-contact-card {
-    min-height: 70px;
+  .about-currently {
+    padding-left: 24px;
   }
 
-  .about-contact-info strong {
-    font-size: 10px;
+  .about-currently-content strong {
+    font-size: 15px;
+  }
+
+  .about-currently-item:first-child
+    .about-currently-content strong {
+    font-size: 21px;
+  }
+
+  .about-currently-meta {
+    font-size: 7px;
   }
 
   .about-socials {
@@ -1088,14 +1161,20 @@ mask-image: radial-gradient(
   .about-footer {
     margin-top: 30px;
   }
-
 }
 
-/* REMOVE PORTRAIT GLITCH BARS */
+/* ========================================
+   REMOVE PORTRAIT GLITCH BARS
+======================================== */
+
 .about-portrait-glitch {
   display: none !important;
 }
-/* TYPOGRAPHIC BLUE ACCENTS */
+
+/* ========================================
+   TYPOGRAPHIC BLUE ACCENTS
+======================================== */
+
 .about-name-accent {
   color: var(--color-blue-bright) !important;
 }
@@ -1121,7 +1200,9 @@ mask-image: radial-gradient(
 .about-contact,
 .about-contact h2,
 .about-contact-intro,
-.about-contact-card,
+.about-currently,
+.about-currently-heading,
+.about-currently-item,
 .about-social-divider,
 .about-social,
 .about-find-more,
@@ -1132,7 +1213,6 @@ mask-image: radial-gradient(
 .about-background-word {
   will-change: transform;
 }
-
 
 /* ========================================
    REDUCED MOTION
@@ -1152,7 +1232,9 @@ mask-image: radial-gradient(
   .about-contact,
   .about-contact h2,
   .about-contact-intro,
-  .about-contact-card,
+  .about-currently,
+  .about-currently-heading,
+  .about-currently-item,
   .about-social-divider,
   .about-social,
   .about-find-more,

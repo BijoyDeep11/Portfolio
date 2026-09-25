@@ -1,4 +1,5 @@
 import { useLayoutEffect, useRef } from "react";
+
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -326,17 +327,18 @@ function About() {
 
       /*
         All contact content is handled together.
-        This prevents LET'S CONNECT, resume,
-        socials and FIND ME ELSEWHERE from
-        getting stuck at opacity: 0.
+        This keeps LET'S CONNECT, currently,
+        socials and FIND ME ELSEWHERE animated
+        as one contact group.
       */
+
       const contactContent = page.querySelectorAll(
         ".about-contact h2, " +
-        ".about-contact-intro, " +
-        ".about-contact-cards, " +
-        ".about-social-divider, " +
-        ".about-socials, " +
-        ".about-find-more"
+          ".about-contact-intro, " +
+          ".about-currently, " +
+          ".about-social-divider, " +
+          ".about-socials, " +
+          ".about-find-more"
       );
 
       const footer = page.querySelector(
@@ -409,14 +411,14 @@ function About() {
       ======================================== */
 
       const tl = gsap.timeline({
-  scrollTrigger: {
-    trigger: page,
-    start: "top 90%",
-    end: "top 10%",
-    scrub: 1,
-    invalidateOnRefresh: true,
-  },
-});
+        scrollTrigger: {
+          trigger: page,
+          start: "top 90%",
+          end: "top 10%",
+          scrub: 1,
+          invalidateOnRefresh: true,
+        },
+      });
 
       /* ========================================
          HEADER
@@ -553,7 +555,7 @@ function About() {
 
       /*
         Bring the entire contact block in together.
-        This fixes the blank CONTACT column issue.
+        This includes the new CURRENTLY section.
       */
 
       tl.to(
@@ -798,9 +800,9 @@ function About() {
 
           {/* PROFILE FOOTER */}
 
-          {/* <div className="about-profile-footer"> */}
+          {/* <div className="about-profile-footer">
 
-            {/* <span className="about-footer-line" />
+            <span className="about-footer-line" />
 
             <span>
               BUILDING A BETTER
@@ -839,39 +841,91 @@ function About() {
             to say hi? I'd love to hear from you.
           </p>
 
-          {/* RESUME */}
+          {/* ====================================
+              CURRENTLY
+          ==================================== */}
 
-          <div className="about-contact-cards">
+          <div className="about-currently">
 
-            <a
-              href="https://docs.google.com/document/d/1LMbFt5bHIZHSY9Irtap16id_3pZsa22L/edit?usp=drive_link&ouid=116051463258942372766&rtpof=true&sd=true"
-              target="_blank"
-              rel="noreferrer"
-              className="about-contact-card"
-              aria-label="View resume"
-            >
+            <div className="about-currently-heading">
+              <span className="about-heading-line" />
 
-              <div className="about-contact-icon">
-                <Icon type="resume" />
-              </div>
-
-              <div className="about-contact-info">
-
-                <span>
-                  RESUME
-                </span>
-
-                <strong>
-                  VIEW MY RESUME
-                </strong>
-
-              </div>
-
-              <span className="about-contact-arrow">
-                <Icon type="arrow" />
+              <span>
+                // CURRENTLY
               </span>
+            </div>
 
-            </a>
+            <div className="about-currently-list">
+
+              {/* BUILDING */}
+
+              <div className="about-currently-item about-currently-item--active">
+
+                <span className="about-currently-dot" />
+
+                <div className="about-currently-content">
+
+                  <span className="about-currently-label">
+                    BUILDING
+                  </span>
+
+                  <strong>
+                    LawLens
+                  </strong>
+
+                  <span className="about-currently-meta">
+                    AI / RAG / FULL-STACK
+                  </span>
+
+                </div>
+
+              </div>
+
+              {/* FOCUS */}
+
+              <div className="about-currently-item">
+
+                <span className="about-currently-dot" />
+
+                <div className="about-currently-content">
+
+                  <span className="about-currently-label">
+                    FOCUS
+                  </span>
+
+                  <strong>
+                    AI SYSTEMS
+                  </strong>
+
+                  <strong>
+                    FULL-STACK DEVELOPMENT
+                  </strong>
+
+                </div>
+
+              </div>
+
+              {/* EXPLORING */}
+
+              <div className="about-currently-item">
+
+                <span className="about-currently-dot" />
+
+                <div className="about-currently-content">
+
+                  <span className="about-currently-label">
+                    EXPLORING
+                  </span>
+
+                  <strong>
+                    RAG · BACKEND ARCHITECTURE
+                  </strong>
+
+                </div>
+
+              </div>
+
+            </div>
 
           </div>
 
@@ -887,6 +941,8 @@ function About() {
               <a
                 key={social.label}
                 href={social.href}
+                target="_blank"
+                rel="noreferrer"
                 aria-label={social.label}
                 className="about-social"
               >
